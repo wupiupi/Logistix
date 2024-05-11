@@ -29,17 +29,16 @@ struct CustomButton: View {
                     .foregroundStyle(.white)
                     .padding(.trailing, 20)
             }
-            .hAlign(alignment: .leading)
             .padding(.top, 15)
             .padding(.bottom, 10)
-            .padding(.leading, 20)
+            .padding(.leading, 16)
             .foregroundStyle(.white)
             .background {
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundStyle(.mint)
             }
         }
-        .padding([.bottom, .horizontal])
+        .frame(width: UIScreen.main.bounds.width - 32)
     }
 }
 
