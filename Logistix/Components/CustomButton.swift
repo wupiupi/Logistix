@@ -34,7 +34,7 @@ struct CustomButton: View {
             .padding(.leading, 16)
             .foregroundStyle(.white)
             .background {
-                RoundedRectangle(cornerRadius: 25)
+                Capsule()
                     .foregroundStyle(.mint)
             }
         }
