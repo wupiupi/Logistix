@@ -40,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A02B638A2BF0EEDD0014EE5B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A0D8EA252BEFFC7A00529E5C = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +70,8 @@
 				A0D8EA402BEFFCB800529E5C /* App */,
 				A0D8EA412BEFFCC700529E5C /* Components */,
 				A0E36D9D2BF015D600A4B8AE /* Extensions */,
+				A02B638A2BF0EEDD0014EE5B /* Resources */,
 				A0D8EA3F2BEFFCB300529E5C /* Views */,
-				A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */,
 				A0D8EA372BEFFC7A00529E5C /* Preview Content */,
 			);
 			path = Logistix;
