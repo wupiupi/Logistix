@@ -90,7 +90,7 @@ struct StartView: View {
                     .padding(.vertical, 30)
                     .background {
                         Rectangle()
-                            .fill(.mint)
+                            .fill(Color(hex: 0x00CCA6, alpha: 1))
                             .frame(width: UIScreen.main.bounds.width)
                     }
                     .padding(.bottom, -10)
@@ -191,7 +191,7 @@ struct StartView: View {
                                 .foregroundStyle(.white)
                                 .background {
                                     Capsule()
-                                        .foregroundStyle(.mint)
+                                        .fill(Color(hex: 0x00CCA6, alpha: 1))
                                 }
                         }
                         .frame(width: UIScreen.main.bounds.width - 32)
@@ -347,7 +347,7 @@ struct StartView: View {
                     .foregroundStyle(.white)
                     .background {
                         Capsule()
-                            .foregroundStyle(.mint)
+                            .fill(Color(hex: 0x00CCA6, alpha: 1))
                     }
             }
             .frame(width: UIScreen.main.bounds.width - 32)
