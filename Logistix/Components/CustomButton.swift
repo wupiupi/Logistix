@@ -35,13 +35,14 @@ struct CustomButton: View {
         }
         .background {
             Capsule()
-                .fill(.mint)
+                .fill(Color(hex: 0x00CCA6, alpha: 1))
         }
     }
 }
 
 #Preview {
     CustomButton(
-        title: "Start",
-        systemImage: "arrowshape.right.fill") {}
+        title: "",
+        systemImage: "") {
+        }
 }
