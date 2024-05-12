@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A08F4B5F2BF0D6E700EE3585 /* Extension + Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F4B5E2BF0D6E700EE3585 /* Extension + Color.swift */; };
 		A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */; };
 		A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA332BEFFC7A00529E5C /* ContentView.swift */; };
 		A0D8EA362BEFFC7A00529E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A08F4B5E2BF0D6E700EE3585 /* Extension + Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Color.swift"; sourceTree = "<group>"; };
 		A0D8EA2E2BEFFC7A00529E5C /* Logistix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logistix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogistixApp.swift; sourceTree = "<group>"; };
 		A0D8EA332BEFFC7A00529E5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		A0E36D9D2BF015D600A4B8AE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A08F4B5E2BF0D6E700EE3585 /* Extension + Color.swift */,
 				A0E36D9F2BF015F300A4B8AE /* Extension + View.swift */,
 			);
 			path = Extensions;
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E36DA02BF015F300A4B8AE /* Extension + View.swift in Sources */,
+				A08F4B5F2BF0D6E700EE3585 /* Extension + Color.swift in Sources */,
 				A0D8EA432BEFFDD200529E5C /* StartView.swift in Sources */,
 				A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */,
 				A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */,
