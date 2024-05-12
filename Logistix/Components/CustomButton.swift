@@ -22,23 +22,21 @@ struct CustomButton: View {
                     .fontWeight(.semibold)
                 
                 Spacer()
-                
+                                            
                 Image(systemName: systemImage)
                     .imageScale(.small)
                     .font(.title)
                     .foregroundStyle(.white)
-                    .padding(.trailing, 20)
             }
-            .padding(.top, 15)
-            .padding(.bottom, 10)
-            .padding(.leading, 16)
+            .padding(.top, 10)
+            .padding(.bottom, 5)
+            .padding([.leading, .trailing], 16)
             .foregroundStyle(.white)
-            .background {
-                Capsule()
-                    .foregroundStyle(.mint)
-            }
         }
-        .frame(width: UIScreen.main.bounds.width - 32)
+        .background {
+            Capsule()
+                .fill(.mint)
+        }
     }
 }
 
