@@ -18,6 +18,7 @@ struct ContactUsView: View {
             Text("Связаться с нами")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
+                .padding(.bottom, 6)
             
             // Form Fields
             VStack(spacing: 20) {
@@ -44,6 +45,7 @@ struct ContactUsView: View {
             }
             .padding(.bottom, 30)
             
+            // TODO: - Button Logic Implementation
             Button {
                 
             } label: {

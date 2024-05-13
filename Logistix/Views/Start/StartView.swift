@@ -300,7 +300,7 @@ struct StartView: View {
         }
     }
     
-    // MARK: - Question View
+    // MARK: - Feature View
     @ViewBuilder
     func FeatureView(
         imageName: String,
