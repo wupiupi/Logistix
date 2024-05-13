@@ -22,20 +22,13 @@ struct Home: View {
             
             // Views
             OrdersView()
-                .tag("Orders")
+                .tag("Заказы")
             
             NewOrderView(selectedWeight: .belowOneHundred)
-                .tag("NewOrder")
+                .tag("Новый заказ")
             
             ContactUsView()
-                .tag("ContactUs")
-            
-            Help()
-                .tag("Help")
-            
-            Notifications()
-                .tag("Notifications")
-            
+                .tag("Связаться с нами")
         }
     }
 }
