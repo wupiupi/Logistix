@@ -13,6 +13,7 @@ struct ToggleStates {
 }
 
 struct OrdersView: View {
+    
     @State private var toggleStates = ToggleStates()
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
@@ -47,16 +48,6 @@ struct OrdersView: View {
                     ),
                     for: .navigationBar
                 )
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            print("DEBUG: Logout button tapped")
-                        } label: {
-                            Image(systemName: "rectangle.portrait.and.arrow.forward")
-//                                .foregroundStyle(Color(hex: 0x00CCA6, alpha: 1))
-                        }
-                    }
-                }
             }
             
             .searchable(
@@ -103,3 +94,4 @@ struct CustomDisclosureStyle: DisclosureGroupStyle {
 #Preview {
     OrdersView()
 }
+
