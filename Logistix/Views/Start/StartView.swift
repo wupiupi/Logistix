@@ -11,7 +11,6 @@ struct StartView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                
                 /// - Setting Backround color
                 Color(hex: 0xB2B2B2, alpha: 1)
                     .ignoresSafeArea()
@@ -294,6 +293,7 @@ struct StartView: View {
                     .padding(.bottom, -33)
                     
                 }
+                .scrollIndicators(.hidden)
             }
             .navigationTitle("Logistix")
             .toolbarBackground(.ultraThickMaterial, for: .navigationBar)
