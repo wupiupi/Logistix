@@ -36,6 +36,15 @@ struct NewOrderView: View {
     @State private var payment: Payment = .cache
     @State private var isAgreededPrivacy = false
     
+    // MARK: - Computable Properties
+    private var totalPrice: String {
+        switch selectedWeight {
+             case .belowOneHundred: "5.000"
+             case .belowFourHundred: "7.500"
+             case .overFourHundred: "10.000"
+         }
+    }
+    
     // MARK: - Init
     init(
         sourceAddress: String = "",
@@ -218,9 +227,7 @@ struct NewOrderView: View {
                         
                         CustomDatePicker(date: $dateOfDelivery)
                     }
-                    .padding(.bottom, 20)
                     .padding(.leading)
-                    .hAlign(.center)
                     
                     Divider()
                     
@@ -278,10 +285,10 @@ struct NewOrderView: View {
                             .font(.title3)
                             .foregroundStyle(Color(hex: 0x363746, alpha: 1))
                         
-                        Text("0$")
+                       
+                        Text("\(totalPrice) BYN")
                             .font(.title)
                             .fontWeight(.bold)
-                        
                     }
                     .frame(width: UIScreen.main.bounds.width - 42)
                     .padding(.vertical, 40)
@@ -350,7 +357,7 @@ struct NewOrderView: View {
         )
         .font(.title)
         .padding(.horizontal, 16)
-        .frame(height: 44)
+        .frame(width: UIScreen.main.bounds.width - 32, height: 46)
         .background {
             RoundedRectangle(cornerRadius: 10)
                 .fill(.white)
