@@ -27,6 +27,9 @@
 		A0F6EBAA2BF2999F00E279BF /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBA92BF2999F00E279BF /* SideMenu.swift */; };
 		A0F6EBAC2BF29AAB00E279BF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAB2BF29AAB00E279BF /* Home.swift */; };
 		A0F6EBB12BF2AA3400E279BF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB02BF2AA3400E279BF /* MainView.swift */; };
+		A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */; };
+		A0F6EBB92BF2BD1600E279BF /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */; };
+		A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		A0F6EBA92BF2999F00E279BF /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		A0F6EBAB2BF29AAB00E279BF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A0F6EBB02BF2AA3400E279BF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 		A0D8EA3F2BEFFCB300529E5C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0F6EBB32BF2BACF00E279BF /* Authentication */,
 				A0E39B342BF27E460055503E /* ContactUs */,
 				A0E39B332BF27E3C0055503E /* Content */,
 				A0F6EBB22BF2AD1800E279BF /* MenuView */,
@@ -219,6 +226,32 @@
 			path = MenuView;
 			sourceTree = "<group>";
 		};
+		A0F6EBB32BF2BACF00E279BF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A0F6EBB42BF2BADF00E279BF /* View */,
+				A0F6EBB52BF2BB0E00E279BF /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A0F6EBB42BF2BADF00E279BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */,
+				A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A0F6EBB52BF2BB0E00E279BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,8 +338,11 @@
 				A0F6EBA62BF291A000E279BF /* TabButton.swift in Sources */,
 				A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */,
 				A0E39B392BF27E8B0055503E /* OrdersViewModel.swift in Sources */,
+				A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */,
+				A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */,
 				A0E36DA22BF0177A00A4B8AE /* CustomButton.swift in Sources */,
 				A02B63902BF116040014EE5B /* OrdersView.swift in Sources */,
+				A0F6EBB92BF2BD1600E279BF /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
