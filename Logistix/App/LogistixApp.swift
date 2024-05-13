@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct LogistixApp: App {
+    @StateObject private var ordersVM = OrdersViewModel()
     var body: some Scene {
         WindowGroup {
-            StartView()
+            ContentView()
+                .environmentObject(ordersVM)
         }
     }
 }
