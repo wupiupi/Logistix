@@ -15,7 +15,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            Color(.purple)
+            Color.main
                 .ignoresSafeArea()
             
             /// - Side Menu
