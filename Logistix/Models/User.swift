@@ -6,9 +6,27 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct User {
-    let user: String
-    let pass: String
-    let orders: [Order]
+final class TaskList: Object {
+    @Persisted var id = ""
+    @Persisted var name = ""
+    @Persisted var pass = ""
+    @Persisted var orders = List<Orders>()
+}
+
+final class Orders: Object {
+    @Persisted var sourceAddress = ""
+    @Persisted var destinationAddress = ""
+    @Persisted var senderName = ""
+    @Persisted var senderPhoneNumber = ""
+    @Persisted var recipientName = ""
+    @Persisted var recipientPhoneNumber = ""
+    @Persisted var cargoType = ""
+    @Persisted var weight = ""
+    @Persisted var dateOfLoading = ""
+    @Persisted var dateOfDelivery = Date()
+    @Persisted var cargoCost = ""
+    @Persisted var payment = ""
+    @Persisted var totalCost = ""
 }
