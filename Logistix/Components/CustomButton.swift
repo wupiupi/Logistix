@@ -18,7 +18,8 @@ struct CustomButton: View {
         } label: {
             HStack {
                 Text(title)
-                    .font(.title)
+                    .font(.title2)
+                    .foregroundStyle(.white)
                     .fontWeight(.semibold)
                 
                 Spacer()
@@ -42,7 +43,7 @@ struct CustomButton: View {
 
 #Preview {
     CustomButton(
-        title: "",
-        systemImage: "") {
+        title: "Test title",
+        systemImage: "chevron.up") {
         }
 }
