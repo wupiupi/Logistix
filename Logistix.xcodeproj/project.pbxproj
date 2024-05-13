@@ -30,6 +30,9 @@
 		A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */; };
 		A0F6EBB92BF2BD1600E279BF /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */; };
 		A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */; };
+		CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30021C2BF2CE6B00E136B3 /* User.swift */; };
+		CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = CD30021E2BF2CF9500E136B3 /* .gitattributes */; };
+		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		CD30021C2BF2CE6B00E136B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CD30021E2BF2CF9500E136B3 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		CD30021F2BF2CF9500E136B3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 		A0D8EA252BEFFC7A00529E5C = {
 			isa = PBXGroup;
 			children = (
+				CD30021E2BF2CF9500E136B3 /* .gitattributes */,
+				CD30021F2BF2CF9500E136B3 /* .gitignore */,
 				A0D8EA302BEFFC7A00529E5C /* Logistix */,
 				A0D8EA2F2BEFFC7A00529E5C /* Products */,
 			);
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A0E39B312BF27D010055503E /* Order.swift */,
+				CD30021C2BF2CE6B00E136B3 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,7 +319,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3002212BF2CF9500E136B3 /* .gitignore in Resources */,
 				A0D8EA392BEFFC7A00529E5C /* Preview Assets.xcassets in Resources */,
+				CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */,
 				A0D8EA362BEFFC7A00529E5C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +343,7 @@
 				A0F6EBAC2BF29AAB00E279BF /* Home.swift in Sources */,
 				A0D8EA432BEFFDD200529E5C /* StartView.swift in Sources */,
 				A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */,
+				CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */,
 				A0E39B322BF27D010055503E /* Order.swift in Sources */,
 				A0E39B3D2BF284E20055503E /* StartViewModel.swift in Sources */,
 				A02B638E2BF106950014EE5B /* InputView.swift in Sources */,
