@@ -11,8 +11,8 @@ struct InputView: View {
     @Binding var text: String
     let title: String
     let placeholder: String
-    var isSecureField: Bool = false
-    
+    var isSecureField = false
+    var isNumPad = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -22,6 +22,7 @@ struct InputView: View {
             
             TextField(placeholder, text: $text)
                 .foregroundStyle(.white)
+                .keyboardType(isNumPad ? .numberPad : .default)
                 .frame(
                     width: UIScreen.main.bounds.width - 80,
                     height: 50
