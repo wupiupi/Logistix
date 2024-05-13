@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     // Selected Tab
-    @State private var selectedTab = "Orders"
+    @State private var selectedTab = "Заказы"
     @State private var showMenu = false
     
     var body: some View {
