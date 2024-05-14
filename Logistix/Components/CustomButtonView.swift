@@ -39,6 +39,5 @@ struct CustomButtonView: View {
 #Preview {
     CustomButtonView(
         title: "Test title",
-        systemImage: "chevron.up") {
-        }
+        systemImage: "chevron.up")
 }
