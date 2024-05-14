@@ -51,19 +51,6 @@ struct LoginView: View {
                 }
                 .disabled(!formIsValid)
                 .opacity(formIsValid ? 1.0 : 0.5)
-                
-                // Sign up Button
-                NavigationLink {
-                    RegistrationView()
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    HStack(spacing: 2) {
-                        Text("Еще не зарегистрированы?")
-                        Text("Регистрация")
-                            .fontWeight(.bold)
-                    }
-                    .foregroundStyle(.main)
-                }
             }
             
         }
