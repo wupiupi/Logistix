@@ -21,7 +21,7 @@ struct InputView: View {
                 .font(.title3)
             
             TextField(placeholder, text: $text)
-                .foregroundStyle(.white)
+                .foregroundStyle(.black)
                 .keyboardType(isNumPad ? .numberPad : .default)
                 .frame(
                     width: UIScreen.main.bounds.width - 80,
