@@ -37,10 +37,10 @@
 		CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30021C2BF2CE6B00E136B3 /* User.swift */; };
 		CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = CD30021E2BF2CF9500E136B3 /* .gitattributes */; };
 		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
-		CD3002262BF2D07200E136B3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD3002252BF2D07200E136B3 /* RealmSwift */; };
 		CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3002272BF2D1B200E136B3 /* StorageManager.swift */; };
-		CD30022C2BF2DAD700E136B3 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CD3002252BF2D07200E136B3 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CD30022E2BF2E4B200E136B3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */; };
+		CDD5B96B2BF38FCE00B63EBB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CDD5B96A2BF38FCE00B63EBB /* RealmSwift */; };
+		CDD5B96C2BF38FE300B63EBB /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CDD5B96A2BF38FCE00B63EBB /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,7 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CD30022C2BF2DAD700E136B3 /* RealmSwift in Embed Frameworks */,
+				CDD5B96C2BF38FE300B63EBB /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD3002262BF2D07200E136B3 /* RealmSwift in Frameworks */,
+				CDD5B96B2BF38FCE00B63EBB /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +322,7 @@
 			);
 			name = Logistix;
 			packageProductDependencies = (
-				CD3002252BF2D07200E136B3 /* RealmSwift */,
+				CDD5B96A2BF38FCE00B63EBB /* RealmSwift */,
 			);
 			productName = Logistix;
 			productReference = A0D8EA2E2BEFFC7A00529E5C /* Logistix.app */;
@@ -353,7 +353,7 @@
 			);
 			mainGroup = A0D8EA252BEFFC7A00529E5C;
 			packageReferences = (
-				CD3002222BF2D07200E136B3 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CDD5B9672BF38FCE00B63EBB /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = A0D8EA2F2BEFFC7A00529E5C /* Products */;
 			projectDirPath = "";
@@ -626,7 +626,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CD3002222BF2D07200E136B3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		CDD5B9672BF38FCE00B63EBB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -637,9 +637,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD3002252BF2D07200E136B3 /* RealmSwift */ = {
+		CDD5B96A2BF38FCE00B63EBB /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD3002222BF2D07200E136B3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = CDD5B9672BF38FCE00B63EBB /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
