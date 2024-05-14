@@ -8,14 +8,13 @@
 import Foundation
 import RealmSwift
 
-final class TaskList: Object {
-    @Persisted var id = ""
-    @Persisted var name = ""
+final class User: Object {
+    @Persisted var email = ""
     @Persisted var pass = ""
-    @Persisted var orders = List<Orders>()
+    @Persisted var orders = List<Order_>()
 }
 
-final class Orders: Object {
+final class Order_: Object {
     @Persisted var sourceAddress = ""
     @Persisted var destinationAddress = ""
     @Persisted var senderName = ""

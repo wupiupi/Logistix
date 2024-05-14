@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
+    @ObservedObject var app: RealmSwift.App
+    
     var body: some View {
-        MainView()
+        if let user = app.currentUser {
+            MainView()
+                .environment(\.partitionValue, user.id )
+        } else {
+            LoginView()
+        }
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}

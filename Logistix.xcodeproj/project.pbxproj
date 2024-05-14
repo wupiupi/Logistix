@@ -33,9 +33,25 @@
 		CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30021C2BF2CE6B00E136B3 /* User.swift */; };
 		CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = CD30021E2BF2CF9500E136B3 /* .gitattributes */; };
 		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
-		CD3002242BF2D07200E136B3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CD3002232BF2D07200E136B3 /* Realm */; };
 		CD3002262BF2D07200E136B3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD3002252BF2D07200E136B3 /* RealmSwift */; };
+		CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3002272BF2D1B200E136B3 /* StorageManager.swift */; };
+		CD30022C2BF2DAD700E136B3 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CD3002252BF2D07200E136B3 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CD30022E2BF2E4B200E136B3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CD30022B2BF2DAD600E136B3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CD30022C2BF2DAD700E136B3 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A02B638B2BF1063B0014EE5B /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
@@ -65,6 +81,8 @@
 		CD30021C2BF2CE6B00E136B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CD30021E2BF2CF9500E136B3 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		CD30021F2BF2CF9500E136B3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CD3002272BF2D1B200E136B3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +91,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD3002262BF2D07200E136B3 /* RealmSwift in Frameworks */,
-				CD3002242BF2D07200E136B3 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +131,7 @@
 				A0E36D9D2BF015D600A4B8AE /* Extensions */,
 				A0E39B302BF27CEF0055503E /* Models */,
 				A02B638A2BF0EEDD0014EE5B /* Resources */,
+				CD3002292BF2D1B700E136B3 /* Services */,
 				A0D8EA3F2BEFFCB300529E5C /* Views */,
 				A0D8EA372BEFFC7A00529E5C /* Preview Content */,
 			);
@@ -265,6 +283,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CD3002292BF2D1B700E136B3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CD3002272BF2D1B200E136B3 /* StorageManager.swift */,
+				CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,6 +302,7 @@
 				A0D8EA2A2BEFFC7A00529E5C /* Sources */,
 				A0D8EA2B2BEFFC7A00529E5C /* Frameworks */,
 				A0D8EA2C2BEFFC7A00529E5C /* Resources */,
+				CD30022B2BF2DAD600E136B3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,7 +310,6 @@
 			);
 			name = Logistix;
 			packageProductDependencies = (
-				CD3002232BF2D07200E136B3 /* Realm */,
 				CD3002252BF2D07200E136B3 /* RealmSwift */,
 			);
 			productName = Logistix;
@@ -353,6 +380,7 @@
 				A0F6EBA82BF294EF00E279BF /* CustomCorners.swift in Sources */,
 				A0F6EBAC2BF29AAB00E279BF /* Home.swift in Sources */,
 				A0D8EA432BEFFDD200529E5C /* StartView.swift in Sources */,
+				CD30022E2BF2E4B200E136B3 /* AuthenticationManager.swift in Sources */,
 				A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */,
 				CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */,
 				A0E39B322BF27D010055503E /* Order.swift in Sources */,
@@ -366,6 +394,7 @@
 				A0E36DA22BF0177A00A4B8AE /* CustomButton.swift in Sources */,
 				A02B63902BF116040014EE5B /* OrdersView.swift in Sources */,
 				A0F6EBB92BF2BD1600E279BF /* RegistrationView.swift in Sources */,
+				CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,11 +621,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD3002232BF2D07200E136B3 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CD3002222BF2D07200E136B3 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
 		CD3002252BF2D07200E136B3 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CD3002222BF2D07200E136B3 /* XCRemoteSwiftPackageReference "realm-swift" */;

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @StateObject var authManager = AuthenticationManager()
     
     var body: some View {
         NavigationStack {
@@ -19,22 +20,35 @@ struct LoginView: View {
                     .fontWeight(.bold)
                 
                 InputView(
-                    text: $email,
+                    text: $authManager.email,
                     title: "Почта",
                     placeholder: "Example@gmail.com"
                 )
                 .textInputAutocapitalization(.never)
                 
                 InputView(
-                    text: $password,
+                    text: $authManager.pass,
                     title: "Пароль",
                     placeholder: "Пароль",
                     isSecureField: true
                 )
                 .padding(.bottom, 20)
                 
+                
+                #warning("wtf")
+                if authManager.isLoading {
+                    ProgressView()
+                }
+                
+                #warning("wtf")
+                if let error = authManager.errorMessage {
+                    Text(error)
+                        .foregroundStyle(.pink)
+                }
+
+                
                 Button {
-                    
+                    authManager.login()
                 } label: {
                     Text("Войти")
                         .foregroundStyle(.white)
@@ -49,7 +63,7 @@ struct LoginView: View {
                                 .foregroundStyle(Color.main)
                         }
                 }
-                .disabled(!formIsValid)
+//                .disabled(!formIsValid)
                 .opacity(formIsValid ? 1.0 : 0.5)
                 
                 // Sign up Button
@@ -64,6 +78,11 @@ struct LoginView: View {
                     }
                     .foregroundStyle(.main)
                 }
+                
+                Button("Log in anon") {
+                    authManager.anonymouslyLogin()
+                }
+                .disabled(authManager.isLoading)
             }
             
         }
