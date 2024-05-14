@@ -17,15 +17,22 @@ struct StartView: View {
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 8) {
-                        CustomButton(
-                            title: "Вход",
-                            systemImage: "arrowshape.right.fill"
-                        ) {}
-                        
-                        CustomButton(
-                            title: "Регистрация",
-                            systemImage: "arrowshape.right.fill"
-                        ) {}
+                        NavigationLink {
+                            LoginView()
+                        } label: {
+                            CustomButtonView(
+                                title: "Вход",
+                                systemImage: "arrowshape.right.fill"
+                            )
+                        }
+                        NavigationLink {
+                            RegistrationView()
+                        } label: {
+                            CustomButtonView(
+                                title: "Регистрация",
+                                systemImage: "arrowshape.right.fill"
+                            )
+                        }
                     }
                     .padding(.trailing, 50)
                     .padding(.top, 200)
@@ -178,8 +185,8 @@ struct StartView: View {
                                 .foregroundStyle(.white)
                         }
                         // TODO: - Extract to Separate View
-                        Button {
-                            
+                        NavigationLink {
+                            RegistrationView()
                         } label: {
                             Text("Присоединяйтесь")
                                 .font(.title2)
@@ -335,8 +342,8 @@ struct StartView: View {
             .font(.subheadline)
             
             // TODO: - Extract to Separate View
-            Button {
-                
+            NavigationLink {
+                RegistrationView()
             } label: {
                 Text("Попробовать")
                     .font(.title2)

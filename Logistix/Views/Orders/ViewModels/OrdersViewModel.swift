@@ -8,9 +8,9 @@
 import Foundation
 
 final class OrdersViewModel: ObservableObject {
-    @Published var orders: Order
+    @Published var orders: [Order]
     
     init() {
-        orders = Order.MOCK_ORDER()
+        orders = Order.MOCK_ORDERS()
     }
 }
