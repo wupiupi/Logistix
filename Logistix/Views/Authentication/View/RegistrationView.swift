@@ -16,7 +16,7 @@ struct RegistrationView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 20) {
             Text("Впервые у нас?\nЗарегистрируйся!")
                 .multilineTextAlignment(.center)
                 .font(.largeTitle)
@@ -69,7 +69,7 @@ struct RegistrationView: View {
             Button {
                 
             } label: {
-                Text("Войти")
+                Text("Зарегистрироваться")
                     .foregroundStyle(.white)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -81,20 +81,22 @@ struct RegistrationView: View {
                             )
                             .foregroundStyle(Color.main)
                     }
-            }
-            
-            // Already have an account Button
-            Button {
-                dismiss()
-            } label: {
-                HStack(spacing: 2) {
-                    Text("Уже в системе?")
-                    Text("Войдите!")
-                        .fontWeight(.bold)
-                }
-                .foregroundStyle(.main)
+                    .disabled(!formIsValid)
+                    .opacity(formIsValid ? 1.0 : 0.5)
             }
         }
+    }
+}
+
+// MARK: - AuthenticationFormProtocol
+extension RegistrationView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count > 5
+        && confirmPassword == password
+        && !fullName.isEmpty
     }
 }
 
