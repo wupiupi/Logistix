@@ -16,7 +16,7 @@ struct ContentView: View {
             MainView()
                 .environment(\.partitionValue, user.id )
         } else {
-            LoginView()
+            StartView()
         }
     }
 }
