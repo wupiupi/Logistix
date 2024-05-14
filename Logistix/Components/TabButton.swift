@@ -10,6 +10,7 @@ import SwiftUI
 struct TabButton: View {
     var image: String
     var title: String
+    var action: (() -> Void)?
     
     // Selected Tab
     @Binding var selectedTab: String

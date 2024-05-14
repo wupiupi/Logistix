@@ -11,6 +11,8 @@ struct SideMenu: View {
     @Binding var selectedTab: String
     @Namespace var animation
     
+    @StateObject var authManager = AuthenticationManager()
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             // Padding top for Top Close Button
@@ -55,6 +57,7 @@ struct SideMenu: View {
                 TabButton(
                     image: "rectangle.righthalf.inset.fill.arrow.right",
                     title: "Выход из аккаунта",
+                    action: authManager.logOut,
                     selectedTab: .constant(""),
                     animation: animation
                 )

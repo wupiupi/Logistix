@@ -13,6 +13,8 @@ struct RegistrationView: View {
     @State private var password = ""
     @State private var confirmPassword = ""
     
+    @StateObject var authManager = AuthenticationManager()
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -67,7 +69,7 @@ struct RegistrationView: View {
             .padding(.bottom, 20)
             
             Button {
-                
+                authManager.signUp()
             } label: {
                 Text("Зарегистрироваться")
                     .foregroundStyle(.white)
