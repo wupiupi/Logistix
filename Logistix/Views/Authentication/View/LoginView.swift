@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
     @StateObject var authManager = AuthenticationManager()
     
     var body: some View {
@@ -45,7 +43,6 @@ struct LoginView: View {
                     Text(error)
                         .foregroundStyle(.pink)
                 }
-
                 
                 Button {
                     authManager.login()
@@ -63,8 +60,8 @@ struct LoginView: View {
                                 .foregroundStyle(Color.main)
                         }
                 }
-//                .disabled(!formIsValid)
-                .opacity(formIsValid ? 1.0 : 0.5)
+                .disabled(!authManager.authIsEnabled)
+                .opacity(authManager.authIsEnabled ? 1.0 : 0.5)
                 
                 // Sign up Button
                 NavigationLink {
@@ -78,25 +75,20 @@ struct LoginView: View {
                     }
                     .foregroundStyle(.main)
                 }
-                
-                Button("Log in anon") {
-                    authManager.anonymouslyLogin()
-                }
-                .disabled(authManager.isLoading)
             }
             
         }
     }
 }
 
-extension LoginView: AuthenticationFormProtocol {
-    var formIsValid: Bool {
-        return !email.isEmpty
-        && email.contains("@")
-        && !password.isEmpty
-        && password.count > 5
-    }
-}
+//extension LoginView: AuthenticationFormProtocol {
+//    var formIsValid: Bool {
+//        return !email.isEmpty
+//        && email.contains("@")
+//        && !password.isEmpty
+//        && password.count > 5
+//    }
+//}
 
 #Preview {
     LoginView()
