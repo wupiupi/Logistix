@@ -11,6 +11,7 @@ import RealmSwift
 final class AuthenticationManager: ObservableObject {
     @Published var email = ""
     @Published var pass = ""
+    @Published var name = ""
     @Published var orders = List<Order_>()
     
     @Published var isLoading = false

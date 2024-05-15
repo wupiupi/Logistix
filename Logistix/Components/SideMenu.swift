@@ -17,7 +17,7 @@ struct SideMenu: View {
         VStack(alignment: .leading, spacing: 15) {
             // Padding top for Top Close Button
             VStack(alignment: .leading, spacing: 6) {
-                Text("Name Surname")
+                Text(authManager.name)
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundStyle(.white)
