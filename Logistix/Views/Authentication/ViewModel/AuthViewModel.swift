@@ -13,6 +13,7 @@ protocol AuthenticationFormProtocol {
     var formIsValid: Bool { get }
 }
 
+@MainActor
 final class AuthViewModel: ObservableObject {
     // Tells us if user logged in or not
     @Published var currentUser: User?
