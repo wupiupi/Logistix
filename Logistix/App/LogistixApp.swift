@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Firebase
 
 let realmApp = RealmSwift.App(id: "application-0-tqodywz")
 
@@ -16,7 +17,7 @@ struct LogistixApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             ContentView(app: realmApp)
-                .environmentObject(ordersVM)
+                .environmentObject(viewModel)
         }
     }
 }
