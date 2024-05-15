@@ -8,13 +8,20 @@
 import Foundation
 import RealmSwift
 
-final class User: Object {
-    @Persisted var email = ""
-    @Persisted var pass = ""
-    @Persisted var orders = List<Order_>()
+enum Role: Codable {
+    case user
+    case admin
 }
 
-final class Order_: Object {
+struct User: Codable {
+    let id: String
+    let role: Role
+    let email: String
+    let pass: String
+    let orders: [Order_]
+}
+
+final class Order_: Object, Codable {
     @Persisted var sourceAddress = ""
     @Persisted var destinationAddress = ""
     @Persisted var senderName = ""
