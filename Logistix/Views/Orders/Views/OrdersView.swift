@@ -22,7 +22,7 @@ struct OrdersView: View {
 
     private let storageManager = StorageManager.shared
     
-    @ObservedResults(Order_.self) var orders
+    @ObservedResults(Order.self) var orders
     
 //    private var filteredOrders: [Order_] {
 ////                guard !searchTerm.isEmpty else { return viewVM.heroes }
