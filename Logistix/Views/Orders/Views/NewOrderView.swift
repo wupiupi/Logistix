@@ -9,7 +9,8 @@ import SwiftUI
 import RealmSwift
 
 struct NewOrderView: View {
-    @ObservedResults(Order_.self) var orders
+    @ObservedResults(Order.self) var orders
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     // MARK: - Payment
     enum Payment: String, CaseIterable {
@@ -327,9 +328,12 @@ struct NewOrderView: View {
                     .padding(.bottom, 20)
                     
                     Button {
-                        let order = Order_()
-                        order.trackingNumber = ""
-                        order.status = ""
+                        let order = Order()
+                                    
+                        // TODO: - Put here UID of Current User from Firebase
+                        order.userID = viewModel.currentUser?.id ?? ""
+                        
+                        order.trackingNumber = .generateTrackNum()
                         order.sourceAddress = sourceAddress
                         order.destinationAddress = destinationAddress
                         order.senderName = senderName
