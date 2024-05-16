@@ -45,7 +45,7 @@ struct LoginView: View {
                 }
                 
                 Button {
-                    authManager.login()
+//                    authManager.login()
                 } label: {
                     Text("Войти")
                         .foregroundStyle(.white)
