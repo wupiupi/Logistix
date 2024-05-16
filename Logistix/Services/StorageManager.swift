@@ -30,23 +30,23 @@ final class StorageManager {
     }
     
     // load initial data
-    func save(_ orders: [Order_]) {
+    func save(_ orders: [Order]) {
         write {
             realm.add(orders)
         }
     }
     
     // save new
-    func save(_ order: String, completion: (Order_) -> Void) {
+    func save(_ order: String, completion: (Order) -> Void) {
         write {
-            let order = Order_(value: [order])
+            let order = Order(value: [order])
             realm.add(order)
             completion(order)
         }
     }
     
     // delete
-    func delete(_ order: Order_) {
+    func delete(_ order: Order) {
         write {
             realm.delete(order)
         }
