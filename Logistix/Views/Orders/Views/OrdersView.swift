@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ToggleStates {
     var oneIsOn: Bool = false
@@ -18,17 +19,17 @@ struct OrdersView: View {
     @State private var toggleStates = ToggleStates()
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
-                
-    private var orders: [Order] {
-        Order.MOCK_ORDERS()
-    }
+
+    private let storageManager = StorageManager.shared
     
-    private var filteredOrders: [Order] {
-        //        guard !searchTerm.isEmpty else { return viewVM.heroes }
-        //        return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
-        guard !searchTerm.isEmpty else { return orders }
-        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
-    }
+    @ObservedResults(Order_.self) var orders
+    
+//    private var filteredOrders: [Order_] {
+////                guard !searchTerm.isEmpty else { return viewVM.heroes }
+////                return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
+//        guard !searchTerm.isEmpty else { return orders }
+//        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
+//    }
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -68,7 +69,7 @@ struct OrdersView: View {
                      }
                      */
                     
-                    ForEach(filteredOrders, id: \.self) { order in
+                    ForEach(orders, id: \.self) { order in
                         
                         Divider()
                         
@@ -243,7 +244,7 @@ struct CustomDisclosureStyle: DisclosureGroupStyle {
     }
 }
 
-#Preview {
-    OrdersView()
-}
+//#Preview {
+//    OrdersView()
+//}
 

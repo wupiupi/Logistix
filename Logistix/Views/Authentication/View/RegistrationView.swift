@@ -69,7 +69,7 @@ struct RegistrationView: View {
 //            .padding(.bottom, 20)
             
             Button {
-                authManager.signUp()
+//                authManager.signUp()
             } label: {
                 Text("Зарегистрироваться")
                     .foregroundStyle(.white)

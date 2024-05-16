@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
-import RealmSwift
-
-let realmApp = RealmSwift.App(id: "application-0-tqodywz")
 
 @main
-struct LogistixApp: SwiftUI.App {
+struct LogistixApp: App {
     @StateObject private var ordersVM = OrdersViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView(app: realmApp)
+            ContentView()
                 .environmentObject(ordersVM)
         }
     }

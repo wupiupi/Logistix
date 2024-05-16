@@ -57,7 +57,7 @@ struct SideMenu: View {
                 TabButton(
                     image: "rectangle.righthalf.inset.fill.arrow.right",
                     title: "Выход из аккаунта",
-                    action: authManager.logOut,
+                    action: {},
                     selectedTab: .constant(""),
                     animation: animation
                 )
