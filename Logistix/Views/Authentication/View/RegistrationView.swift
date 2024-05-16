@@ -43,29 +43,29 @@ struct RegistrationView: View {
                 isSecureField: true
             )
             
-//            ZStack {
-//                InputView(
-//                    text: $confirmPassword,
-//                    title: "Подтвердить пароль",
-//                    placeholder: "Подтвердите пароль",
-//                    isSecureField: true
-//                )
-//                
-//                if !password.isEmpty && !confirmPassword.isEmpty {
-//                    if password == confirmPassword {
-//                        Image(systemName: "checkmark.circle.fill")
-//                            .imageScale(.large)
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(.green)
-//                    } else {
-//                        Image(systemName: "xmark.circle.fill")
-//                            .imageScale(.large)
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(.red)
-//                    }
-//                }
-//            }
-//            .padding(.bottom, 20)
+            ZStack {
+                InputView(
+                    text: $confirmPassword,
+                    title: "Подтвердить пароль",
+                    placeholder: "Подтвердите пароль",
+                    isSecureField: true
+                )
+                
+                if !password.isEmpty && !confirmPassword.isEmpty {
+                    if password == confirmPassword {
+                        Image(systemName: "checkmark.circle.fill")
+                            .imageScale(.large)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.green)
+                    } else {
+                        Image(systemName: "xmark.circle.fill")
+                            .imageScale(.large)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.red)
+                    }
+                }
+            }
+            .padding(.bottom, 20)
             
             Button {
                 Task {
@@ -90,9 +90,10 @@ struct RegistrationView: View {
                             )
                             .foregroundStyle(Color.main)
                     }
-//                    .disabled(!formIsValid)
+                    .disabled(!formIsValid)
                     .opacity(formIsValid ? 1.0 : 0.5)
             }
+            .alert(viewModel.alertMessage, isPresented: $viewModel.isEmailTaken, actions: {} )
         }
     }
 }

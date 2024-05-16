@@ -21,6 +21,11 @@ final class AuthViewModel: ObservableObject {
     // Our logged in user object
     @Published var userSession: FirebaseAuth.User?
     
+    // Displaying an alert with a corresponding error
+    @Published var showAlert = false
+    @Published var isEmailTaken = false
+    @Published var alertMessage = ""
+    
     init() {
         userSession = Auth.auth().currentUser
         
@@ -40,6 +45,8 @@ final class AuthViewModel: ObservableObject {
             await fetchUser()
         } catch {
             print("DEBUG: failed to sign in with error: \(error)")
+            showAlert.toggle()
+            alertMessage = error.localizedDescription
         }
     }
     
@@ -77,6 +84,8 @@ final class AuthViewModel: ObservableObject {
             // Fetching user after we created a user
             await fetchUser()
         } catch {
+            isEmailTaken.toggle()
+            alertMessage = error.localizedDescription
             print("DEBUG: Failed to create user with error: \(error)")
         }
     }
