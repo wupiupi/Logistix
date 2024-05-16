@@ -6,14 +6,20 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct LogistixApp: App {
-    @StateObject private var ordersVM = OrdersViewModel()
+    @StateObject private var viewModel = AuthViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(ordersVM)
+                .environmentObject(viewModel)
         }
     }
 }

@@ -12,6 +12,7 @@ struct SideMenu: View {
     @Namespace var animation
     
     @StateObject var authManager = AuthenticationManager()
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -57,7 +58,7 @@ struct SideMenu: View {
                 TabButton(
                     image: "rectangle.righthalf.inset.fill.arrow.right",
                     title: "Выход из аккаунта",
-                    action: {},
+                    action: { viewModel.signOut() },
                     selectedTab: .constant(""),
                     animation: animation
                 )

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var authManager = AuthenticationManager()
+    @State private var email = ""
+    @State private var password = ""
+    
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -18,34 +21,27 @@ struct LoginView: View {
                     .fontWeight(.bold)
                 
                 InputView(
-                    text: $authManager.email,
+                    text: $email,
                     title: "Почта",
                     placeholder: "Example@gmail.com"
                 )
                 .textInputAutocapitalization(.never)
                 
                 InputView(
-                    text: $authManager.pass,
+                    text: $password,
                     title: "Пароль",
                     placeholder: "Пароль",
                     isSecureField: true
                 )
                 .padding(.bottom, 20)
                 
-                
-                #warning("wtf")
-                if authManager.isLoading {
-                    ProgressView()
-                }
-                
-                #warning("wtf")
-                if let error = authManager.errorMessage {
-                    Text(error)
-                        .foregroundStyle(.pink)
-                }
-                
                 Button {
-//                    authManager.login()
+                    Task {
+                        try await viewModel.signIn(
+                            withEmail: email,
+                            password: password
+                        )
+                    }
                 } label: {
                     Text("Войти")
                         .foregroundStyle(.white)
@@ -60,8 +56,8 @@ struct LoginView: View {
                                 .foregroundStyle(Color.main)
                         }
                 }
-                .disabled(!authManager.authIsEnabled)
-                .opacity(authManager.authIsEnabled ? 1.0 : 0.5)
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
                 
                 // Sign up Button
                 NavigationLink {
@@ -81,14 +77,14 @@ struct LoginView: View {
     }
 }
 
-//extension LoginView: AuthenticationFormProtocol {
-//    var formIsValid: Bool {
-//        return !email.isEmpty
-//        && email.contains("@")
-//        && !password.isEmpty
-//        && password.count > 5
-//    }
-//}
+extension LoginView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count > 5
+    }
+}
 
 #Preview {
     LoginView()

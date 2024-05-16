@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    
     @State private var email = ""
     @State private var fullName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
     
-    @StateObject var authManager = AuthenticationManager()
-    
-    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     var body: some View {
         VStack(spacing: 20) {
@@ -69,7 +68,15 @@ struct RegistrationView: View {
 //            .padding(.bottom, 20)
             
             Button {
-//                authManager.signUp()
+                Task {
+                    try await viewModel.createUser(
+                        withEmail: email,
+                        password: password,
+                        fullName: fullName,
+                        phoneNumber: nil,
+                        role: .user
+                    )
+                }
             } label: {
                 Text("Зарегистрироваться")
                     .foregroundStyle(.white)
