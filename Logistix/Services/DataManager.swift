@@ -15,7 +15,7 @@ final class DataManager {
     private init() {}
     
     func createTempData(completion: @escaping () -> Void) {
-        let firstOrder = Order_()
+        let firstOrder = Order()
 //        firstOrder.id = "123456"
         firstOrder.status = "Ожидает подтверждения"
         firstOrder.sourceAddress = "Притыцкого, 12"
@@ -32,7 +32,7 @@ final class DataManager {
         firstOrder.payment = "card"
         firstOrder.totalCost = "10000"
 
-        let secondOrder = Order_()
+        let secondOrder = Order()
 //        secondOrder.id = "789212"
         secondOrder.status = "В пути"
         secondOrder.sourceAddress = "Пушкинская, 12"
