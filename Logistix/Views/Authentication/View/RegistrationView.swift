@@ -24,20 +24,20 @@ struct RegistrationView: View {
                 .fontWeight(.bold)
             
             InputView(
-                text: $authManager.email,
+                text: $email,
                 title: "Почта",
                 placeholder: "Example@gmail.com"
             )
             .textInputAutocapitalization(.never)
             
             InputView(
-                text: $authManager.name,
+                text: $fullName,
                 title: "Имя",
                 placeholder: "Иванов Иван Иванович"
             )
             
             InputView(
-                text: $authManager.pass,
+                text: $password,
                 title: "Пароль",
                 placeholder: "Пароль",
                 isSecureField: true
