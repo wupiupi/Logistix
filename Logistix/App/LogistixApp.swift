@@ -6,13 +6,10 @@
 //
 
 import SwiftUI
-import RealmSwift
 import Firebase
 
-let realmApp = RealmSwift.App(id: "application-0-tqodywz")
-
 @main
-struct LogistixApp: SwiftUI.App {
+struct LogistixApp: App {
     @StateObject private var viewModel = AuthViewModel()
     
     init() {
@@ -21,7 +18,7 @@ struct LogistixApp: SwiftUI.App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(app: realmApp)
+            ContentView()
                 .environmentObject(viewModel)
         }
     }

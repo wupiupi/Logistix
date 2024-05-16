@@ -21,7 +21,10 @@ struct User: Codable {
     let orders: [Order_]
 }
 
-final class Order_: Object, Codable {
+final class Order_: Object, Codable, Identifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var trackingNumber = ""
+    @Persisted var status = ""
     @Persisted var sourceAddress = ""
     @Persisted var destinationAddress = ""
     @Persisted var senderName = ""
@@ -30,7 +33,7 @@ final class Order_: Object, Codable {
     @Persisted var recipientPhoneNumber = ""
     @Persisted var cargoType = ""
     @Persisted var weight = ""
-    @Persisted var dateOfLoading = ""
+    @Persisted var dateOfLoading = Date()
     @Persisted var dateOfDelivery = Date()
     @Persisted var cargoCost = ""
     @Persisted var payment = ""

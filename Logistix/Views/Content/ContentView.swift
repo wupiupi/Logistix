@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    @ObservedObject var app: RealmSwift.App
     @EnvironmentObject private var viewModel: AuthViewModel
     
     var body: some View {

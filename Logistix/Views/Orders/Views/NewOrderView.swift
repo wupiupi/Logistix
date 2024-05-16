@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NewOrderView: View {
+    @ObservedResults(Order_.self) var orders
     
     // MARK: - Payment
     enum Payment: String, CaseIterable {
@@ -323,7 +325,25 @@ struct NewOrderView: View {
                     .padding(.bottom, 20)
                     
                     Button {
+                        let order = Order_()
+//                        order.id = ""
+                        order.trackingNumber = ""
+                        order.status = ""
+                        order.sourceAddress = sourceAddress
+                        order.destinationAddress = destinationAddress
+                        order.senderName = senderName
+                        order.senderPhoneNumber = senderPhoneNumber
+                        order.recipientName = recipientName
+                        order.recipientPhoneNumber = recipientPhoneNumber
+                        order.cargoType = ""
+                        order.weight = selectedWeight.rawValue
+                        order.dateOfLoading = dateOfLoading ?? Date()
+                        order.dateOfDelivery = dateOfDelivery ?? Date()
+                        order.cargoCost = cost
+                        order.payment = payment.rawValue
+                        order.totalCost = totalPrice
                         
+                        $orders.append(order)
                     } label: {
                         HStack {
                             Text("Отправить заявку")

@@ -46,6 +46,10 @@
 		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
 		CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3002272BF2D1B200E136B3 /* StorageManager.swift */; };
 		CD30022E2BF2E4B200E136B3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */; };
+		CD4D44392BF53D69006F7105 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D44382BF53D69006F7105 /* DataManager.swift */; };
+		CDD5B96B2BF38FCE00B63EBB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CDD5B96A2BF38FCE00B63EBB /* RealmSwift */; };
+		CDD5B96C2BF38FE300B63EBB /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CDD5B96A2BF38FCE00B63EBB /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+    
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +101,7 @@
 		CD30021F2BF2CF9500E136B3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CD3002272BF2D1B200E136B3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		CD4D44382BF53D69006F7105 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,9 +322,10 @@
 		CD3002292BF2D1B700E136B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CD3002272BF2D1B200E136B3 /* StorageManager.swift */,
+				CD4D44382BF53D69006F7105 /* DataManager.swift */,
 				CD30022D2BF2E4B200E136B3 /* AuthenticationManager.swift */,
 				A0865B312BF55386004331E6 /* NetworkManager.swift */,
-				CD3002272BF2D1B200E136B3 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD4D44392BF53D69006F7105 /* DataManager.swift in Sources */,
 				A0E36DA02BF015F300A4B8AE /* Extension + View.swift in Sources */,
 				A0F6EBB12BF2AA3400E279BF /* MainView.swift in Sources */,
 				A02B638C2BF1063B0014EE5B /* ContactUsView.swift in Sources */,
