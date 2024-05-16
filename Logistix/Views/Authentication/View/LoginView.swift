@@ -56,6 +56,7 @@ struct LoginView: View {
                                 .foregroundStyle(Color.main)
                         }
                 }
+                .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert, actions: {} )
                 .disabled(!formIsValid)
                 .opacity(formIsValid ? 1.0 : 0.5)
                 
