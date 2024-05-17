@@ -69,10 +69,9 @@ final class AuthViewModel: ObservableObject {
             // Creating our User data model
             let user = User(
                 id: result.user.uid,
-                role: role,
+                role: role.rawValue,
                 email: email,
-                pass: password,
-                orders: []
+                pass: password
             )
                         
             // Encoding our user
