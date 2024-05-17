@@ -45,6 +45,7 @@
 		CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = CD30021E2BF2CF9500E136B3 /* .gitattributes */; };
 		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
 		CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3002272BF2D1B200E136B3 /* StorageManager.swift */; };
+		CD4809482BF7592300E9CD8E /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4809472BF7592300E9CD8E /* AdminView.swift */; };
 		CD4D44392BF53D69006F7105 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D44382BF53D69006F7105 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		CD30021E2BF2CF9500E136B3 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		CD30021F2BF2CF9500E136B3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CD3002272BF2D1B200E136B3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		CD4809472BF7592300E9CD8E /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 		CD4D44382BF53D69006F7105 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +269,7 @@
 			children = (
 				A04D648E2BF1FD92002725FC /* NewOrderView.swift */,
 				A02B638F2BF116040014EE5B /* OrdersView.swift */,
+				CD4809472BF7592300E9CD8E /* AdminView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */,
 				CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */,
 				A0E39B322BF27D010055503E /* Order.swift in Sources */,
+				CD4809482BF7592300E9CD8E /* AdminView.swift in Sources */,
 				A0865B322BF55386004331E6 /* NetworkManager.swift in Sources */,
 				A0E39B3D2BF284E20055503E /* StartViewModel.swift in Sources */,
 				A02B638E2BF106950014EE5B /* InputView.swift in Sources */,
