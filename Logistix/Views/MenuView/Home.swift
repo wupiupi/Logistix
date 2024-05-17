@@ -29,16 +29,9 @@ struct Home: View {
             
             ContactUsView()
                 .tag("Связаться с нами")
-            
-            AdminView()
-                .tag("Admin")
         }
     }
 }
-
-//#Preview {
-//    OrdersView()
-//}
 
 // All Subviews
 struct HomePage: View {
