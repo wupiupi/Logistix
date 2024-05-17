@@ -7,15 +7,14 @@
 
 import Foundation
 
-enum Role: Codable {
+enum Role: String {
     case user
     case admin
 }
 
 struct User: Codable {
     let id: String
-    let role: Role
+    let role: String
     let email: String
     let pass: String
-    let orders: [Order]
 }
