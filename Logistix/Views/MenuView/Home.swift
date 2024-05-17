@@ -29,6 +29,9 @@ struct Home: View {
             
             ContactUsView()
                 .tag("Связаться с нами")
+            
+            AdminView()
+                .tag("Admin")
         }
     }
 }

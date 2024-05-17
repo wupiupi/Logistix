@@ -46,6 +46,13 @@ struct SideMenu: View {
                     selectedTab: $selectedTab,
                     animation: animation
                 )
+                
+                TabButton(
+                    image: "star.fill",
+                    title: "Admin",
+                    selectedTab: $selectedTab,
+                    animation: animation
+                )
             }
             .padding(.leading, -15)
             .padding(.top, 50)
