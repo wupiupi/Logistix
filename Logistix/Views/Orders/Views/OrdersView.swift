@@ -14,13 +14,13 @@ struct ToggleStates {
 }
 
 struct OrdersView: View {
-//    @EnvironmentObject private var viewModel: OrdersViewModel
+    //    @EnvironmentObject private var viewModel: OrdersViewModel
     @EnvironmentObject private var viewModel: AuthViewModel
     
     @State private var toggleStates = ToggleStates()
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
-
+    
     private let storageManager = StorageManager.shared
     @ObservedResults(Order.self) var orders
     
@@ -29,12 +29,12 @@ struct OrdersView: View {
     }
     
     
-//    private var filteredOrders: [Order_] {
-////                guard !searchTerm.isEmpty else { return viewVM.heroes }
-////                return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
-//        guard !searchTerm.isEmpty else { return orders }
-//        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
-//    }
+    //    private var filteredOrders: [Order_] {
+    ////                guard !searchTerm.isEmpty else { return viewVM.heroes }
+    ////                return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
+    //        guard !searchTerm.isEmpty else { return orders }
+    //        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
+    //    }
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -74,14 +74,17 @@ struct OrdersView: View {
                      }
                      */
                     
-                    ForEach(userOrders, id: \.self) { order in
+                    ForEach(
+                        viewModel.currentUser?.role == Role.user.rawValue ? userOrders : Array(orders),
+                        id: \.self
+                    ) { order in
                         
                         Divider()
                         
                         VStack(alignment: .leading) {
                             // Order ID & Date of Loading
                             HStack {
-                                Text("№ \(order.id)")
+                                Text("№ \(order.trackingNumber)")
                                     .font(.title3)
                                     .foregroundStyle(Color(hex: 0x00CCA6, alpha: 1))
                                     .padding([.top, .bottom], 8)
@@ -158,6 +161,23 @@ struct OrdersView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .fill(.main.opacity(0.2))
                                             }
+                                        
+                                        if viewModel.currentUser?.role == Role.admin.rawValue {
+                                            Button {
+                                                try! Realm().write {
+                                                    order.thaw()?.status = "Подтвержден"
+                                                }
+                                            } label: {
+                                                Text("Подтвердить заказ")
+                                                    .font(.title2)
+                                                    .foregroundStyle(.white)
+                                                    .padding()
+                                                    .background {
+                                                        RoundedRectangle(cornerRadius: 12)
+                                                            .fill(.green)
+                                                    }
+                                            }
+                                        }
                                     }
                                     .padding()
                                     .hAlign(.center)
