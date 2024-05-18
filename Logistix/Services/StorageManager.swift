@@ -32,32 +32,31 @@ final class StorageManager {
     // MARK: - CRUD
     
     // update
-    func fetchData<T>(_ type: T.Type) -> Results<T> where T: RealmFetchable {
+    func fetchData<T: RealmFetchable>(_ type: T.Type) -> Results<T> {
         realm.objects(T.self)
     }
     
-    // load initial data
-    func save(_ orders: [Order]) {
-        write {
-            realm.add(orders)
-        }
-    }
+////     load initial data. we don't have properly works data manager for that
+//    func save<T: Object>(_ object: [T]) {
+//        write {
+//            realm.add(object)
+//        }
+//    }
     
     // save new
-    func save(_ order: String, completion: (Order) -> Void) {
+    func save<T: Object>(_ object: T, completion: (T) -> Void) {
         write {
-            let order = Order(value: [order])
-            realm.add(order)
-            completion(order)
+            realm.add(object)
+            completion(object)
         }
     }
     
-    // delete
-    func delete(_ order: Order) {
-        write {
-            realm.delete(order)
-        }
-    }
+//    // delete
+//    func delete<T: Object>(_ object: T) {
+//        write {
+//            realm.delete(object)
+//        }
+//    }
     
     // MARK: - Private Methods
     private func write(completion: () -> Void) {
