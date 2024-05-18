@@ -35,14 +35,14 @@ struct NewOrderView: View {
     @State private var selectedWeight: Weight = .belowOneHundred
     @State private var dateOfLoading: Date?
     @State private var dateOfDelivery: Date?
-    @State private var cost = ""
+    @State private var cargoCost = ""
     @State private var payment: Payment = .cache
     
     @State private var isAgreededPrivacy = false
     @State private var isShowingAlert = false
     
     // MARK: - Computable Properties
-    private var totalPrice: String {
+    private var totalCost: String {
         switch selectedWeight {
         case .belowOneHundred: "5.000"
         case .belowFourHundred: "7.500"
@@ -244,7 +244,7 @@ struct NewOrderView: View {
                             .foregroundStyle(Color(hex: 0x363746, alpha: 1))
                         
                         InputView(
-                            text: $cost,
+                            text: $cargoCost,
                             title: "",
                             placeholder: "Ценность груза",
                             isNumPad: true
@@ -291,7 +291,7 @@ struct NewOrderView: View {
                             .foregroundStyle(Color(hex: 0x363746, alpha: 1))
                         
                         
-                        Text("\(totalPrice) BYN")
+                        Text("\(totalCost) BYN")
                             .font(.title)
                             .fontWeight(.bold)
                     }
@@ -334,19 +334,41 @@ struct NewOrderView: View {
                         order.userID = viewModel.currentUser?.id ?? ""
                         
                         order.trackingNumber = .generateTrackNum()
-                        order.sourceAddress = sourceAddress
-                        order.destinationAddress = destinationAddress
-                        order.senderName = senderName
-                        order.senderPhoneNumber = senderPhoneNumber
-                        order.recipientName = recipientName
-                        order.recipientPhoneNumber = recipientPhoneNumber
+                        
+                        /// - Route Implementation
+                        order.route?.sourceAddress = sourceAddress
+                        order.route?.destinationAddress = destinationAddress
+                        
+//                        order.sourceAddress = sourceAddress
+//                        order.destinationAddress = destinationAddress
+                        
+                        /// - Sender Implementation
+                        order.sender?.name = senderName
+                        order.sender?.phoneNumber = senderPhoneNumber
+                        
+//                        order.senderName = senderName
+//                        order.senderPhoneNumber = senderPhoneNumber
+                        
+                        /// - Recipient Implementation
+                        order.recipient?.name = recipientName
+                        order.recipient?.phoneNumber = recipientPhoneNumber
+                        
+//                        order.recipientName = recipientName
+//                        order.recipientPhoneNumber = recipientPhoneNumber
+                        
                         order.cargoType = ""
                         order.weight = selectedWeight.rawValue
                         order.dateOfLoading = dateOfLoading ?? Date()
                         order.dateOfDelivery = dateOfDelivery ?? Date()
-                        order.cargoCost = cost
-                        order.payment = payment.rawValue
-                        order.totalCost = totalPrice
+                        
+                        /// - Cargo
+                        order.price?.payment = payment.rawValue
+                        order.price?.cargoCost = cargoCost
+                        order.price?.totalCost = totalCost
+                        
+//                        order.cargoCost = cargoCost
+//                        order.payment = payment.rawValue
+//                        order.totalCost = totalCost
                         
                         $orders.append(order)
                         
@@ -381,7 +403,7 @@ struct NewOrderView: View {
                                 senderPhoneNumber = ""
                                 recipientName = ""
                                 recipientPhoneNumber = ""
-                                cost = ""
+                                cargoCost = ""
                                 isAgreededPrivacy = false
                             }
                         },
