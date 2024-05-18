@@ -9,6 +9,6 @@ import Foundation
 import RealmSwift
 
 final class Sender: Object, Codable {
-    @Persisted var senderName = ""
-    @Persisted var senderPhoneNumber = ""
+    @Persisted var name = ""
+    @Persisted var phoneNumber = ""
 }
