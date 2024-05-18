@@ -79,7 +79,7 @@ struct OrdersView: View {
                         id: \.self
                     ) { order in
                         
-                        Divider()
+//                        Divider()
                         
                         VStack(alignment: .leading) {
                             // Order ID & Date of Loading
