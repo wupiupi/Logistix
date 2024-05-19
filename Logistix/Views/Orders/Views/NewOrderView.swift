@@ -25,6 +25,16 @@ struct NewOrderView: View {
         case overFourHundred = "свыше 400 кг"
     }
     
+    // MARK: - CargoType
+    enum CargoType: String, CaseIterable {
+        case perishable = "Скоропортящийся груз"
+        case dangerous = "Опасный груз"
+        case fragile = "Хрупкий груз"
+        case overSized = "Крупногабаритный груз"
+        case fireHazard = "Пожароопасный груз"
+        case expensive = "Ценный груз"
+    }
+    
     // MARK: - State Properties
     @State private var sourceAddress = ""
     @State private var destinationAddress = ""
@@ -37,6 +47,7 @@ struct NewOrderView: View {
     @State private var dateOfDelivery: Date?
     @State private var cargoCost = ""
     @State private var payment: Payment = .cache
+    @State private var cargoType: CargoType = .perishable
     
     @State private var isAgreededPrivacy = false
     @State private var isShowingAlert = false
@@ -44,9 +55,9 @@ struct NewOrderView: View {
     // MARK: - Computable Properties
     private var totalCost: String {
         switch selectedWeight {
-        case .belowOneHundred: "5.000"
-        case .belowFourHundred: "7.500"
-        case .overFourHundred: "10.000"
+            case .belowOneHundred: "5.000"
+            case .belowFourHundred: "7.500"
+            case .overFourHundred: "10.000"
         }
     }
     
@@ -168,7 +179,7 @@ struct NewOrderView: View {
                     // MARK: - ЧТО ВЕЗЁМ
                     VStack(alignment: .leading, spacing: 20) {
                         VStack {
-                            Text("Что везем")
+                            Text("Что везём")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundStyle(Color(hex: 0x363746, alpha: 1))
@@ -333,7 +344,7 @@ struct NewOrderView: View {
                         let sender = Sender()
                         let recipient = Recipient()
                         let price = Price()
-                                    
+                        
                         order.userID = viewModel.currentUser?.id ?? ""
                         order.trackingNumber = .generateTrackNum()
                         
