@@ -190,21 +190,19 @@ struct NewOrderView: View {
                                 .font(.title3)
                         }
                         
-                        Button {
-                            
-                        } label: {
-                            Text("Скоропортящиеся продукты")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.white)
-                                .frame(
-                                    width: UIScreen.main.bounds.width - 32,
-                                    height: 50
-                                )
-                                .background {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color(hex: 0x00CCA6, alpha: 1))
-                                }
+                        Picker("Тип вложения", selection: $cargoType) {
+                            ForEach(CargoType.allCases, id: \.self) {
+                                Text($0.rawValue)
+                            }
+                        }
+                        .tint(.white)
+                        .frame(
+                            width: UIScreen.main.bounds.width - 32,
+                            height: 40
+                        )
+                        .background {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(hex: 0x00CCA6, alpha: 1))
                         }
                         .hAlign(.center)
                         
