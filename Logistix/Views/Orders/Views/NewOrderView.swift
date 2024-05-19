@@ -329,32 +329,32 @@ struct NewOrderView: View {
                     
                     Button {
                         let order = Order()
+                        let route = Route()
+                        let sender = Sender()
+                        let recipient = Recipient()
+                        let price = Price()
                                     
-                        // TODO: - Put here UID of Current User from Firebase
                         order.userID = viewModel.currentUser?.id ?? ""
-                        
                         order.trackingNumber = .generateTrackNum()
                         
                         /// - Route Implementation
-                        order.route?.sourceAddress = sourceAddress
-                        order.route?.destinationAddress = destinationAddress
-                        
-//                        order.sourceAddress = sourceAddress
-//                        order.destinationAddress = destinationAddress
+                        route.sourceAddress = sourceAddress
+                        route.destinationAddress = destinationAddress
+                        order.route = route
                         
                         /// - Sender Implementation
-                        order.sender?.name = senderName
-                        order.sender?.phoneNumber = senderPhoneNumber
-                        
-//                        order.senderName = senderName
-//                        order.senderPhoneNumber = senderPhoneNumber
+                        sender.name = senderName
+                        sender.phoneNumber = senderPhoneNumber
+                        order.sender = sender
                         
                         /// - Recipient Implementation
-                        order.recipient?.name = recipientName
-                        order.recipient?.phoneNumber = recipientPhoneNumber
+                        recipient.name = recipientName
+                        recipient.phoneNumber = recipientPhoneNumber
+                        order.recipient = recipient
                         
-//                        order.recipientName = recipientName
-//                        order.recipientPhoneNumber = recipientPhoneNumber
+                        // ? Не работает ?
+//                        order.recipient?.name = recipientName
+//                        order.recipient?.phoneNumber = recipientPhoneNumber
                         
                         order.cargoType = ""
                         order.weight = selectedWeight.rawValue
@@ -362,9 +362,10 @@ struct NewOrderView: View {
                         order.dateOfDelivery = dateOfDelivery ?? Date()
                         
                         /// - Cargo
-                        order.price?.payment = payment.rawValue
-                        order.price?.cargoCost = cargoCost
-                        order.price?.totalCost = totalCost
+                        price.payment = payment.rawValue
+                        price.cargoCost = cargoCost
+                        price.totalCost = totalCost
+                        order.price = price
                         
 //                        order.cargoCost = cargoCost
 //                        order.payment = payment.rawValue
