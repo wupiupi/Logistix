@@ -79,7 +79,7 @@ struct OrdersView: View {
                         id: \.self
                     ) { order in
                         
-//                        Divider()
+                        Divider()
                         
                         VStack(alignment: .leading) {
                             // Order ID & Date of Loading
@@ -119,19 +119,19 @@ struct OrdersView: View {
                                         
                                         TrackDetail(
                                             title: "Адрес отправителя",
-                                            orderInfo: order.sourceAddress
+                                            orderInfo: order.route?.sourceAddress ?? ""
                                         )
                                         TrackDetail(
                                             title: "Адрес получателя",
-                                            orderInfo: order.destinationAddress
+                                            orderInfo: order.route?.destinationAddress ?? ""
                                         )
                                         TrackDetail(
                                             title: "Поставщик",
-                                            orderInfo: order.senderName
+                                            orderInfo: order.sender?.name ?? ""
                                         )
                                         TrackDetail(
                                             title: "Контактный телефон",
-                                            orderInfo: order.senderPhoneNumber
+                                            orderInfo: order.sender?.phoneNumber ?? ""
                                         )
                                         TrackDetail(
                                             title: "Трек номер",
@@ -140,7 +140,7 @@ struct OrdersView: View {
                                         )
                                         TrackDetail(
                                             title: "Стоимость",
-                                            orderInfo: order.totalCost
+                                            orderInfo: order.price?.totalCost ?? ""
                                         )
                                         
                                         Text("Статус заказа")
