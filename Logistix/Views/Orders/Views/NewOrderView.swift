@@ -447,10 +447,6 @@ struct NewOrderView: View {
     }
 }
 
-#Preview {
-    NewOrderView(selectedWeight: .belowOneHundred)
-}
-
 // MARK: - CheckboxToggleStyle
 struct CheckboxToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -478,7 +474,7 @@ struct CheckboxToggleStyle: ToggleStyle {
 
 // MARK: - Date Picker Text Field
 /// - Connecting UIKit DatePicker to SwiftUI.
-/// I'm using it only to Conform to App Design tho
+/// I'm using it Only to Conform to the App Design from Figma tho
 struct DatePickerTextField: UIViewRepresentable {
     private let textField = UITextField()
     private let datePicker = UIDatePicker()
@@ -560,145 +556,3 @@ struct DatePickerTextField: UIViewRepresentable {
         }
     }
 }
-
-
-
-
-
-
-//struct NewOrderView: View {
-//    @ObservedResults(Order_.self) var orders
-//
-//    // MARK: - State Properties
-//    @State private var sourceAddress = ""
-//    @State private var destinationAddress = ""
-//    @State private var senderName = ""
-//    @State private var isAgreededPrivacy = false
-//    @State private var isShowingAlert = false
-//
-//    // MARK: - Init
-//    init(
-//        sourceAddress: String = "",
-//        destinationAddress: String = "",
-//        senderName: String = ""
-//    ) {
-//        self.sourceAddress = sourceAddress
-//        self.destinationAddress = destinationAddress
-//        self.senderName = senderName
-//    }
-//
-//    var body: some View {
-//        NavigationStack {
-//            ScrollView {
-//                VStack(alignment: .leading) {
-//                    HStack {
-//                        Text("Оформление доставки")
-//                            .font(.largeTitle)
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
-//
-//                        Spacer()
-//
-//                        Image("bricks")
-//                            .resizable()
-//                            .frame(width: 83, height: 65)
-//                    }
-//                    .padding(.horizontal)
-//                    .padding(.bottom, 90)
-//
-//                    Divider()
-//
-//                    VStack(alignment: .leading) {
-//                        Text("Маршрут")
-//                            .font(.title)
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
-//                            .padding(.leading)
-//
-//                        VStack {
-//                            InputView(
-//                                text: $sourceAddress,
-//                                title: "Откуда:",
-//                                placeholder: "Адрес отправки"
-//                            )
-//
-//                            InputView(
-//                                text: $destinationAddress,
-//                                title: "Куда:",
-//                                placeholder: "Адрес доставки"
-//                            )
-//                        }
-//                        .hAlign(.center)
-//                    }
-//                    .padding(.bottom, 50)
-//
-//                    Divider()
-//
-//                    VStack(alignment: .leading) {
-//                        Text("Контактные данные")
-//                            .font(.title)
-//                            .fontWeight(.bold)
-//                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
-//                            .padding(.leading)
-//
-//                        VStack {
-//                            InputView(
-//                                text: $senderName,
-//                                title: "Отправитель:",
-//                                placeholder: "Иванов Иван Иванович"
-//                            )
-//                        }
-//                        .hAlign(.center)
-//                    }
-//                    .padding(.bottom, 20)
-//
-//
-//                    Button {
-//                        let order = Order_()
-//                        order.trackingNumber = ""
-//                        order.status = ""
-//                        order.sourceAddress = sourceAddress
-//                        order.destinationAddress = destinationAddress
-//                        order.senderName = senderName
-//
-//                        $orders.append(order)
-//                    } label: {
-//                        HStack {
-//                            Text("Отправить заявку")
-//                                .font(.title2)
-//                                .foregroundStyle(.white)
-//                                .fontWeight(.semibold)
-//                        }
-//                        .padding(.top, 10)
-//                        .padding(.bottom, 5)
-//                        .padding([.leading, .trailing], 16)
-//                        .foregroundStyle(.white)
-//                    }
-//                    .background {
-//                        Capsule()
-//                            .fill(Color(hex: 0x00CCA6, alpha: 1))
-//                    }
-//                    .hAlign(.center)
-//                    .disabled(!isAgreededPrivacy)
-//                    .opacity(isAgreededPrivacy ? 1 : 0.3)
-//                    .alert(
-//                        "Готово",
-//                        isPresented: $isShowingAlert,
-//                        actions: {
-//                            Button("OK") {
-//                                sourceAddress = ""
-//                                destinationAddress = ""
-//                                senderName = ""
-//                                isAgreededPrivacy = false
-//                            }
-//                        },
-//                        message: {
-//                            Text("Ваша заявка успешно зарегистрирована. Можете посмотреть Ваши заявки разделе Заказы")
-//                        }
-//                    )
-//                }
-//                .navigationTitle("Logistix")
-//            }
-//        }
-//    }
-//}

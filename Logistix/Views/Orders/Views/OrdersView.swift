@@ -8,16 +8,9 @@
 import SwiftUI
 import RealmSwift
 
-struct ToggleStates {
-    var oneIsOn: Bool = false
-    var twoIsOn: Bool = true
-}
-
 struct OrdersView: View {
-    //    @EnvironmentObject private var viewModel: OrdersViewModel
     @EnvironmentObject private var viewModel: AuthViewModel
     
-    @State private var toggleStates = ToggleStates()
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
     
@@ -206,6 +199,7 @@ struct OrdersView: View {
     }
 }
 
+// MARK: - TrackDetail
 struct TrackDetail: View {
     let title: String
     let orderInfo: String

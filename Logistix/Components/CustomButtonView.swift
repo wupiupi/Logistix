@@ -35,9 +35,3 @@ struct CustomButtonView: View {
         }
     }
 }
-
-#Preview {
-    CustomButtonView(
-        title: "Test title",
-        systemImage: "chevron.up")
-}

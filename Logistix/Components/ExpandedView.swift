@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ExpandedView: View {
-    
     var id = UUID()
     @ViewBuilder var content: any View
     
