@@ -133,7 +133,7 @@ struct OrdersView: View {
                                         TrackDetail(
                                             title: "Трек номер",
                                             orderInfo: order.trackingNumber,
-                                            systemImage: "doc.on.doc.fill"
+                                            systemImageName: "doc.on.doc.fill"
                                         )
                                         TrackDetail(
                                             title: "Стоимость",
@@ -209,7 +209,7 @@ struct OrdersView: View {
 struct TrackDetail: View {
     let title: String
     let orderInfo: String
-    var systemImage = ""
+    var systemImageName: String? = nil
     
     var body: some View {
         Text(title)
@@ -217,7 +217,9 @@ struct TrackDetail: View {
             .foregroundStyle(.gray)
         
         HStack {
-            Image(systemName: systemImage)
+            if let systemImageName {
+                Image(systemName: systemImageName)
+            }
             
             if title == "Стоимость" {
                 Text("\(orderInfo) BYN")
@@ -265,8 +267,3 @@ struct CustomDisclosureStyle: DisclosureGroupStyle {
         }
     }
 }
-
-//#Preview {
-//    OrdersView()
-//}
-
