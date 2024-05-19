@@ -368,24 +368,15 @@ struct NewOrderView: View {
                         recipient.phoneNumber = recipientPhoneNumber
                         order.recipient = recipient
                         
-                        // ? Не работает ?
-//                        order.recipient?.name = recipientName
-//                        order.recipient?.phoneNumber = recipientPhoneNumber
-                        
-                        order.cargoType = ""
+                        order.cargoType = cargoType.rawValue
                         order.weight = selectedWeight.rawValue
                         order.dateOfLoading = dateOfLoading ?? Date()
                         order.dateOfDelivery = dateOfDelivery ?? Date()
                         
-                        /// - Cargo
                         price.payment = payment.rawValue
                         price.cargoCost = cargoCost
                         price.totalCost = totalCost
                         order.price = price
-                        
-//                        order.cargoCost = cargoCost
-//                        order.payment = payment.rawValue
-//                        order.totalCost = totalCost
                         
                         $orders.append(order)
                         
