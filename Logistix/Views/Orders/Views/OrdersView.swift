@@ -103,7 +103,7 @@ struct OrdersView: View {
                             ExpandableView(
                                 thumbnail: ThumbnailView(content: {
                                     VStack {
-                                        Text("Доставка \(order.cargoType)")
+                                        Text(order.cargoType)
                                             .foregroundStyle(Color.init(hex: 0x363746))
                                             .font(.title)
                                             .fontWeight(.bold)
@@ -112,7 +112,7 @@ struct OrdersView: View {
                                 }),
                                 expanded: ExpandedView(content: {
                                     VStack(alignment: .center, spacing: 20) {
-                                        Text("Доставка \(order.cargoType)")
+                                        Text(order.cargoType)
                                             .foregroundStyle(Color.init(hex: 0x363746))
                                             .font(.title)
                                             .fontWeight(.bold)
