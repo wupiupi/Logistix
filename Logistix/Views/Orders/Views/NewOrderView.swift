@@ -247,10 +247,17 @@ struct NewOrderView: View {
                     
                     // MARK: - ЦЕННОСТЬ ГРУЗА
                     VStack(alignment: .leading) {
-                        Text("Ценность груза")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                        HStack {
+                            Text("Ценность груза")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                            
+                            Text("BYN")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.backgroundGray)
+                        }
                         
                         InputView(
                             text: $cargoCost,
