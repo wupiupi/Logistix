@@ -24,17 +24,14 @@ struct OrdersView: View {
     private let storageManager = StorageManager.shared
     @ObservedResults(Order.self) var orders
     
-    private var userOrders: [Order] {
-        orders.filter { $0.userID == viewModel.currentUser?.id ?? ""}
+    private var filteredOrders: [Order] {
+        guard !searchTerm.isEmpty else { return Array(orders) }
+        return orders.filter { $0.trackingNumber.localizedCaseInsensitiveContains(searchTerm) }
     }
     
-    
-    //    private var filteredOrders: [Order_] {
-    ////                guard !searchTerm.isEmpty else { return viewVM.heroes }
-    ////                return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
-    //        guard !searchTerm.isEmpty else { return orders }
-    //        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
-    //    }
+    private var userOrders: [Order] {
+        filteredOrders.filter { $0.userID == viewModel.currentUser?.id ?? ""}
+    }
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -75,7 +72,7 @@ struct OrdersView: View {
                      */
                     
                     ForEach(
-                        viewModel.currentUser?.role == Role.user.rawValue ? userOrders : Array(orders),
+                        viewModel.currentUser?.role == Role.user.rawValue ? userOrders : filteredOrders,
                         id: \.self
                     ) { order in
                         
