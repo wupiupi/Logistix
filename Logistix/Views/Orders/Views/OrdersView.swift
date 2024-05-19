@@ -9,14 +9,17 @@ import SwiftUI
 import RealmSwift
 
 struct OrdersView: View {
+    // Wrappers
     @EnvironmentObject private var viewModel: AuthViewModel
+    @ObservedResults(Order.self) var orders
     
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
     
+    // Private Properties
     private let storageManager = StorageManager.shared
-    @ObservedResults(Order.self) var orders
     
+    // Computing Properties
     private var filteredOrders: [Order] {
         guard !searchTerm.isEmpty else { return Array(orders) }
         return orders.filter { $0.trackingNumber.localizedCaseInsensitiveContains(searchTerm) }
@@ -38,32 +41,8 @@ struct OrdersView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     
                     Text("Текущие заказы")
-                        .foregroundStyle(Color(hex: 0x363746, alpha: 1))
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                    
-                    // Sorting
-                    /*
-                     ForEach(orders, id: \.self) { order in
-                     DisclosureGroup("Сортировать", isExpanded: $isViewExpanded) {
-                     HStack {
-                     Image(systemName: "calendar")
-                     .foregroundStyle(.main)
-                     
-                     Text(dateFormatter.string(from: order.dateOfLoading))
-                     Text("–")
-                     
-                     Image(systemName: "calendar")
-                     .foregroundStyle(.main)
-                     
-                     Text(dateFormatter.string(from: order.dateOfDelivery))
-                     }
-                     .font(.title3)
-                     }
-                     .disclosureGroupStyle(CustomDisclosureStyle())
-                     }
-                     */
-                    
+                        .modifier(TitleModifier(font: .largeTitle, fontWeight: .semibold))
+                                        
                     ForEach(
                         viewModel.currentUser?.role == Role.user.rawValue ? userOrders : filteredOrders,
                         id: \.self
@@ -94,18 +73,19 @@ struct OrdersView: View {
                                 thumbnail: ThumbnailView(content: {
                                     VStack {
                                         Text(order.cargoType)
-                                            .foregroundStyle(Color.init(hex: 0x363746))
-                                            .font(.title)
-                                            .fontWeight(.bold)
+                                            .modifier(
+                                                TitleModifier(
+                                                    font: .title,
+                                                    fontWeight: .semibold
+                                                )
+                                            )
                                     }
                                     .padding()
                                 }),
                                 expanded: ExpandedView(content: {
                                     VStack(alignment: .center, spacing: 20) {
                                         Text(order.cargoType)
-                                            .foregroundStyle(Color.init(hex: 0x363746))
-                                            .font(.title)
-                                            .fontWeight(.bold)
+                                            .modifier(TitleModifier(font: .title, fontWeight: .bold))
                                         
                                         TrackDetail(
                                             title: "Адрес отправителя",
@@ -190,12 +170,24 @@ struct OrdersView: View {
                     for: .navigationBar
                 )
             }
-            
             .searchable(
                 text: $searchTerm,
                 prompt: "Поиск по документам или заказам"
             )
         }
+    }
+}
+
+// MARK: - TitleModifier
+struct TitleModifier: ViewModifier {
+    let font: Font
+    let fontWeight: Font.Weight
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+            .font(font)
+            .fontWeight(fontWeight)
     }
 }
 
