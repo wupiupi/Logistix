@@ -460,7 +460,9 @@ struct CheckboxToggleStyle: ToggleStyle {
                 .frame(width: 25, height: 25)
                 .cornerRadius(5.0)
                 .overlay {
-                    Image(systemName: configuration.isOn ? "rectangle.fill" : "")
+                    if configuration.isOn {
+                        Image(systemName: "rectangle.fill")
+                    }
                 }
                 .onTapGesture {
                     withAnimation(.spring()) {
