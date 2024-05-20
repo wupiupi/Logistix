@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContactUsView: View {
     @State private var name = ""
     @State private var email = ""
     @State private var company = ""
     @State private var phone = ""
+    @State private var isShowingAlert = false
+    
+    @ObservedResults(ApplicationForm.self) var applications
     
     var body: some View {
         VStack {
@@ -47,7 +51,16 @@ struct ContactUsView: View {
             
             // TODO: - Button Logic Implementation
             Button {
+                let application = ApplicationForm()
+                application.name = name
+                application.email = email
+                application.company = company
+                application.phone = phone
+                application.date = Date.now
                 
+                $applications.append(application)
+                
+                isShowingAlert = true
             } label: {
                 Text("Отправить")
                     .foregroundStyle(.white)
@@ -62,6 +75,21 @@ struct ContactUsView: View {
                             .fill(Color(hex: 0x00CCA6, alpha: 1))
                     }
             }
+            .alert(
+                "Готово",
+                isPresented: $isShowingAlert,
+                actions: {
+                    Button("OK") {
+                        name = ""
+                        email = ""
+                        company = ""
+                        phone = ""
+                    }
+                },
+                message: {
+                    Text("Наши специалисты свяжутся с Вами в самое ближайшее время!")
+                }
+            )
         }
     }
 }

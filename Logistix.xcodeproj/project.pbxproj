@@ -47,6 +47,8 @@
 		CD41F2432BF8BE7A00CBCB66 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2422BF8BE7A00CBCB66 /* Sender.swift */; };
 		CD41F2452BF8BF4300CBCB66 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2442BF8BF4300CBCB66 /* Route.swift */; };
 		CD41F2472BF8CE2300CBCB66 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2462BF8CE2300CBCB66 /* Recipient.swift */; };
+		CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */; };
+		CD44DDF42BFB4569000A8356 /* Applications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF32BFB4569000A8356 /* Applications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +101,8 @@
 		CD41F2422BF8BE7A00CBCB66 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		CD41F2442BF8BF4300CBCB66 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		CD41F2462BF8CE2300CBCB66 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
+		CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationForm.swift; sourceTree = "<group>"; };
+		CD44DDF32BFB4569000A8356 /* Applications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 				A0E39B332BF27E3C0055503E /* Content */,
 				A0F6EBB22BF2AD1800E279BF /* MenuView */,
 				A0E39B362BF27E670055503E /* Orders */,
+				CD44DDF52BFB4573000A8356 /* Applications */,
 				A0E39B372BF27E710055503E /* Start */,
 			);
 			path = Views;
@@ -230,6 +235,7 @@
 				CD41F2462BF8CE2300CBCB66 /* Recipient.swift */,
 				CD41F2422BF8BE7A00CBCB66 /* Sender.swift */,
 				CD30021C2BF2CE6B00E136B3 /* User.swift */,
+				CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +333,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CD44DDF52BFB4573000A8356 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				CD44DDF32BFB4569000A8356 /* Applications.swift */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,6 +430,7 @@
 				A0F6EBB12BF2AA3400E279BF /* MainView.swift in Sources */,
 				A02B638C2BF1063B0014EE5B /* ContactUsView.swift in Sources */,
 				A04D648F2BF1FD92002725FC /* NewOrderView.swift in Sources */,
+				CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */,
 				A0F6EBAA2BF2999F00E279BF /* SideMenu.swift in Sources */,
 				A08F4B5F2BF0D6E700EE3585 /* Extension + Color.swift in Sources */,
 				A0D030682BF37F98008618D2 /* ExpandableView.swift in Sources */,
@@ -431,6 +446,7 @@
 				A0F6EBA62BF291A000E279BF /* TabButton.swift in Sources */,
 				A0C5AF242BF356EA00A91710 /* Extension + String.swift in Sources */,
 				A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */,
+				CD44DDF42BFB4569000A8356 /* Applications.swift in Sources */,
 				CD41F2452BF8BF4300CBCB66 /* Route.swift in Sources */,
 				A0E39B392BF27E8B0055503E /* OrdersViewModel.swift in Sources */,
 				A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */,
