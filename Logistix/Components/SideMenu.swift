@@ -26,14 +26,13 @@ struct SideMenu: View {
             
             // Tab Buttons
             VStack(alignment: .leading, spacing: 10) {
+                TabButton(
+                    image: "list.star",
+                    title: "Заказы",
+                    selectedTab: $selectedTab,
+                    animation: animation
+                )
                 if viewModel.currentUser?.role == "admin" {
-                    TabButton(
-                        image: "list.star",
-                        title: "Заказы",
-                        selectedTab: $selectedTab,
-                        animation: animation
-                    )
-                    
                     TabButton(
                         image: "folder",
                         title: "Заявки",
@@ -42,19 +41,11 @@ struct SideMenu: View {
                     )
                 } else {
                     TabButton(
-                        image: "list.star",
-                        title: "Заказы",
-                        selectedTab: $selectedTab,
-                        animation: animation
-                    )
-                    
-                    TabButton(
                         image: "pencil.and.list.clipboard",
                         title: "Новый заказ",
                         selectedTab: $selectedTab,
                         animation: animation
                     )
-                    
                     TabButton(
                         image: "phone.fill",
                         title: "Связаться с нами",
