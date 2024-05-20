@@ -16,9 +16,6 @@ struct OrdersView: View {
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
     
-    // Private Properties
-    private let storageManager = StorageManager.shared
-    
     // Computing Properties
     private var filteredOrders: [Order] {
         guard !searchTerm.isEmpty else { return Array(orders) }
