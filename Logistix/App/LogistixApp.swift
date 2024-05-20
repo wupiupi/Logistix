@@ -11,7 +11,6 @@ import Firebase
 @main
 struct LogistixApp: App {
     @StateObject private var viewModel = AuthViewModel()
-    private let storageManager = StorageManager.shared
     
     init() {
         FirebaseApp.configure()

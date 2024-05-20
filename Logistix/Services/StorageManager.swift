@@ -51,15 +51,8 @@ final class StorageManager {
         }
     }
     
-//    // delete
-//    func delete<T: Object>(_ object: T) {
-//        write {
-//            realm.delete(object)
-//        }
-//    }
-    
-    // MARK: - Private Methods
-    private func write(completion: () -> Void) {
+    // write changes
+    func write(completion: () -> Void) {
         do {
             try realm.write {
                 completion()

@@ -15,6 +15,8 @@ struct Applications: View {
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
     
+    private let storageManager = StorageManager.shared
+    
     // Computing Properties
     private var filteredApplications: [ApplicationForm] {
         guard !searchTerm.isEmpty else { return Array(applications) }
@@ -117,7 +119,7 @@ struct Applications: View {
                                             }
                                         
                                         Button {
-                                            try! Realm().write {
+                                            storageManager.write {
                                                 application.thaw()?.status = "Отвечено"
                                             }
                                         } label: {
@@ -129,6 +131,15 @@ struct Applications: View {
                                                     RoundedRectangle(cornerRadius: 12)
                                                         .fill(.green)
                                                 }
+                                        }
+                                        
+                                        Button {
+                                            $applications.remove(application)
+                                        } label: {
+                                            Text("Удалить")
+                                                .font(.title2)
+                                                .foregroundStyle(.red)
+                                                .padding()
                                         }
                                     }
                                     .padding()

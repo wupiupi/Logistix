@@ -16,6 +16,8 @@ struct OrdersView: View {
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
     
+    private let storageManager = StorageManager.shared
+    
     // Computing Properties
     private var filteredOrders: [Order] {
         guard !searchTerm.isEmpty else { return Array(orders) }
@@ -39,7 +41,7 @@ struct OrdersView: View {
                     
                     Text("Текущие заказы")
                         .modifier(TitleModifier(font: .largeTitle, fontWeight: .semibold))
-                                        
+                    
                     ForEach(
                         viewModel.currentUser?.role == Role.user.rawValue ? userOrders : filteredOrders,
                         id: \.self
@@ -117,21 +119,23 @@ struct OrdersView: View {
                                         Text(order.status)
                                             .font(.title3)
                                             .foregroundStyle(
-                                                Color(
-                                                    hex: 0x00CCA6,
-                                                    alpha: 1
-                                                )
+                                                order.status == "Подтвержден"
+                                                ? Color(hex: 0x00CCA6, alpha: 1)
+                                                : .red
                                             )
                                             .padding([.top, .bottom], 8)
                                             .padding([.leading, .trailing], 8)
                                             .background {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .fill(.main.opacity(0.2))
+                                                    .fill(order.status == "Подтвержден"
+                                                          ? .main.opacity(0.2)
+                                                          : .red.opacity(0.2)
+                                                    )
                                             }
                                         
                                         if viewModel.currentUser?.role == Role.admin.rawValue {
                                             Button {
-                                                try! Realm().write {
+                                                storageManager.write {
                                                     order.thaw()?.status = "Подтвержден"
                                                 }
                                             } label: {
@@ -143,6 +147,18 @@ struct OrdersView: View {
                                                         RoundedRectangle(cornerRadius: 12)
                                                             .fill(.green)
                                                     }
+                                            }
+                                            
+                                            Button {
+                                                storageManager.write {
+                                                    order.thaw()?.status = "Отменен"
+                                                }
+                                                //   $orders.remove(order)
+                                            } label: {
+                                                Text("Отменить")
+                                                    .font(.title2)
+                                                    .foregroundStyle(.red)
+                                                    .padding()
                                             }
                                         }
                                     }
