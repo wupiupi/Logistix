@@ -1,5 +1,5 @@
 //
-//  Applications.swift
+//  ApplicationsView.swift
 //  Logistix
 //
 //  Created by Serge Broski on 5/20/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct Applications: View {
+struct ApplicationsView: View {
     // Wrappers
     @ObservedResults(ApplicationForm.self) var applications
     
@@ -172,5 +172,5 @@ struct Applications: View {
 }
 
 #Preview {
-    Applications()
+    ApplicationsView()
 }

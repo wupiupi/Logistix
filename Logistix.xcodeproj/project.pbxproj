@@ -43,12 +43,30 @@
 		CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = CD30021E2BF2CF9500E136B3 /* .gitattributes */; };
 		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
 		CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3002272BF2D1B200E136B3 /* StorageManager.swift */; };
+		CD3776802BFCA7EB005F322C /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD37767F2BFCA7EB005F322C /* LoginButtonView.swift */; };
+		CD3776832BFCA840005F322C /* RegistrationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776822BFCA840005F322C /* RegistrationButtonView.swift */; };
+		CD3776852BFCA869005F322C /* StartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776842BFCA869005F322C /* StartImageView.swift */; };
+		CD3776872BFCA8D9005F322C /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776862BFCA8D9005F322C /* FeatureView.swift */; };
+		CD3776892BFCB1CF005F322C /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776882BFCB1CF005F322C /* ProductView.swift */; };
+		CD37768B2BFCB495005F322C /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD37768A2BFCB495005F322C /* ProductsView.swift */; };
+		CD37768D2BFCB542005F322C /* FeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD37768C2BFCB542005F322C /* FeaturesView.swift */; };
+		CD3776912BFCB5F8005F322C /* HeaderStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776902BFCB5F7005F322C /* HeaderStartView.swift */; };
+		CD3776942BFCB756005F322C /* CarrierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776932BFCB756005F322C /* CarrierView.swift */; };
+		CD3776972BFCB827005F322C /* CarrierInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776962BFCB827005F322C /* CarrierInfoView.swift */; };
+		CD3776992BFCB8A8005F322C /* CarrierButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776982BFCB8A8005F322C /* CarrierButtonView.swift */; };
+		CD37769B2BFCB90F005F322C /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD37769A2BFCB90F005F322C /* TermsView.swift */; };
+		CD37769D2BFCB963005F322C /* TermsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD37769C2BFCB963005F322C /* TermsButtonView.swift */; };
+		CD3776A02BFCBCE5005F322C /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD37769F2BFCBCE5005F322C /* ContactsView.swift */; };
+		CD3776A32BFCBD5B005F322C /* ContactInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776A22BFCBD5B005F322C /* ContactInfoView.swift */; };
+		CD3776A52BFCBE01005F322C /* SocialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776A42BFCBE01005F322C /* SocialsView.swift */; };
+		CD3776A72BFCBE2F005F322C /* SocialButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776A62BFCBE2F005F322C /* SocialButtonView.swift */; };
+		CD3776A92BFCBEEF005F322C /* FooterStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3776A82BFCBEEF005F322C /* FooterStartView.swift */; };
 		CD41F2412BF8BCCF00CBCB66 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2402BF8BCCF00CBCB66 /* Price.swift */; };
 		CD41F2432BF8BE7A00CBCB66 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2422BF8BE7A00CBCB66 /* Sender.swift */; };
 		CD41F2452BF8BF4300CBCB66 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2442BF8BF4300CBCB66 /* Route.swift */; };
 		CD41F2472BF8CE2300CBCB66 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2462BF8CE2300CBCB66 /* Recipient.swift */; };
 		CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */; };
-		CD44DDF42BFB4569000A8356 /* Applications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF32BFB4569000A8356 /* Applications.swift */; };
+		CD44DDF42BFB4569000A8356 /* ApplicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,12 +115,30 @@
 		CD30021E2BF2CF9500E136B3 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		CD30021F2BF2CF9500E136B3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CD3002272BF2D1B200E136B3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		CD37767F2BFCA7EB005F322C /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
+		CD3776822BFCA840005F322C /* RegistrationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationButtonView.swift; sourceTree = "<group>"; };
+		CD3776842BFCA869005F322C /* StartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartImageView.swift; sourceTree = "<group>"; };
+		CD3776862BFCA8D9005F322C /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
+		CD3776882BFCB1CF005F322C /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		CD37768A2BFCB495005F322C /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		CD37768C2BFCB542005F322C /* FeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesView.swift; sourceTree = "<group>"; };
+		CD3776902BFCB5F7005F322C /* HeaderStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderStartView.swift; sourceTree = "<group>"; };
+		CD3776932BFCB756005F322C /* CarrierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierView.swift; sourceTree = "<group>"; };
+		CD3776962BFCB827005F322C /* CarrierInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierInfoView.swift; sourceTree = "<group>"; };
+		CD3776982BFCB8A8005F322C /* CarrierButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierButtonView.swift; sourceTree = "<group>"; };
+		CD37769A2BFCB90F005F322C /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		CD37769C2BFCB963005F322C /* TermsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsButtonView.swift; sourceTree = "<group>"; };
+		CD37769F2BFCBCE5005F322C /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		CD3776A22BFCBD5B005F322C /* ContactInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoView.swift; sourceTree = "<group>"; };
+		CD3776A42BFCBE01005F322C /* SocialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsView.swift; sourceTree = "<group>"; };
+		CD3776A62BFCBE2F005F322C /* SocialButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonView.swift; sourceTree = "<group>"; };
+		CD3776A82BFCBEEF005F322C /* FooterStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterStartView.swift; sourceTree = "<group>"; };
 		CD41F2402BF8BCCF00CBCB66 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		CD41F2422BF8BE7A00CBCB66 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		CD41F2442BF8BF4300CBCB66 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		CD41F2462BF8CE2300CBCB66 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationForm.swift; sourceTree = "<group>"; };
-		CD44DDF32BFB4569000A8356 /* Applications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applications.swift; sourceTree = "<group>"; };
+		CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				A0D8EA422BEFFDD200529E5C /* StartView.swift */,
+				CD3776812BFCA826005F322C /* Subviews */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -333,10 +370,91 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CD3776812BFCA826005F322C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				CD3776922BFCB60A005F322C /* HeaderStart */,
+				CD37768E2BFCB552005F322C /* Features */,
+				CD37768F2BFCB55F005F322C /* Products */,
+				CD3776952BFCB7A6005F322C /* Carrier */,
+				CD3776AA2BFCBEFC005F322C /* FooterStart */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		CD37768E2BFCB552005F322C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				CD37768C2BFCB542005F322C /* FeaturesView.swift */,
+				CD3776862BFCA8D9005F322C /* FeatureView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		CD37768F2BFCB55F005F322C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD37768A2BFCB495005F322C /* ProductsView.swift */,
+				CD3776882BFCB1CF005F322C /* ProductView.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		CD3776922BFCB60A005F322C /* HeaderStart */ = {
+			isa = PBXGroup;
+			children = (
+				CD3776902BFCB5F7005F322C /* HeaderStartView.swift */,
+				CD37767F2BFCA7EB005F322C /* LoginButtonView.swift */,
+				CD3776822BFCA840005F322C /* RegistrationButtonView.swift */,
+				CD3776842BFCA869005F322C /* StartImageView.swift */,
+			);
+			path = HeaderStart;
+			sourceTree = "<group>";
+		};
+		CD3776952BFCB7A6005F322C /* Carrier */ = {
+			isa = PBXGroup;
+			children = (
+				CD3776932BFCB756005F322C /* CarrierView.swift */,
+				CD3776962BFCB827005F322C /* CarrierInfoView.swift */,
+				CD3776982BFCB8A8005F322C /* CarrierButtonView.swift */,
+			);
+			path = Carrier;
+			sourceTree = "<group>";
+		};
+		CD37769E2BFCB969005F322C /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				CD37769A2BFCB90F005F322C /* TermsView.swift */,
+				CD37769C2BFCB963005F322C /* TermsButtonView.swift */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		CD3776A12BFCBCEE005F322C /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				CD37769F2BFCBCE5005F322C /* ContactsView.swift */,
+				CD3776A22BFCBD5B005F322C /* ContactInfoView.swift */,
+				CD3776A42BFCBE01005F322C /* SocialsView.swift */,
+				CD3776A62BFCBE2F005F322C /* SocialButtonView.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		CD3776AA2BFCBEFC005F322C /* FooterStart */ = {
+			isa = PBXGroup;
+			children = (
+				CD3776A82BFCBEEF005F322C /* FooterStartView.swift */,
+				CD37769E2BFCB969005F322C /* Terms */,
+				CD3776A12BFCBCEE005F322C /* Contacts */,
+			);
+			path = FooterStart;
+			sourceTree = "<group>";
+		};
 		CD44DDF52BFB4573000A8356 /* Applications */ = {
 			isa = PBXGroup;
 			children = (
-				CD44DDF32BFB4569000A8356 /* Applications.swift */,
+				CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */,
 			);
 			path = Applications;
 			sourceTree = "<group>";
@@ -428,33 +546,51 @@
 			files = (
 				A0E36DA02BF015F300A4B8AE /* Extension + View.swift in Sources */,
 				A0F6EBB12BF2AA3400E279BF /* MainView.swift in Sources */,
+				CD3776912BFCB5F8005F322C /* HeaderStartView.swift in Sources */,
 				A02B638C2BF1063B0014EE5B /* ContactUsView.swift in Sources */,
+				CD3776832BFCA840005F322C /* RegistrationButtonView.swift in Sources */,
+				CD3776A52BFCBE01005F322C /* SocialsView.swift in Sources */,
 				A04D648F2BF1FD92002725FC /* NewOrderView.swift in Sources */,
 				CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */,
 				A0F6EBAA2BF2999F00E279BF /* SideMenu.swift in Sources */,
 				A08F4B5F2BF0D6E700EE3585 /* Extension + Color.swift in Sources */,
+				CD3776972BFCB827005F322C /* CarrierInfoView.swift in Sources */,
 				A0D030682BF37F98008618D2 /* ExpandableView.swift in Sources */,
 				A0F6EBA82BF294EF00E279BF /* CustomCorners.swift in Sources */,
 				A0F6EBAC2BF29AAB00E279BF /* Home.swift in Sources */,
+				CD3776872BFCA8D9005F322C /* FeatureView.swift in Sources */,
 				A0D8EA432BEFFDD200529E5C /* StartView.swift in Sources */,
 				A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */,
+				CD3776A32BFCBD5B005F322C /* ContactInfoView.swift in Sources */,
 				CD30021D2BF2CE6B00E136B3 /* User.swift in Sources */,
 				A0E39B322BF27D010055503E /* Order.swift in Sources */,
 				CD41F2472BF8CE2300CBCB66 /* Recipient.swift in Sources */,
 				A02B638E2BF106950014EE5B /* InputView.swift in Sources */,
 				A0C5AF2B2BF35E1A00A91710 /* ExpandedView.swift in Sources */,
 				A0F6EBA62BF291A000E279BF /* TabButton.swift in Sources */,
+				CD37768B2BFCB495005F322C /* ProductsView.swift in Sources */,
 				A0C5AF242BF356EA00A91710 /* Extension + String.swift in Sources */,
+				CD3776992BFCB8A8005F322C /* CarrierButtonView.swift in Sources */,
+				CD3776802BFCA7EB005F322C /* LoginButtonView.swift in Sources */,
 				A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */,
-				CD44DDF42BFB4569000A8356 /* Applications.swift in Sources */,
+				CD44DDF42BFB4569000A8356 /* ApplicationsView.swift in Sources */,
+				CD3776A92BFCBEEF005F322C /* FooterStartView.swift in Sources */,
 				CD41F2452BF8BF4300CBCB66 /* Route.swift in Sources */,
+				CD3776A02BFCBCE5005F322C /* ContactsView.swift in Sources */,
 				A0E39B392BF27E8B0055503E /* OrdersViewModel.swift in Sources */,
 				A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */,
 				CD41F2412BF8BCCF00CBCB66 /* Price.swift in Sources */,
+				CD37769B2BFCB90F005F322C /* TermsView.swift in Sources */,
 				A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */,
 				A0E36DA22BF0177A00A4B8AE /* CustomButtonView.swift in Sources */,
+				CD37769D2BFCB963005F322C /* TermsButtonView.swift in Sources */,
+				CD3776852BFCA869005F322C /* StartImageView.swift in Sources */,
 				A02B63902BF116040014EE5B /* OrdersView.swift in Sources */,
 				A0C5AF292BF35DEB00A91710 /* ThumbnailView.swift in Sources */,
+				CD3776892BFCB1CF005F322C /* ProductView.swift in Sources */,
+				CD3776A72BFCBE2F005F322C /* SocialButtonView.swift in Sources */,
+				CD3776942BFCB756005F322C /* CarrierView.swift in Sources */,
+				CD37768D2BFCB542005F322C /* FeaturesView.swift in Sources */,
 				A0F6EBB92BF2BD1600E279BF /* RegistrationView.swift in Sources */,
 				CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */,
 				CD41F2432BF8BE7A00CBCB66 /* Sender.swift in Sources */,

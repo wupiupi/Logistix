@@ -30,7 +30,7 @@ struct Home: View {
             ContactUsView()
                 .tag("Связаться с нами")
             
-            Applications()
+            ApplicationsView()
                 .tag("Заявки")
         }
     }
