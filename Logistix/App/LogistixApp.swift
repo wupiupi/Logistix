@@ -10,7 +10,9 @@ import Firebase
 
 @main
 struct LogistixApp: App {
-    @StateObject private var viewModel = AuthViewModel()
+    @StateObject private var authVM = AuthViewModel()
+    @StateObject private var loginVM = LoginViewModel()
+    @StateObject private var registrationVM = RegistrationViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -19,7 +21,9 @@ struct LogistixApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
+                .environmentObject(authVM)
+                .environmentObject(loginVM)
+                .environmentObject(registrationVM)
         }
     }
 }
