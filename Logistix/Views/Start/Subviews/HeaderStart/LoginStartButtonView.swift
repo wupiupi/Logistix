@@ -1,5 +1,5 @@
 //
-//  RegistrationButtonView.swift
+//  LoginStartButtonView.swift
 //  Logistix
 //
 //  Created by Serge Broski on 5/21/24.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct RegistrationButtonView: View {
+struct LoginStartButtonView: View {
     var body: some View {
         NavigationLink {
-            RegistrationView()
+            LoginView()
         } label: {
             CustomButtonView(
-                title: "Регистрация",
+                title: "Вход",
                 systemImage: "arrowshape.right.fill"
             )
         }
@@ -21,5 +21,5 @@ struct RegistrationButtonView: View {
 }
 
 #Preview {
-    RegistrationButtonView()
+    LoginStartButtonView()
 }

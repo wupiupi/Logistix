@@ -31,19 +31,12 @@ final class StorageManager {
     
     // MARK: - CRUD
     
-    // update
+    // Update
     func fetchData<T: RealmFetchable>(_ type: T.Type) -> Results<T> {
         realm.objects(T.self)
     }
     
-////     load initial data. we don't have properly works data manager for that
-//    func save<T: Object>(_ object: [T]) {
-//        write {
-//            realm.add(object)
-//        }
-//    }
-    
-    // save new
+    // Save new one
     func save<T: Object>(_ object: T, completion: (T) -> Void) {
         write {
             realm.add(object)
@@ -51,7 +44,7 @@ final class StorageManager {
         }
     }
     
-    // write changes
+    // Write changes
     func write(completion: () -> Void) {
         do {
             try realm.write {
