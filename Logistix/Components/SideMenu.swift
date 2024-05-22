@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct SideMenu: View {
+    @EnvironmentObject var authVM: AuthViewModel
+    
     @Binding var selectedTab: String
     @Namespace var animation
-    
-    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             // Padding top for Top Close Button
             VStack(alignment: .leading, spacing: 6) {
-                Text(viewModel.currentUser?.email ?? "")
+                Text(authVM.currentUser?.email ?? "")
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundStyle(.white)
@@ -32,7 +32,7 @@ struct SideMenu: View {
                     selectedTab: $selectedTab,
                     animation: animation
                 )
-                if viewModel.currentUser?.role == "admin" {
+                if authVM.currentUser?.role == "admin" {
                     TabButton(
                         image: "folder",
                         title: "Заявки",
@@ -65,7 +65,7 @@ struct SideMenu: View {
                 TabButton(
                     image: "rectangle.righthalf.inset.fill.arrow.right",
                     title: "Выход из аккаунта",
-                    action: { viewModel.signOut() },
+                    action: { authVM.signOut() },
                     selectedTab: .constant(""),
                     animation: animation
                 )
