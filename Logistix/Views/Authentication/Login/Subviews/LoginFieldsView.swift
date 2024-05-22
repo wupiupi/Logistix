@@ -25,6 +25,11 @@ struct LoginFieldsView: View {
             isSecureField: true
         )
         .padding(.bottom, 20)
+        .onAppear {
+            // Clearing fields so that the next time this view appears, the entered data will not remain
+            loginVM.email = ""
+            loginVM.password = ""
+        }
     }
 }
 

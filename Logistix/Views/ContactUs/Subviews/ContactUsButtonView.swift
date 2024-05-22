@@ -53,6 +53,8 @@ struct ContactUsButtonView: View {
                 Text("Наши специалисты свяжутся с Вами в самое ближайшее время!")
             }
         )
+        .disabled(!contactUsVM.formIsValid)
+        .opacity(contactUsVM.formIsValid ? 1.0 : 0.5)
     }
 }
 
