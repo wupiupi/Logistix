@@ -15,4 +15,9 @@ extension View {
     func vAlign(_ alignment: Alignment) -> some View {
         self.frame(maxHeight: .infinity, alignment: alignment)
     }
+    
+    // Extending View to Get Screen Size
+    func getRect() -> CGRect {
+        UIScreen.main.bounds
+    }
 }

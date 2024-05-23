@@ -31,6 +31,13 @@ struct RegistrationFieldsView: View {
             placeholder: "Пароль",
             isSecureField: true
         )
+        .onAppear {
+            // Clearing fields so that the next time this view appears, the entered data will not remain
+            registrationVM.email = ""
+            registrationVM.password = ""
+            registrationVM.fullName = ""
+            registrationVM.confirmPassword = ""
+        }
         
         ZStack {
             InputView(
