@@ -18,8 +18,6 @@ struct ContactNewOrderView: View {
                 .foregroundStyle(Color(hex: 0x363746, alpha: 1))
                 .padding(.leading)
             
-            #warning("TODO: - Insert Name of Current User as Placeholder")
-            
             VStack {
                 InputView(
                     text: $newOrderVM.senderName,
