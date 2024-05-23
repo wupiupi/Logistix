@@ -10,19 +10,19 @@ import SwiftUI
 struct TermsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15)  {
-            TermsButtonView(
+            TermsLinkView(
                 title: "Документы",
-                action: {}
+                stringURL: "https://developer.apple.com/documentation/technologies"
             )
             
-            TermsButtonView(
+            TermsLinkView(
                 title: "Политика конфиденциальности",
-                action: {}
+                stringURL: "https://www.apple.com/legal/privacy/en-ww/"
             )
             
-            TermsButtonView(
+            TermsLinkView(
                 title: "Пользовательское соглашение",
-                action: {}
+                stringURL: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
             )
         }
         .padding(.bottom, 40)

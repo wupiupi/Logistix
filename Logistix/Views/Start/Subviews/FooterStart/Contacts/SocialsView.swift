@@ -10,19 +10,19 @@ import SwiftUI
 struct SocialsView: View {
     var body: some View {
         HStack(spacing: 25) {
-            SocialButtonView(
+            SocialLinkView(
                 image: "facebook.icon",
-                action: {}
+                stringURL: "https://www.facebook.com/apple/"
             )
             
-            SocialButtonView(
+            SocialLinkView(
                 image: "instagram.icon",
-                action: {}
+                stringURL: "https://www.instagram.com/apple/"
             )
             
-            SocialButtonView(
+            SocialLinkView(
                 image: "twitter.icon",
-                action: {}
+                stringURL: "https://x.com/x/migrate"
             )
         }
     }
