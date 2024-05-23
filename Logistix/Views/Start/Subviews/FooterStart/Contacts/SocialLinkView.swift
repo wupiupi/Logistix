@@ -7,25 +7,19 @@
 
 import SwiftUI
 
-struct SocialButtonView: View {
+struct SocialLinkView: View {
     let image: String
-    let action: () -> Void
+    let stringURL: String
     
     var body: some View {
-        Button {
-            action()
-            print("DEBUG: \(image)")
-        } label: {
+        Link(destination: URL(string: stringURL)!, label: {
             Image(image)
                 .resizable()
                 .frame(width: 23, height: 23)
-        }
+        })
     }
 }
 
 #Preview {
-    SocialButtonView(
-        image: "facebook.icon",
-        action: {}
-    )
+    SocialLinkView(image: "facebook.info", stringURL: "")
 }

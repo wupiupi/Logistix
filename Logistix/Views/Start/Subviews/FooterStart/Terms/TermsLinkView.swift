@@ -7,25 +7,16 @@
 
 import SwiftUI
 
-struct TermsButtonView: View {
+struct TermsLinkView: View {
     let title: String
-    let action: () -> Void
+    let stringURL: String
     
     var body: some View {
-        Button {
-            action()
-            print("DEBUG: \(title)")
-        } label: {
+        
+        Link(destination: URL(string: stringURL)!) {
             Text(title)
         }
         .fontWeight(.bold)
         .hAlign(.leading)
     }
-}
-
-#Preview {
-    TermsButtonView(
-        title: "Документы",
-        action: {}
-    )
 }
