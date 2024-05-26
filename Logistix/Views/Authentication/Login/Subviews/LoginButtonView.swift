@@ -10,13 +10,13 @@ import SwiftUI
 struct LoginButtonView: View {
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var loginVM: LoginViewModel
-    
+        
     var body: some View {
         Button {
             Task {
                 try await authVM.signIn(
                     withEmail: loginVM.email,
-                    password: loginVM.password
+                    password: loginVM.hashedPassword
                 )
             }
         } label: {

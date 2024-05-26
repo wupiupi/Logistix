@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import CryptoKit
 
 protocol ValidationFormProtocol {
     var formIsValid: Bool { get }
@@ -34,7 +35,6 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    
     func signIn(
         withEmail email: String,
         password: String
@@ -57,12 +57,15 @@ final class AuthViewModel: ObservableObject {
         phoneNumber: String?,
         role: Role
     ) async throws {
+        
+        let hashedPass = hashPassword(password)
+        
         do {
             
             // Creating a user using firebase code
             let result = try await Auth.auth().createUser(
                 withEmail: email,
-                password: password
+                password: hashedPass
             )
             userSession = result.user
             
@@ -71,7 +74,7 @@ final class AuthViewModel: ObservableObject {
                 id: result.user.uid,
                 role: role.rawValue,
                 email: email,
-                pass: password
+                pass: hashedPass
             )
                         
             // Encoding our user
@@ -116,5 +119,11 @@ final class AuthViewModel: ObservableObject {
         }
         
         currentUser = try? snapshot.data(as: User.self)
+    }
+    
+    func hashPassword(_ password: String) -> String {
+        let data = Data(password.utf8)
+        let hash = SHA256.hash(data: data)
+        return hash.compactMap { String(format: "%.02x", $0) }.joined()
     }
 }
