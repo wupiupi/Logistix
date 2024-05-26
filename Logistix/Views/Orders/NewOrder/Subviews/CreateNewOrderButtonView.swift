@@ -17,10 +17,10 @@ struct CreateNewOrderButtonView: View {
         Button {
             if newOrderVM.formIsValid {
                 createOrder()
-                newOrderVM.showSuccessAlert = true
-            } else {
-                newOrderVM.showFailureAlert = true
+                newOrderVM.alertTitle = "Готово"
+                newOrderVM.alertMessage = "Ваша заявка успешно зарегистрирована!"
             }
+            newOrderVM.showAlert = true
         } label: {
             HStack {
                 Text("Отправить заявку")
@@ -41,22 +41,15 @@ struct CreateNewOrderButtonView: View {
         .disabled(!newOrderVM.isAgreededPrivacy)
         .opacity(newOrderVM.isAgreededPrivacy ? 1 : 0.3)
         .alert(
-            "Ошибка! Проверьте корректность введенных Вами данных",
-            isPresented: $newOrderVM.showFailureAlert,
-            actions: {
-                Button("Закрыть") {}
-            }
-        )
-        .alert(
-            "Готово",
-            isPresented: $newOrderVM.showSuccessAlert,
+            newOrderVM.alertTitle,
+            isPresented: $newOrderVM.showAlert,
             actions: {
                 Button("OK") {
                    clearFields()
                 }
             },
             message: {
-                Text("Ваша заявка успешно зарегистрирована")
+                Text(newOrderVM.alertMessage)
             }
         )
     }

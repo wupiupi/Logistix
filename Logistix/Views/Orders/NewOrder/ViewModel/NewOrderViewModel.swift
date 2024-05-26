@@ -47,8 +47,10 @@ final class NewOrderViewModel: ObservableObject {
     @Published var cargoType: CargoType = .perishable
     
     @Published var isAgreededPrivacy = false
-    @Published var showSuccessAlert = false
-    @Published var showFailureAlert = false
+    @Published var showAlert = false
+    
+    @Published var alertTitle = "Ошибка"
+    @Published var alertMessage = "Пожалуйста, введите корректные данные"
     
     // MARK: - Computable Properties
     var totalCost: String {
@@ -90,7 +92,7 @@ final class NewOrderViewModel: ObservableObject {
 }
 
 // MARK: - AuthenticationFormProtocol
-extension NewOrderViewModel: AuthenticationFormProtocol {
+extension NewOrderViewModel: ValidationFormProtocol {
     var formIsValid: Bool {
         sourceAddress != "" 
         && destinationAddress != ""
