@@ -13,7 +13,7 @@ final class LoginViewModel: ObservableObject {
 }
 
 // MARK: - AuthenticationFormProtocol
-extension LoginViewModel: AuthenticationFormProtocol {
+extension LoginViewModel: ValidationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
         && email.contains("@")

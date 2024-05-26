@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-protocol AuthenticationFormProtocol {
+protocol ValidationFormProtocol {
     var formIsValid: Bool { get }
 }
 

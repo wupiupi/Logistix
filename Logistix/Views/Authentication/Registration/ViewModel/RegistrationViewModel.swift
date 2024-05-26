@@ -16,7 +16,7 @@ final class RegistrationViewModel: ObservableObject {
 }
 
 // MARK: - AuthenticationFormProtocol
-extension RegistrationViewModel: AuthenticationFormProtocol {
+extension RegistrationViewModel: ValidationFormProtocol {
     var formIsValid: Bool {
         !email.isEmpty
         && email.contains("@")
