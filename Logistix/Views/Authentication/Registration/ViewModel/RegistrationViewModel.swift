@@ -18,7 +18,7 @@ final class RegistrationViewModel: ObservableObject {
 // MARK: - AuthenticationFormProtocol
 extension RegistrationViewModel: AuthenticationFormProtocol {
     var formIsValid: Bool {
-        return !email.isEmpty
+        !email.isEmpty
         && email.contains("@")
         && !password.isEmpty
         && password.count > 5
