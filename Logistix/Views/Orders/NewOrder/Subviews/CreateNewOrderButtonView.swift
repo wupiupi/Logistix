@@ -15,9 +15,12 @@ struct CreateNewOrderButtonView: View {
     
     var body: some View {
         Button {
-            createOrder()
-            
-            newOrderVM.isShowingAlert = true
+            if newOrderVM.formIsValid {
+                createOrder()
+                newOrderVM.showSuccessAlert = true
+            } else {
+                newOrderVM.showFailureAlert = true
+            }
         } label: {
             HStack {
                 Text("Отправить заявку")
@@ -38,8 +41,15 @@ struct CreateNewOrderButtonView: View {
         .disabled(!newOrderVM.isAgreededPrivacy)
         .opacity(newOrderVM.isAgreededPrivacy ? 1 : 0.3)
         .alert(
+            "Ошибка! Проверьте корректность введенных Вами данных",
+            isPresented: $newOrderVM.showFailureAlert,
+            actions: {
+                Button("Закрыть") {}
+            }
+        )
+        .alert(
             "Готово",
-            isPresented: $newOrderVM.isShowingAlert,
+            isPresented: $newOrderVM.showSuccessAlert,
             actions: {
                 Button("OK") {
                    clearFields()
@@ -99,10 +109,4 @@ struct CreateNewOrderButtonView: View {
         newOrderVM.cargoCost = ""
         newOrderVM.isAgreededPrivacy = false
     }
-}
-
-#Preview {
-    CreateNewOrderButtonView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-        .environmentObject(AuthViewModel())
 }
