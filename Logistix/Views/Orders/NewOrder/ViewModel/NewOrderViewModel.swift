@@ -47,7 +47,8 @@ final class NewOrderViewModel: ObservableObject {
     @Published var cargoType: CargoType = .perishable
     
     @Published var isAgreededPrivacy = false
-    @Published var isShowingAlert = false
+    @Published var showSuccessAlert = false
+    @Published var showFailureAlert = false
     
     // MARK: - Computable Properties
     var totalCost: String {
@@ -86,5 +87,19 @@ final class NewOrderViewModel: ObservableObject {
             for: .normal
         )
     }
-    
+}
+
+// MARK: - AuthenticationFormProtocol
+extension NewOrderViewModel: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        sourceAddress != "" 
+        && destinationAddress != ""
+        && senderName != ""
+        && senderPhoneNumber != ""
+        && recipientName != ""
+        && recipientPhoneNumber != ""
+        && dateOfLoading != nil
+        && dateOfDelivery != nil
+        && dateOfLoading ?? Date() <= dateOfDelivery ?? Date()
+    }
 }
