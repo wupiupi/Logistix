@@ -16,7 +16,7 @@ struct ContactsView: View {
             image: "phone",
             text: "+375(29)555-66-77"
         )
-        
+                
         ContactInfoView(
             image: "location",
             text: "г. Минск, ул. Петруся Бровки, д. 2"
