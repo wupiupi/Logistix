@@ -18,28 +18,28 @@ struct TrackInfoView: View {
             Text(order.cargoType)
                 .modifier(TitleModifier(font: .title, fontWeight: .bold))
             
-            DetailView(
+            OrderDetailsView(
                 title: "Адрес отправителя",
                 orderInfo: order.route?.sourceAddress ?? ""
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Адрес получателя",
                 orderInfo: order.route?.destinationAddress ?? ""
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Поставщик",
                 orderInfo: order.sender?.name ?? ""
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Контактный телефон",
                 orderInfo: order.sender?.phoneNumber ?? ""
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Трек номер",
                 orderInfo: order.trackingNumber,
                 systemImageName: "doc.on.doc.fill"
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Стоимость",
                 orderInfo: order.price?.totalCost ?? ""
             )
