@@ -12,7 +12,7 @@ enum Role: String {
     case admin
 }
 
-struct User: Codable {
+struct User: Codable, Identifiable {
     let id: String
     let role: String
     let email: String
