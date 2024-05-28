@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct OrderDetailsView: View {
     let title: String
     let orderInfo: String
     var systemImageName: String? = nil
@@ -38,11 +38,4 @@ struct DetailView: View {
             }
         }
     }
-}
-
-#Preview {
-    DetailView(
-        title: "Адрес отправителя",
-        orderInfo: "ул. Легендарная, 18"
-    )
 }
