@@ -19,19 +19,19 @@ struct ApplicationInfoView: View {
             Text("№ \(application.id)")
                 .modifier(TitleModifier(font: .title, fontWeight: .bold))
             
-            DetailView(
+            OrderDetailsView(
                 title: "Имя контакта",
                 orderInfo: application.name
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Электронная почта",
                 orderInfo: application.email
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Компания",
                 orderInfo: application.company
             )
-            DetailView(
+            OrderDetailsView(
                 title: "Контактный телефон",
                 orderInfo: application.phone
             )
