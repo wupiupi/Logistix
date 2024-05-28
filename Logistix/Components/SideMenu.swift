@@ -39,6 +39,12 @@ struct SideMenu: View {
                         selectedTab: $selectedTab,
                         animation: animation
                     )
+                    TabButton(
+                        image: "person.2",
+                        title: "Пользователи",
+                        selectedTab: $selectedTab,
+                        animation: animation
+                    )
                 } else {
                     TabButton(
                         image: "pencil.and.list.clipboard",
