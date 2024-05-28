@@ -74,6 +74,7 @@ final class AuthViewModel: ObservableObject {
                 id: result.user.uid,
                 role: role.rawValue,
                 email: email,
+                name: fullName,
                 pass: hashedPass
             )
                         
