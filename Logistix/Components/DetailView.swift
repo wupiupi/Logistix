@@ -19,7 +19,12 @@ struct DetailView: View {
         
         HStack {
             if let systemImageName {
-                Image(systemName: systemImageName)
+                Link(destination: URL(string: "https://belpost.by/Otsleditotpravleniye")!) {
+                    Image(systemName: systemImageName)
+                }
+                .onTapGesture {
+                    UIPasteboard.general.string = orderInfo
+                }
             }
             
             if title == "Стоимость" {
