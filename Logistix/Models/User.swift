@@ -16,5 +16,6 @@ struct User: Codable {
     let id: String
     let role: String
     let email: String
+    let name: String
     let pass: String
 }
