@@ -32,6 +32,9 @@ struct HomeView: View {
             
             ApplicationsView()
                 .tag("Заявки")
+            
+            UsersView()
+                .tag("Пользователи")
         }
     }
 }
