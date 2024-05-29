@@ -72,8 +72,7 @@ final class UsersViewModel: ObservableObject {
                 }
                 
                 // Remove the deleted user from the users array
-                self.users.removeAll { $0.id == user.id }
+                self.updateUsers()
             }
-        self.updateUsers()
     }
 }
