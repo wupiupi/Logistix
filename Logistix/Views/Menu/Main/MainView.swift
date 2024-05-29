@@ -26,6 +26,9 @@ struct MainView: View {
             
             BackgroundCardsView()
         }
+        .onAppear {
+            mainVM.selectedTab = "Заказы"
+        }
     }
 }
 
