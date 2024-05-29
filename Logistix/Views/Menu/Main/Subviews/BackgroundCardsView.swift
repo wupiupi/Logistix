@@ -53,7 +53,3 @@ struct BackgroundCardsView: View {
         )
     }
 }
-
-#Preview {
-    BackgroundCardsView()
-}
