@@ -17,15 +17,15 @@ struct UsersView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     UsersTitle()
                     
-                    ForEach(usersVM.users) { user in
+                    ForEach(usersVM.users) {
                         
                         Divider()
                         
                         // Order ID & Date of Loading
-                        UserIdView(user: user)
+                        UserIdView(user: $0)
                         
                         // Expands the details of the order
-                        ExpandableUserView(user: user)
+                        ExpandableUserView(user: $0)
                     }
                 }
                 .padding()
@@ -35,7 +35,7 @@ struct UsersView: View {
                 LinearGradient(
                     colors: [
                         Color(hex: 0x00CCA6, alpha: 1),
-                        Color(hex: 0x29B197, alpha: 0.5)
+                        Color(hex: 0x29B197, alpha: 1)
                     ],
                     startPoint: .leading,
                     endPoint: .trailing
