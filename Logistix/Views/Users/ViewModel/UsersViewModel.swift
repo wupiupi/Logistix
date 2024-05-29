@@ -11,6 +11,8 @@ import FirebaseFirestore
 final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
     
+    private let db = Firestore.firestore()
+    
     init() {
         Task {
             await fetchUsers()
@@ -19,7 +21,7 @@ final class UsersViewModel: ObservableObject {
     
     func fetchUsers() async {
         
-        let usersReference = Firestore.firestore().collection("users")
+        let usersReference = db.collection("users")
         usersReference.addSnapshotListener {
             querySnapshot,
             error in
@@ -43,4 +45,32 @@ final class UsersViewModel: ObservableObject {
         }
         print(self.users)
     }
+    
+    func updateUserRole(id: String, role: Role) {
+        let docRef = db.collection("users").document(id)
+        docRef.updateData(["role": role.rawValue]) { error in
+            if let error {
+                print("Error updating document: \(error)")
+            }
+            
+            Task {
+                await self.fetchUsers()
+            }
+        }
+    }
+    
+    func deleteUser(_ user: User) {
+            let db = Firestore.firestore()
+            db.collection("users")
+                .document(user.id)
+                .delete { error in
+                    if let error {
+                        print("Error deleting user: \(error)")
+                        return
+                    }
+
+                    // Remove the deleted user from the users array
+                    self.users.removeAll { $0.id == user.id }
+                }
+        }
 }

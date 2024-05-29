@@ -25,7 +25,7 @@ struct ExpandableUserView: View {
                 .padding()
             }),
             expanded: ExpandedView(content: {
-                UserInfoView(user: user)
+                ExpandedUserInfoView(user: user)
             })
         )
     }
