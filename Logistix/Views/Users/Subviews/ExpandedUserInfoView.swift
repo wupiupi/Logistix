@@ -22,7 +22,7 @@ struct ExpandedUserInfoView: View {
             UserDetailsView(title: "Почта", userInfo: user.email)
             UserDetailsView(title: "Роль", userInfo: user.role)
             
-            CustomButtonView(
+            OrderButtonView(
                 title: user.role == "user" ? "Сделать администратором" : "Сделать пользователем",
                 titleColor: .white,
                 backColor: .green) {

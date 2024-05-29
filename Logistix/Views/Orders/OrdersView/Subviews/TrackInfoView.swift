@@ -82,7 +82,6 @@ struct TrackInfoView: View {
                         ordersVM.storageManager.write {
                             order.thaw()?.status = "Отменен"
                         }
-                        //   $orders.remove(order)
                     }
             }
         }

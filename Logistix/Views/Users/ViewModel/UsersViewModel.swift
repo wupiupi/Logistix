@@ -8,13 +8,19 @@
 import Foundation
 import FirebaseFirestore
 
+@MainActor
 final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
     
     private let db = Firestore.firestore()
     
     init() {
+        updateUsers()
+    }
+    
+    func updateUsers() {
         Task {
+            self.users = []
             await fetchUsers()
         }
     }
@@ -43,7 +49,6 @@ final class UsersViewModel: ObservableObject {
                 self.users.append(user)
             }
         }
-        print(self.users)
     }
     
     func updateUserRole(id: String, role: Role) {
@@ -52,25 +57,23 @@ final class UsersViewModel: ObservableObject {
             if let error {
                 print("Error updating document: \(error)")
             }
-            
-            Task {
-                await self.fetchUsers()
-            }
+            self.updateUsers()
         }
     }
     
     func deleteUser(_ user: User) {
-            let db = Firestore.firestore()
-            db.collection("users")
-                .document(user.id)
-                .delete { error in
-                    if let error {
-                        print("Error deleting user: \(error)")
-                        return
-                    }
-
-                    // Remove the deleted user from the users array
-                    self.users.removeAll { $0.id == user.id }
+        let db = Firestore.firestore()
+        db.collection("users")
+            .document(user.id)
+            .delete { error in
+                if let error {
+                    print("Error deleting user: \(error)")
+                    return
                 }
-        }
+                
+                // Remove the deleted user from the users array
+                self.users.removeAll { $0.id == user.id }
+            }
+        self.updateUsers()
+    }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A01E3B652C066D510070BD64 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B642C066D510070BD64 /* UserInfoView.swift */; };
 		A01E3B682C066FB80070BD64 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B672C066FB80070BD64 /* UserDetailsView.swift */; };
 		A01E3B6A2C0670490070BD64 /* ExpandableUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B692C0670490070BD64 /* ExpandableUserView.swift */; };
 		A01E3B6C2C0671FE0070BD64 /* UserIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B6B2C0671FE0070BD64 /* UserIdView.swift */; };
@@ -27,6 +26,7 @@
 		A0C5AF242BF356EA00A91710 /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5AF232BF356EA00A91710 /* Extension + String.swift */; };
 		A0C5AF292BF35DEB00A91710 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5AF282BF35DEB00A91710 /* ThumbnailView.swift */; };
 		A0C5AF2B2BF35E1A00A91710 /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5AF2A2BF35E1A00A91710 /* ExpandedView.swift */; };
+		A0C7A7C72C07D08D0083A4E3 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C7A7C62C07D08D0083A4E3 /* UserInfoView.swift */; };
 		A0D030682BF37F98008618D2 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D030672BF37F98008618D2 /* ExpandableView.swift */; };
 		A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */; };
 		A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA332BEFFC7A00529E5C /* ContentView.swift */; };
@@ -126,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A01E3B642C066D510070BD64 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		A01E3B672C066FB80070BD64 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		A01E3B692C0670490070BD64 /* ExpandableUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableUserView.swift; sourceTree = "<group>"; };
 		A01E3B6B2C0671FE0070BD64 /* UserIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdView.swift; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		A0C5AF232BF356EA00A91710 /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		A0C5AF282BF35DEB00A91710 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
 		A0C5AF2A2BF35E1A00A91710 /* ExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
+		A0C7A7C62C07D08D0083A4E3 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		A0D030672BF37F98008618D2 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
 		A0D8EA2E2BEFFC7A00529E5C /* Logistix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logistix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogistixApp.swift; sourceTree = "<group>"; };
@@ -253,10 +253,10 @@
 		A01E3B662C066E3B0070BD64 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				A01E3B642C066D510070BD64 /* UserInfoView.swift */,
 				A01E3B672C066FB80070BD64 /* UserDetailsView.swift */,
 				A01E3B692C0670490070BD64 /* ExpandableUserView.swift */,
 				A01E3B6B2C0671FE0070BD64 /* UserIdView.swift */,
+				A0C7A7C62C07D08D0083A4E3 /* UserInfoView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -834,7 +834,6 @@
 				CD3776A52BFCBE01005F322C /* SocialsView.swift in Sources */,
 				A04D648F2BF1FD92002725FC /* NewOrderView.swift in Sources */,
 				CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */,
-				A01E3B652C066D510070BD64 /* UserInfoView.swift in Sources */,
 				A0F6EBAA2BF2999F00E279BF /* SideMenu.swift in Sources */,
 				A08F4B5F2BF0D6E700EE3585 /* Extension + Color.swift in Sources */,
 				CD3776972BFCB827005F322C /* CarrierInfoView.swift in Sources */,
@@ -877,6 +876,7 @@
 				CD3776AE2BFCC900005F322C /* LoginButtonView.swift in Sources */,
 				CD3776A02BFCBCE5005F322C /* ContactsView.swift in Sources */,
 				A0E39B392BF27E8B0055503E /* OrdersViewModel.swift in Sources */,
+				A0C7A7C72C07D08D0083A4E3 /* UserInfoView.swift in Sources */,
 				A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */,
 				CD41F2412BF8BCCF00CBCB66 /* Price.swift in Sources */,
 				CD3F7A112BFE0E9800390CD3 /* EstimatedTimeNewOrderView.swift in Sources */,
