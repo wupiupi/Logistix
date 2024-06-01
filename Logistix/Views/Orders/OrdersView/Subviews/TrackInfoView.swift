@@ -74,6 +74,8 @@ struct TrackInfoView: View {
                             order.thaw()?.status = "Подтвержден"
                         }
                     }
+                    .disabled(order.status == "Подтвержден")
+                    .opacity(order.status == "Подтвержден" ? 0.4 : 1)
                 
                 OrderButtonView(
                     title: "Отменить",
@@ -83,6 +85,8 @@ struct TrackInfoView: View {
                             order.thaw()?.status = "Отменен"
                         }
                     }
+                    .disabled(order.status == "Отменен")
+                    .opacity(order.status == "Отменен" ? 0.4 : 1)
             }
         }
         .padding()
