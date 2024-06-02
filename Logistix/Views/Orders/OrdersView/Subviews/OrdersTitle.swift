@@ -13,7 +13,8 @@ struct OrdersTitle: View {
             .modifier(
                 TitleModifier(
                     font: .largeTitle,
-                    fontWeight: .semibold
+                    fontWeight: .semibold,
+                    color: Color(hex: 0x363746, alpha: 1)
                 )
             )
     }
