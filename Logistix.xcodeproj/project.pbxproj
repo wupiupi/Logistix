@@ -29,6 +29,9 @@
 		A0C5AF2B2BF35E1A00A91710 /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5AF2A2BF35E1A00A91710 /* ExpandedView.swift */; };
 		A0C7A7C72C07D08D0083A4E3 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C7A7C62C07D08D0083A4E3 /* UserInfoView.swift */; };
 		A0D030682BF37F98008618D2 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D030672BF37F98008618D2 /* ExpandableView.swift */; };
+		A0D2EBFF2C0CD5A7003BD59C /* LogistixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2EBFE2C0CD5A7003BD59C /* LogistixTests.swift */; };
+		A0D2EC062C0CD603003BD59C /* AuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2EC052C0CD603003BD59C /* AuthorizationTests.swift */; };
+		A0D2EC082C0CDF70003BD59C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2EC072C0CDF70003BD59C /* UserTests.swift */; };
 		A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */; };
 		A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA332BEFFC7A00529E5C /* ContentView.swift */; };
 		A0D8EA362BEFFC7A00529E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */; };
@@ -113,6 +116,16 @@
 		CD669F562BFCDA7600C09B09 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD669F552BFCDA7600C09B09 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A0D2EC002C0CD5A7003BD59C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0D8EA262BEFFC7A00529E5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0D8EA2D2BEFFC7A00529E5C;
+			remoteInfo = Logistix;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		CD30022B2BF2DAD600E136B3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -144,6 +157,10 @@
 		A0C5AF2A2BF35E1A00A91710 /* ExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
 		A0C7A7C62C07D08D0083A4E3 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		A0D030672BF37F98008618D2 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
+		A0D2EBFC2C0CD5A7003BD59C /* LogistixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogistixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D2EBFE2C0CD5A7003BD59C /* LogistixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogistixTests.swift; sourceTree = "<group>"; };
+		A0D2EC052C0CD603003BD59C /* AuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTests.swift; sourceTree = "<group>"; };
+		A0D2EC072C0CDF70003BD59C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		A0D8EA2E2BEFFC7A00529E5C /* Logistix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logistix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogistixApp.swift; sourceTree = "<group>"; };
 		A0D8EA332BEFFC7A00529E5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -230,6 +247,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A0D2EBF92C0CD5A7003BD59C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0D8EA2B2BEFFC7A00529E5C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,11 +321,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A0D2EBFD2C0CD5A7003BD59C /* LogistixTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0D2EBFE2C0CD5A7003BD59C /* LogistixTests.swift */,
+				A0D2EC052C0CD603003BD59C /* AuthorizationTests.swift */,
+				A0D2EC072C0CDF70003BD59C /* UserTests.swift */,
+			);
+			path = LogistixTests;
+			sourceTree = "<group>";
+		};
 		A0D8EA252BEFFC7A00529E5C = {
 			isa = PBXGroup;
 			children = (
 				CD30021E2BF2CF9500E136B3 /* .gitattributes */,
 				CD30021F2BF2CF9500E136B3 /* .gitignore */,
+				A0D2EBFD2C0CD5A7003BD59C /* LogistixTests */,
 				A014615A2BF3F8490004578C /* Frameworks */,
 				A0D8EA302BEFFC7A00529E5C /* Logistix */,
 				A0D8EA2F2BEFFC7A00529E5C /* Products */,
@@ -312,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				A0D8EA2E2BEFFC7A00529E5C /* Logistix.app */,
+				A0D2EBFC2C0CD5A7003BD59C /* LogistixTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -754,6 +790,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A0D2EBFB2C0CD5A7003BD59C /* LogistixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0D2EC042C0CD5A7003BD59C /* Build configuration list for PBXNativeTarget "LogistixTests" */;
+			buildPhases = (
+				A0D2EBF82C0CD5A7003BD59C /* Sources */,
+				A0D2EBF92C0CD5A7003BD59C /* Frameworks */,
+				A0D2EBFA2C0CD5A7003BD59C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0D2EC012C0CD5A7003BD59C /* PBXTargetDependency */,
+			);
+			name = LogistixTests;
+			productName = LogistixTests;
+			productReference = A0D2EBFC2C0CD5A7003BD59C /* LogistixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A0D8EA2D2BEFFC7A00529E5C /* Logistix */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0D8EA3C2BEFFC7A00529E5C /* Build configuration list for PBXNativeTarget "Logistix" */;
@@ -789,6 +843,10 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					A0D2EBFB2C0CD5A7003BD59C = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = A0D8EA2D2BEFFC7A00529E5C;
+					};
 					A0D8EA2D2BEFFC7A00529E5C = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -812,11 +870,19 @@
 			projectRoot = "";
 			targets = (
 				A0D8EA2D2BEFFC7A00529E5C /* Logistix */,
+				A0D2EBFB2C0CD5A7003BD59C /* LogistixTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A0D2EBFA2C0CD5A7003BD59C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0D8EA2C2BEFFC7A00529E5C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -832,6 +898,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A0D2EBF82C0CD5A7003BD59C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0D2EC082C0CDF70003BD59C /* UserTests.swift in Sources */,
+				A0D2EBFF2C0CD5A7003BD59C /* LogistixTests.swift in Sources */,
+				A0D2EC062C0CD603003BD59C /* AuthorizationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0D8EA2A2BEFFC7A00529E5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -935,7 +1011,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A0D2EC012C0CD5A7003BD59C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0D8EA2D2BEFFC7A00529E5C /* Logistix */;
+			targetProxy = A0D2EC002C0CD5A7003BD59C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A0D2EC022C0CD5A7003BD59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wupiupi.LogistixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logistix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Logistix";
+			};
+			name = Debug;
+		};
+		A0D2EC032C0CD5A7003BD59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wupiupi.LogistixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logistix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Logistix";
+			};
+			name = Release;
+		};
 		A0D8EA3A2BEFFC7A00529E5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1128,6 +1246,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A0D2EC042C0CD5A7003BD59C /* Build configuration list for PBXNativeTarget "LogistixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0D2EC022C0CD5A7003BD59C /* Debug */,
+				A0D2EC032C0CD5A7003BD59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A0D8EA292BEFFC7A00529E5C /* Build configuration list for PBXProject "Logistix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
