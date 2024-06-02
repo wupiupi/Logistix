@@ -15,7 +15,13 @@ import SwiftUI
      var body: some View {
          VStack(alignment: .center, spacing: 20) {
              Text("Пользователь: \(user.id)")
-                 .modifier(TitleModifier(font: .title3, fontWeight: .bold))
+                 .modifier(
+                    TitleModifier(
+                        font: .title3,
+                        fontWeight: .bold,
+                        color: Color(hex: 0x363746, alpha: 1)
+                    )
+                 )
 
              UserDetailsView(title: "ID", userInfo: user.id)
              UserDetailsView(title: "ФИО", userInfo: user.name)
