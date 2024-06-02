@@ -17,7 +17,10 @@ struct OrderIdView: View {
             HStack {
                 Text("№ \(order.trackingNumber)")
                     .font(.title3)
-                    .foregroundStyle(Color(hex: 0x00CCA6, alpha: 1))
+                    .foregroundStyle(order.status != "Отменен"
+                                     ? Color(hex: 0x00CCA6, alpha: 1)
+                                     : .red
+                    )
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
