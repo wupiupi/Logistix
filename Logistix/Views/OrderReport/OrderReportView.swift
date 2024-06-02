@@ -11,6 +11,12 @@ struct OrderReportView: View {
     @Environment(\.dismiss) var dismiss
     let order: Order
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter
+    }()
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 20) {
@@ -53,7 +59,7 @@ struct OrderReportView: View {
                     .font(.title3)
                     .foregroundStyle(.gray)
                 
-                Text("\(order.status): \(Date().formatted())")
+                Text("\(order.status): \(dateFormatter.string(from: Date.now))")
                     .font(.title3)
                     .foregroundStyle(Color(hex: 0x00CCA6, alpha: 1))
                     .padding([.top, .bottom], 8)
