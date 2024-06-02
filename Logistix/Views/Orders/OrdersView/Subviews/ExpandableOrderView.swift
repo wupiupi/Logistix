@@ -18,7 +18,8 @@ struct ExpandableOrderView: View {
                         .modifier(
                             TitleModifier(
                                 font: .title,
-                                fontWeight: .semibold
+                                fontWeight: .semibold,
+                                color: Color(hex: 0x363746, alpha: 1)
                             )
                         )
                 }
@@ -31,8 +32,3 @@ struct ExpandableOrderView: View {
     }
 }
 
-#Preview {
-    ExpandableOrderView(
-        order: Order()
-    )
-}
