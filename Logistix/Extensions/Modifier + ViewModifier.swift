@@ -10,10 +10,11 @@ import SwiftUI
 struct TitleModifier: ViewModifier {
     let font: Font
     let fontWeight: Font.Weight
+    let color: Color
     
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+            .foregroundStyle(color)
             .font(font)
             .fontWeight(fontWeight)
     }
