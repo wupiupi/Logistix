@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00678592C0CBDCE004697B9 /* OrderReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00678582C0CBDCE004697B9 /* OrderReportView.swift */; };
 		A01E3B682C066FB80070BD64 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B672C066FB80070BD64 /* UserDetailsView.swift */; };
 		A01E3B6A2C0670490070BD64 /* ExpandableUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B692C0670490070BD64 /* ExpandableUserView.swift */; };
 		A01E3B6C2C0671FE0070BD64 /* UserIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E3B6B2C0671FE0070BD64 /* UserIdView.swift */; };
@@ -126,6 +127,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A00678582C0CBDCE004697B9 /* OrderReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReportView.swift; sourceTree = "<group>"; };
 		A01E3B672C066FB80070BD64 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		A01E3B692C0670490070BD64 /* ExpandableUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableUserView.swift; sourceTree = "<group>"; };
 		A01E3B6B2C0671FE0070BD64 /* UserIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdView.swift; sourceTree = "<group>"; };
@@ -243,6 +245,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A00678572C0CBDC0004697B9 /* OrderReport */ = {
+			isa = PBXGroup;
+			children = (
+				A00678582C0CBDCE004697B9 /* OrderReportView.swift */,
+			);
+			path = OrderReport;
+			sourceTree = "<group>";
+		};
 		A014615A2BF3F8490004578C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +343,7 @@
 		A0D8EA3F2BEFFCB300529E5C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A00678572C0CBDC0004697B9 /* OrderReport */,
 				A09BDAB72C06431100FAED0E /* Users */,
 				A0F6EBB32BF2BACF00E279BF /* Authentication */,
 				A0E39B342BF27E460055503E /* ContactUs */,
@@ -826,6 +837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E36DA02BF015F300A4B8AE /* Extension + View.swift in Sources */,
+				A00678592C0CBDCE004697B9 /* OrderReportView.swift in Sources */,
 				A0F6EBB12BF2AA3400E279BF /* MainView.swift in Sources */,
 				CD3776912BFCB5F8005F322C /* HeaderStartView.swift in Sources */,
 				A02B638C2BF1063B0014EE5B /* ContactUsView.swift in Sources */,
