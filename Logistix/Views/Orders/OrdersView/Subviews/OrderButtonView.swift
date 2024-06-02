@@ -28,12 +28,3 @@ struct OrderButtonView: View {
         }
     }
 }
-
-#Preview {
-    OrderButtonView(
-        title: "Отменить",
-        titleColor: .white,
-        backColor: .main,
-        action: {}
-    )
-}
