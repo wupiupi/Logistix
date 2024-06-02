@@ -17,7 +17,13 @@ struct ApplicationInfoView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             Text("№ \(application.id)")
-                .modifier(TitleModifier(font: .title, fontWeight: .bold))
+                .modifier(
+                    TitleModifier(
+                        font: .title,
+                        fontWeight: .bold,
+                        color: Color(hex: 0x363746, alpha: 1)
+                    )
+                )
             
             OrderDetailsView(
                 title: "Имя контакта",
