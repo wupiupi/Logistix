@@ -97,13 +97,31 @@ struct TrackInfoView: View {
                                         order.thaw()?.status = "Подтвержден"
                                     }
                                 }
-                        default:
+                            
+                        case "Подтвержден":
                             OrderButtonView(
                                 title: "Завершить",
                                 titleColor: .white,
                                 backColor: .green) {
                                     ordersVM.storageManager.write {
                                         order.thaw()?.status = "Завершён"
+                                    }
+                                }
+                            OrderButtonView(
+                                title: "Отменить",
+                                titleColor: .red,
+                                backColor: .clear) {
+                                    ordersVM.storageManager.write {
+                                        order.thaw()?.status = "Отменен"
+                                    }
+                                }
+                        default:
+                            OrderButtonView(
+                                title: "Подтвердить",
+                                titleColor: .white,
+                                backColor: .green) {
+                                    ordersVM.storageManager.write {
+                                        order.thaw()?.status = "Подтвержден"
                                     }
                                 }
                             

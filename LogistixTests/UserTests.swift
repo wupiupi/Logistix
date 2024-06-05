@@ -53,7 +53,7 @@ final class UserTests: XCTestCase {
         
         // Assert
         do {
-            let documentSnapshot = try await mockDocument.getDocument()
+            _ = try await mockDocument.getDocument()
         } catch {
             print(error)
         }
