@@ -9,11 +9,11 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    @EnvironmentObject private var viewModel: AuthViewModel
+    @EnvironmentObject private var authVM: AuthViewModel
     
     var body: some View {
         Group {
-            if viewModel.currentUser != nil {
+            if authVM.currentUser != nil {
                 MainView()
             } else {
                 StartView()
@@ -22,6 +22,6 @@ struct ContentView: View {
     }
 }
 
-//#Preview {
-//    ContentView()
-//}
+#Preview {
+    ContentView()
+}

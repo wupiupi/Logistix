@@ -13,17 +13,12 @@ final class Order: Object, Codable, Identifiable {
     @Persisted var userID = ""
     @Persisted var trackingNumber = " "
     @Persisted var status = "ожидает подтверждения"
-    @Persisted var sourceAddress = ""
-    @Persisted var destinationAddress = ""
-    @Persisted var senderName = ""
-    @Persisted var senderPhoneNumber = ""
-    @Persisted var recipientName = ""
-    @Persisted var recipientPhoneNumber = ""
+    @Persisted var route: Route?
+    @Persisted var sender: Sender?
+    @Persisted var recipient: Recipient?
     @Persisted var cargoType = ""
     @Persisted var weight = ""
     @Persisted var dateOfLoading = Date()
     @Persisted var dateOfDelivery = Date()
-    @Persisted var cargoCost = ""
-    @Persisted var payment = ""
-    @Persisted var totalCost = ""
+    @Persisted var price: Price?
 }
