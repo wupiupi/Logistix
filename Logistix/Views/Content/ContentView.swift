@@ -9,14 +9,15 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    @ObservedObject var app: RealmSwift.App
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     var body: some View {
-        if let user = app.currentUser {
-            MainView()
-                .environment(\.partitionValue, user.id )
-        } else {
-            StartView()
+        Group {
+            if viewModel.currentUser != nil {
+                MainView()
+            } else {
+                StartView()
+            }
         }
     }
 }

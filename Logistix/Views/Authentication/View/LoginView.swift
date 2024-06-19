@@ -10,7 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
-    @StateObject var authManager = AuthenticationManager()
+    
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -20,35 +21,27 @@ struct LoginView: View {
                     .fontWeight(.bold)
                 
                 InputView(
-                    text: $authManager.email,
+                    text: $email,
                     title: "Почта",
                     placeholder: "Example@gmail.com"
                 )
                 .textInputAutocapitalization(.never)
                 
                 InputView(
-                    text: $authManager.pass,
+                    text: $password,
                     title: "Пароль",
                     placeholder: "Пароль",
                     isSecureField: true
                 )
                 .padding(.bottom, 20)
                 
-                
-                #warning("wtf")
-                if authManager.isLoading {
-                    ProgressView()
-                }
-                
-                #warning("wtf")
-                if let error = authManager.errorMessage {
-                    Text(error)
-                        .foregroundStyle(.pink)
-                }
-
-                
                 Button {
-                    authManager.login()
+                    Task {
+                        try await viewModel.signIn(
+                            withEmail: email,
+                            password: password
+                        )
+                    }
                 } label: {
                     Text("Войти")
                         .foregroundStyle(.white)
@@ -63,26 +56,9 @@ struct LoginView: View {
                                 .foregroundStyle(Color.main)
                         }
                 }
-//                .disabled(!formIsValid)
+                .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert, actions: {} )
+                .disabled(!formIsValid)
                 .opacity(formIsValid ? 1.0 : 0.5)
-                
-                // Sign up Button
-                NavigationLink {
-                    RegistrationView()
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    HStack(spacing: 2) {
-                        Text("Еще не зарегистрированы?")
-                        Text("Регистрация")
-                            .fontWeight(.bold)
-                    }
-                    .foregroundStyle(.main)
-                }
-                
-                Button("Log in anon") {
-                    authManager.anonymouslyLogin()
-                }
-                .disabled(authManager.isLoading)
             }
             
         }

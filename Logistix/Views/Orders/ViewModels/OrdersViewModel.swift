@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class OrdersViewModel: ObservableObject {
-    @Published var orders: [Order]
-    
-    init() {
-        orders = Order.MOCK_ORDERS()
-    }
-}
+//final class OrdersViewModel: ObservableObject {
+//    @Published var orders: [Order]
+//    
+//    init() {
+//        orders = Order.MOCK_ORDERS()
+//    }
+//}

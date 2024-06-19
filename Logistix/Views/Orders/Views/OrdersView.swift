@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ToggleStates {
     var oneIsOn: Bool = false
@@ -14,21 +15,26 @@ struct ToggleStates {
 
 struct OrdersView: View {
 //    @EnvironmentObject private var viewModel: OrdersViewModel
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     @State private var toggleStates = ToggleStates()
     @State private var searchTerm = ""
     @State private var isViewExpanded = false
-                
-    private var orders: [Order] {
-        Order.MOCK_ORDERS()
+
+    private let storageManager = StorageManager.shared
+    @ObservedResults(Order.self) var orders
+    
+    private var userOrders: [Order] {
+        orders.filter { $0.userID == viewModel.currentUser?.id ?? ""}
     }
     
-    private var filteredOrders: [Order] {
-        //        guard !searchTerm.isEmpty else { return viewVM.heroes }
-        //        return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
-        guard !searchTerm.isEmpty else { return orders }
-        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
-    }
+    
+//    private var filteredOrders: [Order_] {
+////                guard !searchTerm.isEmpty else { return viewVM.heroes }
+////                return viewVM.heroes.filter { $0.name.localizedCaseInsensitiveContains(searchTerm) }
+//        guard !searchTerm.isEmpty else { return orders }
+//        return orders.filter { $0.id.localizedCaseInsensitiveContains(searchTerm) }
+//    }
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -68,7 +74,7 @@ struct OrdersView: View {
                      }
                      */
                     
-                    ForEach(filteredOrders, id: \.self) { order in
+                    ForEach(userOrders, id: \.self) { order in
                         
                         Divider()
                         
@@ -243,7 +249,7 @@ struct CustomDisclosureStyle: DisclosureGroupStyle {
     }
 }
 
-#Preview {
-    OrdersView()
-}
+//#Preview {
+//    OrdersView()
+//}
 

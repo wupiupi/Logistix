@@ -11,13 +11,13 @@ struct SideMenu: View {
     @Binding var selectedTab: String
     @Namespace var animation
     
-    @StateObject var authManager = AuthenticationManager()
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             // Padding top for Top Close Button
             VStack(alignment: .leading, spacing: 6) {
-                Text("Name Surname")
+                Text(viewModel.currentUser?.email ?? "")
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundStyle(.white)
@@ -57,7 +57,7 @@ struct SideMenu: View {
                 TabButton(
                     image: "rectangle.righthalf.inset.fill.arrow.right",
                     title: "Выход из аккаунта",
-                    action: authManager.logOut,
+                    action: { viewModel.signOut() },
                     selectedTab: .constant(""),
                     animation: animation
                 )

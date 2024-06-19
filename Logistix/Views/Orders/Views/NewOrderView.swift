@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NewOrderView: View {
+    @ObservedResults(Order.self) var orders
+    @EnvironmentObject private var viewModel: AuthViewModel
     
     // MARK: - Payment
     enum Payment: String, CaseIterable {
@@ -34,15 +37,17 @@ struct NewOrderView: View {
     @State private var dateOfDelivery: Date?
     @State private var cost = ""
     @State private var payment: Payment = .cache
+    
     @State private var isAgreededPrivacy = false
+    @State private var isShowingAlert = false
     
     // MARK: - Computable Properties
     private var totalPrice: String {
         switch selectedWeight {
-             case .belowOneHundred: "5.000"
-             case .belowFourHundred: "7.500"
-             case .overFourHundred: "10.000"
-         }
+        case .belowOneHundred: "5.000"
+        case .belowFourHundred: "7.500"
+        case .overFourHundred: "10.000"
+        }
     }
     
     // MARK: - Init
@@ -285,7 +290,7 @@ struct NewOrderView: View {
                             .font(.title3)
                             .foregroundStyle(Color(hex: 0x363746, alpha: 1))
                         
-                       
+                        
                         Text("\(totalPrice) BYN")
                             .font(.title)
                             .fontWeight(.bold)
@@ -323,7 +328,29 @@ struct NewOrderView: View {
                     .padding(.bottom, 20)
                     
                     Button {
+                        let order = Order()
+                                    
+                        // TODO: - Put here UID of Current User from Firebase
+                        order.userID = viewModel.currentUser?.id ?? ""
                         
+                        order.trackingNumber = .generateTrackNum()
+                        order.sourceAddress = sourceAddress
+                        order.destinationAddress = destinationAddress
+                        order.senderName = senderName
+                        order.senderPhoneNumber = senderPhoneNumber
+                        order.recipientName = recipientName
+                        order.recipientPhoneNumber = recipientPhoneNumber
+                        order.cargoType = ""
+                        order.weight = selectedWeight.rawValue
+                        order.dateOfLoading = dateOfLoading ?? Date()
+                        order.dateOfDelivery = dateOfDelivery ?? Date()
+                        order.cargoCost = cost
+                        order.payment = payment.rawValue
+                        order.totalCost = totalPrice
+                        
+                        $orders.append(order)
+                        
+                        isShowingAlert = true
                     } label: {
                         HStack {
                             Text("Отправить заявку")
@@ -343,11 +370,31 @@ struct NewOrderView: View {
                     .hAlign(.center)
                     .disabled(!isAgreededPrivacy)
                     .opacity(isAgreededPrivacy ? 1 : 0.3)
+                    .alert(
+                        "Готово",
+                        isPresented: $isShowingAlert,
+                        actions: {
+                            Button("OK") {
+                                sourceAddress = ""
+                                destinationAddress = ""
+                                senderName = ""
+                                senderPhoneNumber = ""
+                                recipientName = ""
+                                recipientPhoneNumber = ""
+                                cost = ""
+                                isAgreededPrivacy = false
+                            }
+                        },
+                        message: {
+                            Text("Ваша заявка успешно зарегистрирована")
+                        }
+                    )
                 }
                 .navigationTitle("Logistix")
             }
         }
     }
+    
     
     @ViewBuilder
     func CustomDatePicker(date: Binding<Date?>) -> some View {
@@ -481,3 +528,145 @@ struct DatePickerTextField: UIViewRepresentable {
         }
     }
 }
+
+
+
+
+
+
+//struct NewOrderView: View {
+//    @ObservedResults(Order_.self) var orders
+//
+//    // MARK: - State Properties
+//    @State private var sourceAddress = ""
+//    @State private var destinationAddress = ""
+//    @State private var senderName = ""
+//    @State private var isAgreededPrivacy = false
+//    @State private var isShowingAlert = false
+//
+//    // MARK: - Init
+//    init(
+//        sourceAddress: String = "",
+//        destinationAddress: String = "",
+//        senderName: String = ""
+//    ) {
+//        self.sourceAddress = sourceAddress
+//        self.destinationAddress = destinationAddress
+//        self.senderName = senderName
+//    }
+//
+//    var body: some View {
+//        NavigationStack {
+//            ScrollView {
+//                VStack(alignment: .leading) {
+//                    HStack {
+//                        Text("Оформление доставки")
+//                            .font(.largeTitle)
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+//
+//                        Spacer()
+//
+//                        Image("bricks")
+//                            .resizable()
+//                            .frame(width: 83, height: 65)
+//                    }
+//                    .padding(.horizontal)
+//                    .padding(.bottom, 90)
+//
+//                    Divider()
+//
+//                    VStack(alignment: .leading) {
+//                        Text("Маршрут")
+//                            .font(.title)
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+//                            .padding(.leading)
+//
+//                        VStack {
+//                            InputView(
+//                                text: $sourceAddress,
+//                                title: "Откуда:",
+//                                placeholder: "Адрес отправки"
+//                            )
+//
+//                            InputView(
+//                                text: $destinationAddress,
+//                                title: "Куда:",
+//                                placeholder: "Адрес доставки"
+//                            )
+//                        }
+//                        .hAlign(.center)
+//                    }
+//                    .padding(.bottom, 50)
+//
+//                    Divider()
+//
+//                    VStack(alignment: .leading) {
+//                        Text("Контактные данные")
+//                            .font(.title)
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+//                            .padding(.leading)
+//
+//                        VStack {
+//                            InputView(
+//                                text: $senderName,
+//                                title: "Отправитель:",
+//                                placeholder: "Иванов Иван Иванович"
+//                            )
+//                        }
+//                        .hAlign(.center)
+//                    }
+//                    .padding(.bottom, 20)
+//
+//
+//                    Button {
+//                        let order = Order_()
+//                        order.trackingNumber = ""
+//                        order.status = ""
+//                        order.sourceAddress = sourceAddress
+//                        order.destinationAddress = destinationAddress
+//                        order.senderName = senderName
+//
+//                        $orders.append(order)
+//                    } label: {
+//                        HStack {
+//                            Text("Отправить заявку")
+//                                .font(.title2)
+//                                .foregroundStyle(.white)
+//                                .fontWeight(.semibold)
+//                        }
+//                        .padding(.top, 10)
+//                        .padding(.bottom, 5)
+//                        .padding([.leading, .trailing], 16)
+//                        .foregroundStyle(.white)
+//                    }
+//                    .background {
+//                        Capsule()
+//                            .fill(Color(hex: 0x00CCA6, alpha: 1))
+//                    }
+//                    .hAlign(.center)
+//                    .disabled(!isAgreededPrivacy)
+//                    .opacity(isAgreededPrivacy ? 1 : 0.3)
+//                    .alert(
+//                        "Готово",
+//                        isPresented: $isShowingAlert,
+//                        actions: {
+//                            Button("OK") {
+//                                sourceAddress = ""
+//                                destinationAddress = ""
+//                                senderName = ""
+//                                isAgreededPrivacy = false
+//                            }
+//                        },
+//                        message: {
+//                            Text("Ваша заявка успешно зарегистрирована. Можете посмотреть Ваши заявки разделе Заказы")
+//                        }
+//                    )
+//                }
+//                .navigationTitle("Logistix")
+//            }
+//        }
+//    }
+//}
