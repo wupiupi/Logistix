@@ -5,7 +5,7 @@ import FirebaseFirestoreSwift
 import Combine
 @testable import Logistix
 
-final class AuthorizationTests: XCTestCase {
+final class OrderFormValidationTests: XCTestCase {
   func testOrderFormValidation() {
 
    let orderForm = OrderForm()
