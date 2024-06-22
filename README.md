@@ -2,7 +2,7 @@
 
 An application for a logistics company called "Logistix", made on **SwiftUI** according to the **MVVM** structure. 
 
-- This application is used for authorization and registration via **Firebase**
+- This application uses **Firebase** for authorization and registration
 - User can create orders for cargo transportation, and also feedback requests - this functionality is performed using **Realm**
 - There is also a separate administrator account where you can view created freight orders and feedback requests to confirm or cancel them
 - Also administrator can view all created users, delete them or also grant administrative rights
