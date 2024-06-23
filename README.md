@@ -1,11 +1,30 @@
-# Logistix
+# 🚚 Logistix 🗂️
 
-An application for a logistics company called "Logistix", made on **SwiftUI** according to the **MVVM** structure. 
+An application for a logistics company called "Logistix", made on SwiftUI according to the MVVM structure.
 
-- This application uses **Firebase** for authorization and registration
-- User can create orders for cargo transportation, and also feedback requests - this functionality is performed using **Realm**
+## ✨ Features:
+
+- This application uses Firebase for authorization and registration
+- User can create orders for cargo transportation, and also feedback requests - this functionality is performed using Realm
 - There is also a separate administrator account where you can view created freight orders and feedback requests to confirm or cancel them
 - Also administrator can view all created users, delete them or also grant administrative rights
+
+## 🛠️ Technologies Used:
+
+- SwiftUI
+- MVVM architecture
+- Firebase for authentication and registration
+- Realm for data management
+
+## 🚀 Getting Started
+- To get started with Logistix, follow these steps:
+- Clone the repository to your local machine
+- Open the project in Xcode
+- Install the required dependencies using CocoaPods or Carthage
+- Build and run the application
+  
+## 🤝 Contributing
+- We welcome contributions from the community! If you find any issues or have ideas for new features, please feel free to open an issue or submit a pull request.
 
 ## Start, Login, Registration screens
 <img src="https://github.com/ice43/Logistix/assets/92436401/3c92e415-d83a-4e47-b205-b8b7a4e62035" width="255" height="550"/>
