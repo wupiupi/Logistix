@@ -10,6 +10,7 @@ import Foundation
 enum Role: String {
     case user
     case admin
+    case driver
 }
 
 struct User: Codable, Identifiable {
@@ -18,4 +19,5 @@ struct User: Codable, Identifiable {
     let email: String
     let name: String
     let pass: String
+    let auto: String?
 }

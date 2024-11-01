@@ -22,6 +22,10 @@ struct OrdersView: View {
         return orders.filter { $0.trackingNumber.localizedCaseInsensitiveContains(ordersVM.searchTerm) }
     }
     
+    private var driverOrders: [Order] {
+        return filteredOrders.filter { $0.status == "Подтвержден" || $0.status == "В работе" }
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -29,9 +33,10 @@ struct OrdersView: View {
                     OrdersTitle()
                     
                     ForEach(
-                        authVM.currentUser?.role == Role.user.rawValue
-                        ? userOrders
-                        : filteredOrders,
+//                        authVM.currentUser?.role == Role.user.rawValue
+//                        ? userOrders
+//                        : filteredOrders,
+                        getCorrectOrders(),
                         id: \.self
                     ) { order in
                         
@@ -63,5 +68,16 @@ struct OrdersView: View {
             text: $ordersVM.searchTerm,
             prompt: "Поиск по документам или заказам"
         )
+    }
+    
+    private func getCorrectOrders() -> [Order] {
+        switch authVM.currentUser?.role {
+        case Role.user.rawValue:
+            return userOrders
+        case Role.driver.rawValue:
+            return driverOrders
+        default:
+            return filteredOrders
+        }
     }
 }

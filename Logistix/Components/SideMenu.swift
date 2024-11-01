@@ -45,7 +45,7 @@ struct SideMenu: View {
                         selectedTab: $selectedTab,
                         animation: animation
                     )
-                } else {
+                } else if authVM.currentUser?.role == "user" {
                     TabButton(
                         image: "pencil.and.list.clipboard",
                         title: "Новый заказ",

@@ -55,7 +55,8 @@ final class AuthViewModel: ObservableObject {
         password: String,
         fullName: String,
         phoneNumber: String?,
-        role: Role
+        role: Role,
+        auto: String? = nil
     ) async throws {
         
         let hashedPass = hashPassword(password)
@@ -75,7 +76,8 @@ final class AuthViewModel: ObservableObject {
                 role: role.rawValue,
                 email: email,
                 name: fullName,
-                pass: hashedPass
+                pass: hashedPass,
+                auto: auto
             )
                         
             // Encoding our user

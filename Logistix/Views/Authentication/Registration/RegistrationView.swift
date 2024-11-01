@@ -16,8 +16,14 @@ struct RegistrationView: View {
                 .fontWeight(.bold)
             
             RegistrationFieldsView()
-            
+
             RegistrationButtonView()
+            
+            NavigationLink {
+                DriverRegistrationView()
+            } label: {
+                Text("Отдельная регистрация для водителей")
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ final class RegistrationViewModel: ObservableObject {
     @Published var fullName = ""
     @Published var password = ""
     @Published var confirmPassword = ""
-    
+    @Published var auto = ""
 }
 
 // MARK: - AuthenticationFormProtocol

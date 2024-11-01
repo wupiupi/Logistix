@@ -109,6 +109,7 @@
 		CD41F2472BF8CE2300CBCB66 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41F2462BF8CE2300CBCB66 /* Recipient.swift */; };
 		CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */; };
 		CD44DDF42BFB4569000A8356 /* ApplicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */; };
+		CD574CC92C9AE48100A6D273 /* DriverRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD574CC82C9AE48100A6D273 /* DriverRegistrationView.swift */; };
 		CD669F3F2BFCD16F00C09B09 /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD669F3E2BFCD16F00C09B09 /* ContactUsViewModel.swift */; };
 		CD669F412BFCD23600C09B09 /* ContactUsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD669F402BFCD23600C09B09 /* ContactUsButtonView.swift */; };
 		CD669F452BFCD2C600C09B09 /* ContactUsFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD669F442BFCD2C600C09B09 /* ContactUsFieldsView.swift */; };
@@ -239,6 +240,7 @@
 		CD41F2462BF8CE2300CBCB66 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationForm.swift; sourceTree = "<group>"; };
 		CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsView.swift; sourceTree = "<group>"; };
+		CD574CC82C9AE48100A6D273 /* DriverRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRegistrationView.swift; sourceTree = "<group>"; };
 		CD669F3E2BFCD16F00C09B09 /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
 		CD669F402BFCD23600C09B09 /* ContactUsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsButtonView.swift; sourceTree = "<group>"; };
 		CD669F442BFCD2C600C09B09 /* ContactUsFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsFieldsView.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 			children = (
 				CD3776B22BFCCB81005F322C /* Login */,
 				CD3776B42BFCCBB7005F322C /* Registration */,
+				CD574CCB2C9AEA5B00A6D273 /* DriverRegistration */,
 				A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */,
 			);
 			path = Authentication;
@@ -733,6 +736,14 @@
 				CD3F7A2B2BFE259300390CD3 /* ViewModel */,
 			);
 			path = Applications;
+			sourceTree = "<group>";
+		};
+		CD574CCB2C9AEA5B00A6D273 /* DriverRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				CD574CC82C9AE48100A6D273 /* DriverRegistrationView.swift */,
+			);
+			path = DriverRegistration;
 			sourceTree = "<group>";
 		};
 		CD669F422BFCD27F00C09B09 /* Subviews */ = {
@@ -975,6 +986,7 @@
 				A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */,
 				A0E36DA22BF0177A00A4B8AE /* CustomButtonView.swift in Sources */,
 				CD3F7A1B2BFE120E00390CD3 /* InTotalNewOrderView.swift in Sources */,
+				CD574CC92C9AE48100A6D273 /* DriverRegistrationView.swift in Sources */,
 				CD37769D2BFCB963005F322C /* TermsLinkView.swift in Sources */,
 				CD3F7A1D2BFE126C00390CD3 /* CreateNewOrderButtonView.swift in Sources */,
 				CD3F79F72BFDF68A00390CD3 /* OrderButtonView.swift in Sources */,

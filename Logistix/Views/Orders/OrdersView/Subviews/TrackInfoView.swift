@@ -73,7 +73,6 @@ struct TrackInfoView: View {
                     }
                 
                 if authVM.currentUser?.role == Role.admin.rawValue {
-                    
                     switch order.status {
                         case "Завершён":
                             NavigationLink {
@@ -127,6 +126,70 @@ struct TrackInfoView: View {
                             
                             OrderButtonView(
                                 title: "Отменить",
+                                titleColor: .red,
+                                backColor: .clear) {
+                                    ordersVM.storageManager.write {
+                                        order.thaw()?.status = "Отменен"
+                                    }
+                                }
+                    }
+                }
+                
+                // if you're a driver:
+                if authVM.currentUser?.role == Role.driver.rawValue {
+                    switch order.status {
+                        case "Завершён":
+                            NavigationLink {
+                                OrderReportView(order: order)
+                            } label: {
+                                Text("Посмотреть отчет")
+                                    .font(.title2)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(.green)
+                                    }
+                            }
+                        case "Отменен":
+                        OrderButtonView(
+                            title: "Взять в работу",
+                            titleColor: .white,
+                            backColor: .green) {
+                                ordersVM.storageManager.write {
+                                    order.thaw()?.status = "В работе"
+                                }
+                            }
+                            
+                        case "В работе":
+                            OrderButtonView(
+                                title: "Завершить",
+                                titleColor: .white,
+                                backColor: .green) {
+                                    ordersVM.storageManager.write {
+                                        order.thaw()?.status = "Завершён"
+                                    }
+                                }
+                            OrderButtonView(
+                                title: "Отменить",
+                                titleColor: .red,
+                                backColor: .clear) {
+                                    ordersVM.storageManager.write {
+                                        order.thaw()?.status = "Отменен"
+                                    }
+                                }
+                        default:
+                            OrderButtonView(
+                                title: "Взять в работу",
+                                titleColor: .white,
+                                backColor: .green) {
+                                    ordersVM.storageManager.write {
+                                        order.thaw()?.status = "В работе"
+                                    }
+                                }
+                            
+                            OrderButtonView(
+                                title: "Отказаться",
                                 titleColor: .red,
                                 backColor: .clear) {
                                     ordersVM.storageManager.write {
