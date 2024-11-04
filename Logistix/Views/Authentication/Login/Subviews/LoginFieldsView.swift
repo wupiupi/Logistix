@@ -32,8 +32,3 @@ struct LoginFieldsView: View {
         }
     }
 }
-
-#Preview {
-    LoginFieldsView()
-        .environmentObject(LoginViewModel())
-}

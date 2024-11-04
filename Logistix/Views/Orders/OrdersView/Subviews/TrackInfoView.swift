@@ -72,7 +72,7 @@ struct TrackInfoView: View {
                             )
                     }
                 
-                if authVM.currentUser?.role == Role.admin.rawValue {
+                if authVM.currentUser?.roleName == "admin" {
                     switch order.status {
                         case "Завершён":
                             NavigationLink {
@@ -136,7 +136,7 @@ struct TrackInfoView: View {
                 }
                 
                 // if you're a driver:
-                if authVM.currentUser?.role == Role.driver.rawValue {
+                if authVM.currentUser?.roleName == "driver" {
                     switch order.status {
                         case "Завершён":
                             NavigationLink {

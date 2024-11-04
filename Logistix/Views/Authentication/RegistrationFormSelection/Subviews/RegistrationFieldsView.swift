@@ -65,9 +65,3 @@ struct RegistrationFieldsView: View {
         .padding(.bottom, 20)
     }
 }
-
-#Preview {
-    RegistrationFieldsView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(RegistrationViewModel())
-}

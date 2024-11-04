@@ -38,9 +38,3 @@ struct LoginButtonView: View {
         .opacity(loginVM.formIsValid ? 1.0 : 0.5)
     }
 }
-
-#Preview {
-    LoginButtonView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(LoginViewModel())
-}

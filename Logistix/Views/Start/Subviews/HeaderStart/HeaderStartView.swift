@@ -21,7 +21,3 @@ struct HeaderStartView: View {
         .padding(.leading, 8)
     }
 }
-
-#Preview {
-    HeaderStartView()
-}

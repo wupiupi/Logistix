@@ -55,8 +55,3 @@ struct CarrierNewOrderView: View {
         .padding(.bottom, 20)
     }
 }
-
-#Preview {
-    CarrierNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

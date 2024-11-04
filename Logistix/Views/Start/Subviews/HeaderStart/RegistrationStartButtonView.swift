@@ -19,7 +19,3 @@ struct RegistrationStartButtonView: View {
         }
     }
 }
-
-#Preview {
-    RegistrationStartButtonView()
-}

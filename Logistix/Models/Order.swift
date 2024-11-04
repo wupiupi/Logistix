@@ -12,7 +12,7 @@ final class Order: Object, Codable, Identifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var userID = ""
     @Persisted var trackingNumber = " "
-    @Persisted var status = "ожидает подтверждения"
+    @Persisted var status = "на модерации"
     @Persisted var route: Route?
     @Persisted var sender: Sender?
     @Persisted var recipient: Recipient?

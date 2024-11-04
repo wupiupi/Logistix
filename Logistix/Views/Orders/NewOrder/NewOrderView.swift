@@ -58,9 +58,3 @@ struct NewOrderView: View {
         }
     }
 }
-
-#Preview {
-    NewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-        .environmentObject(AuthViewModel())
-}

@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 import FirebaseFirestoreSwift
 import CryptoKit
 
@@ -55,14 +56,13 @@ final class AuthViewModel: ObservableObject {
         password: String,
         fullName: String,
         phoneNumber: String?,
-        role: Role,
+        roleName: String,
         auto: String? = nil
     ) async throws {
         
         let hashedPass = hashPassword(password)
         
         do {
-            
             // Creating a user using firebase code
             let result = try await Auth.auth().createUser(
                 withEmail: email,
@@ -70,10 +70,14 @@ final class AuthViewModel: ObservableObject {
             )
             userSession = result.user
             
+            guard let roleReference = try await getRoleReference(for: roleName) else {
+                throw NSError(domain: "Role not found", code: 0, userInfo: nil)
+            }
+            
             // Creating our User data model
             let user = User(
                 id: result.user.uid,
-                role: role.rawValue,
+                role: roleReference,
                 email: email,
                 name: fullName,
                 pass: hashedPass,
@@ -121,7 +125,37 @@ final class AuthViewModel: ObservableObject {
             return
         }
         
-        currentUser = try? snapshot.data(as: User.self)
+        do {
+            var user = try snapshot.data(as: User.self)
+            currentUser = try? snapshot.data(as: User.self)
+            currentUser?.roleName = await fetchRoleName(for: user.role)
+        } catch {
+            print("Error decoding user data: \(error)")
+        }
+    }
+    
+    func fetchRoleName(for roleReference: DocumentReference?) async -> String? {
+        do {
+            guard let roleReference else { return "" }
+            let snapshot = try await roleReference.getDocument()
+            let roleData = snapshot.data()
+            let rolename = roleData?["name"] as? String
+            return rolename
+        } catch {
+            print("Error fetching role name: \(error)")
+            return nil
+        }
+    }
+    
+    func getRoleReference(for roleName: String) async throws -> DocumentReference? {
+        let rolesCollection = Firestore.firestore().collection("roles")
+        
+        let querySnapshot = try await rolesCollection.whereField("name", isEqualTo: roleName).getDocuments()
+        
+        if let document = querySnapshot.documents.first {
+            return document.reference
+        }
+        return nil
     }
     
     func hashPassword(_ password: String) -> String {

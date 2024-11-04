@@ -54,8 +54,3 @@ struct InTotalNewOrderView: View {
         .padding(.bottom, 20)
     }
 }
-
-#Preview {
-    InTotalNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

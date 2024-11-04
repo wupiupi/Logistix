@@ -19,7 +19,3 @@ struct LoginStartButtonView: View {
         }
     }
 }
-
-#Preview {
-    LoginStartButtonView()
-}

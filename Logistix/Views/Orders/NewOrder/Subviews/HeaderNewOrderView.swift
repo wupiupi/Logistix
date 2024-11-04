@@ -26,6 +26,3 @@ struct HeaderNewOrderView: View {
     }
 }
 
-#Preview {
-    HeaderNewOrderView()
-}

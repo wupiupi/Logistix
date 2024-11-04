@@ -21,8 +21,3 @@ struct ContactUsView: View {
         }
     }
 }
-
-#Preview {
-    ContactUsView()
-        .environmentObject(ContactUsViewModel())
-}

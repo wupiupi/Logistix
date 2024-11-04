@@ -19,7 +19,3 @@ struct StartImageView: View {
             .padding(.bottom, 175)
     }
 }
-
-#Preview {
-    StartImageView()
-}

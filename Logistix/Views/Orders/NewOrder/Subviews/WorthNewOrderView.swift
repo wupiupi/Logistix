@@ -40,8 +40,3 @@ struct WorthNewOrderView: View {
         .padding(.bottom, 20)
     }
 }
-
-#Preview {
-    WorthNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

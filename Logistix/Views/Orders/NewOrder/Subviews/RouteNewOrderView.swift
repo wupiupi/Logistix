@@ -36,8 +36,3 @@ struct RouteNewOrderView: View {
         .padding(.bottom, 50)
     }
 }
-
-#Preview {
-    RouteNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

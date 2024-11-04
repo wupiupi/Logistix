@@ -26,16 +26,16 @@ import SwiftUI
              UserDetailsView(title: "ID", userInfo: user.id)
              UserDetailsView(title: "ФИО", userInfo: user.name)
              UserDetailsView(title: "Почта", userInfo: user.email)
-             UserDetailsView(title: "Роль", userInfo: user.role)
+             UserDetailsView(title: "Роль", userInfo: user.roleName ?? "")
              
              if authVM.currentUser?.id != user.id {
                  OrderButtonView(
-                    title: user.role == "user" ? "Сделать администратором" : "Сделать пользователем",
+                    title: user.roleName == "user" ? "Сделать администратором" : "Сделать пользователем",
                     titleColor: .white,
                     backColor: .green) {
                         usersVM.updateUserRole(
                             id: user.id,
-                            role: user.role == "user" ? .admin : .user
+                            role: user.roleName == "user" ? "admin" : "user"
                         )
                         
                     }

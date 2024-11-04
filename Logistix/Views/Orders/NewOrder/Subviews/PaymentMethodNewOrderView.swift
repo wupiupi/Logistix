@@ -33,8 +33,3 @@ struct PaymentMethodNewOrderView: View {
         .padding(.bottom, 20)
     }
 }
-
-#Preview {
-    PaymentMethodNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

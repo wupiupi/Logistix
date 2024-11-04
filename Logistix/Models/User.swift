@@ -6,18 +6,17 @@
 //
 
 import Foundation
-
-enum Role: String {
-    case user
-    case admin
-    case driver
-}
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct User: Codable, Identifiable {
-    let id: String
-    let role: String
+    var id: String
+    let role: DocumentReference?
     let email: String
     let name: String
     let pass: String
     let auto: String?
+    
+    var roleName: String?
 }

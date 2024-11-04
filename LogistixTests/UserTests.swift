@@ -64,7 +64,7 @@ final class UserTests: XCTestCase {
     func testUpdateUserRole() async {
         // Arrange
         let userId = "ErU3n3MraLS2kHYLvpq9eNG4WV72"
-        let newRole: Role = .admin
+        let newRole: Roles = .admin
         
         // Act
         await viewModel.updateUserRole(id: userId, role: newRole)

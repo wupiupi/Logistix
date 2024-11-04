@@ -48,8 +48,3 @@ struct ContactNewOrderView: View {
         .padding(.bottom, 20)
     }
 }
-
-#Preview {
-    ContactNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

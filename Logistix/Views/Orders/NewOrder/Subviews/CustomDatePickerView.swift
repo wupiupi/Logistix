@@ -29,7 +29,3 @@ struct CustomDatePickerView: View {
         }
     }
 }
-
-#Preview {
-    CustomDatePickerView(date: .constant(Date.now))
-}

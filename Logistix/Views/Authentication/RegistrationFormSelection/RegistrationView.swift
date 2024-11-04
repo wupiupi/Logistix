@@ -14,22 +14,28 @@ struct RegistrationView: View {
                 .multilineTextAlignment(.center)
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .padding(.bottom, 50)
             
-            RegistrationFieldsView()
-
-            RegistrationButtonView()
+            //RegistrationFieldsView()
+            
+            //RegistrationButtonView()
+            
+            NavigationLink {
+                UserRegistrationView()
+            } label: {
+                Text("Я ищу водителя!")
+                    .modifier(InputViewModifier())
+                    .font(.title3)
+            }
             
             NavigationLink {
                 DriverRegistrationView()
             } label: {
-                Text("Отдельная регистрация для водителей")
+                Text("Я ищу грузы!")
+                    .modifier(InputViewModifier())
+                    .font(.title3)
             }
         }
+        Spacer()
     }
-}
-
-#Preview {
-    RegistrationView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(RegistrationViewModel())
 }

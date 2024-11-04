@@ -32,8 +32,3 @@ struct EstimatedTimeNewOrderView: View {
         .padding(.leading)
     }
 }
-
-#Preview {
-    EstimatedTimeNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-}

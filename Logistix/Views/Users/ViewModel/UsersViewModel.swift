@@ -11,7 +11,7 @@ import FirebaseFirestore
 @MainActor
 final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
-    
+
     private let db = Firestore.firestore()
     
     init() {
@@ -38,23 +38,40 @@ final class UsersViewModel: ObservableObject {
             }
             
             for document in querySnapshot.documents {
-                //document is dictionary of one user
-                let user = User(
+                // document is dictionary of one user
+                var user = User(
                     id: document["id"] as? String ?? "",
-                    role: document["role"] as? String ?? "",
+                    role: document["role"] as? DocumentReference,
                     email: document["email"] as? String ?? "",
                     name: document["name"] as? String ?? "",
                     pass: document["pass"] as? String ?? "",
                     auto: document["auto"] as? String ?? ""
                 )
-                self.users.append(user)
+                
+                Task {
+                    guard let roleReference = user.role else { return }
+                    user.roleName = await self.fetchRoleName(for: roleReference)
+                    self.users.append(user)
+                }
             }
         }
     }
     
-    func updateUserRole(id: String, role: Role) {
+    func fetchRoleName(for roleReference: DocumentReference) async -> String? {
+        do {
+            let snapshot = try await roleReference.getDocument()
+            let roleData = snapshot.data()
+            let rolename = roleData?["name"] as? String
+            return rolename
+        } catch {
+            print("Error fetching role name: \(error)")
+            return nil
+        }
+    }
+    
+    func updateUserRole(id: String, role: String) {
         let docRef = db.collection("users").document(id)
-        docRef.updateData(["role": role.rawValue]) { error in
+        docRef.updateData(["role": role]) { error in
             if let error {
                 print("Error updating document: \(error)")
             }

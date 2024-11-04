@@ -11,27 +11,29 @@ struct DriverRegistrationView: View {
     @EnvironmentObject private var registrationVM: RegistrationViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Водитель?\nРады видеть!")
-                .multilineTextAlignment(.center)
-                .font(.title3)
-                .fontWeight(.bold)
-            
-            InputView(
-                text: $registrationVM.auto,
-                title: "Авто",
-                placeholder: "Номер и модель авто"
-            )
-            
-            RegistrationFieldsView()
-            
-            RegistrationButtonView()
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("Форма регистрации для водителей")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.main)
+                
+                Text("Регистрируйтесь и смотрите,\nкакие заказы сейчас доступны!")
+                    .multilineTextAlignment(.center)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
+                InputView(
+                    text: $registrationVM.auto,
+                    title: "Авто",
+                    placeholder: "Номер и модель"
+                )
+                
+                RegistrationFieldsView()
+                
+                RegistrationButtonView()
+            }
         }
+        .scrollIndicators(.hidden)
     }
-}
-
-#Preview {
-    DriverRegistrationView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(RegistrationViewModel())
 }

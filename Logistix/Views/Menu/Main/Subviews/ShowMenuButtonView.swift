@@ -46,8 +46,3 @@ struct ShowMenuButtonView: View {
         .padding()
     }
 }
-
-#Preview {
-    ShowMenuButtonView()
-        .environmentObject(MainViewModel())
-}

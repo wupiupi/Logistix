@@ -71,13 +71,13 @@ struct OrdersView: View {
     }
     
     private func getCorrectOrders() -> [Order] {
-        switch authVM.currentUser?.role {
-        case Role.user.rawValue:
-            return userOrders
-        case Role.driver.rawValue:
-            return driverOrders
-        default:
-            return filteredOrders
+        switch authVM.currentUser?.roleName {
+            case "user":
+                return userOrders
+            case "driver":
+                return driverOrders
+            default:
+                return filteredOrders
         }
     }
 }

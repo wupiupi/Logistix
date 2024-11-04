@@ -90,10 +90,3 @@ struct DatePickerTextFieldView: UIViewRepresentable {
         }
     }
 }
-
-#Preview {
-    DatePickerTextFieldView(
-        placeholder: "Placeholder",
-        date: .constant(Date.now)
-    )
-}

@@ -19,7 +19,7 @@ struct RegistrationButtonView: View {
                     password: registrationVM.password,
                     fullName: registrationVM.fullName,
                     phoneNumber: nil,
-                    role: registrationVM.auto.isEmpty ? .user : .driver,
+                    roleName: registrationVM.auto.isEmpty ? "user" : "driver",
                     auto: registrationVM.auto
                 )
             }
@@ -41,10 +41,4 @@ struct RegistrationButtonView: View {
         }
         .alert(authVM.alertMessage, isPresented: $authVM.isEmailTaken, actions: {} )
     }
-}
-
-#Preview {
-    RegistrationButtonView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(RegistrationViewModel())
 }
