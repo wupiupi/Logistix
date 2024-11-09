@@ -2,21 +2,23 @@
 //  User.swift
 //  Logistix
 //
-//  Created by Serge Broski on 5/14/24.
+//  Created by Paul Makey on 7.11.24.
 //
 
 import Foundation
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+
+enum Role: String {
+    case admin
+    case driver
+    case user
+}
 
 struct User: Codable, Identifiable {
-    var id: String
-    let role: DocumentReference?
+    let id: String
+    let auto: String
     let email: String
     let name: String
     let pass: String
-    let auto: String?
-    
-    var roleName: String?
+    let role: String
+    var orders: [Order]
 }

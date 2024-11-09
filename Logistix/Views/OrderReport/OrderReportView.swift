@@ -31,28 +31,23 @@ struct OrderReportView: View {
                 
                 OrderDetailsView(
                     title: "Адрес отправителя",
-                    orderInfo: order.route?.sourceAddress ?? ""
+                    orderInfo: order.sourceAddress
                 )
                 OrderDetailsView(
                     title: "Адрес получателя",
-                    orderInfo: order.route?.destinationAddress ?? ""
+                    orderInfo: order.destinationAddress
                 )
                 OrderDetailsView(
                     title: "Поставщик",
-                    orderInfo: order.sender?.name ?? ""
+                    orderInfo: order.senderName
                 )
                 OrderDetailsView(
                     title: "Контактный телефон",
-                    orderInfo: order.sender?.phoneNumber ?? ""
-                )
-                OrderDetailsView(
-                    title: "Трек номер",
-                    orderInfo: order.trackingNumber,
-                    systemImageName: "doc.on.doc.fill"
+                    orderInfo: order.senderPhoneNumber
                 )
                 OrderDetailsView(
                     title: "Стоимость",
-                    orderInfo: order.price?.totalCost ?? ""
+                    orderInfo: order.totalCost
                 )
                 
                 Text("Статус заказа")

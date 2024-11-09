@@ -6,15 +6,14 @@
 //
 
 import Foundation
-import RealmSwift
 
-final class ApplicationForm: Object, Codable, Identifiable {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var userID = ""
-    @Persisted var name = " "
-    @Persisted var email = ""
-    @Persisted var company = ""
-    @Persisted var phone = ""
-    @Persisted var status = "Без ответа"
-    @Persisted var date = Date()
+struct ApplicationForm: Codable, Identifiable {
+    let id: String
+    let userID: String
+    let name: String
+    let email: String
+    let company: String
+    let phone: String
+    let status: String
+    let date: Date
 }

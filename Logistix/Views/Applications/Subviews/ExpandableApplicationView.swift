@@ -31,9 +31,3 @@ struct ExpandableApplicationView: View {
         )
     }
 }
-
-#Preview {
-    ExpandableApplicationView(
-        application: ApplicationForm()
-    )
-}

@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct ApplicationInfoView: View {
-    @ObservedResults(ApplicationForm.self) var applications
+//    var applications
     @EnvironmentObject private var applicationsVM: ApplicationsViewModel
     
     let application: ApplicationForm
@@ -66,7 +65,7 @@ struct ApplicationInfoView: View {
                 titleColor: .white,
                 backColor: .green) {
                     applicationsVM.storageManager.write {
-                        application.thaw()?.status = "Отвечено"
+//                        application.thaw()?.status = "Отвечено"
                     }
                 }
             
@@ -74,14 +73,10 @@ struct ApplicationInfoView: View {
                 title: "Удалить",
                 titleColor: .red,
                 backColor: .clear) {
-                    $applications.remove(application)
+//                    $applications.remove(application)
                 }
         }
         .padding()
-        .hAlign(.center)    }
-}
-
-#Preview {
-    ApplicationInfoView(application: ApplicationForm())
-        .environmentObject(ApplicationForm())
+        .hAlign(.center)
+    }
 }

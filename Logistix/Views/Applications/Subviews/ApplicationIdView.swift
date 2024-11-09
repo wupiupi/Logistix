@@ -33,8 +33,3 @@ struct ApplicationIdView: View {
         }
     }
 }
-
-#Preview {
-    ApplicationIdView(application: ApplicationForm())
-        .environmentObject(ApplicationsViewModel())
-}

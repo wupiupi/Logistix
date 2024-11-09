@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct OrdersView: View {
-    @ObservedResults(Order.self) private var orders
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var ordersVM: OrdersViewModel
     
@@ -18,12 +16,26 @@ struct OrdersView: View {
     }
     
     private var filteredOrders: [Order] {
-        guard !ordersVM.searchTerm.isEmpty else { return Array(orders) }
-        return orders.filter { $0.trackingNumber.localizedCaseInsensitiveContains(ordersVM.searchTerm) }
+        if authVM.currentUser?.role == Role.admin.rawValue {
+            guard !ordersVM.searchTerm.isEmpty else {
+                return ordersVM.orders
+            }
+            return ordersVM.orders.filter { $0.id.localizedStandardContains(ordersVM.searchTerm) }
+        } else {
+            guard !ordersVM.searchTerm.isEmpty else {
+                return authVM.currentUser?.orders ?? []
+            }
+            return authVM.currentUser?.orders.filter {
+                $0.id.localizedCaseInsensitiveContains(ordersVM.searchTerm)
+            } ?? []
+        }
     }
     
     private var driverOrders: [Order] {
-        return filteredOrders.filter { $0.status == "Подтвержден" || $0.status == "В работе" }
+        ordersVM.orders.filter {
+            ($0.status == OrderStatus.searchingForDriver.rawValue || $0.status == "В работе")
+            && ($0.assignedDriverID == "" || $0.assignedDriverID == authVM.currentUser?.id)
+        }
     }
     
     var body: some View {
@@ -33,9 +45,6 @@ struct OrdersView: View {
                     OrdersTitle()
                     
                     ForEach(
-//                        authVM.currentUser?.role == Role.user.rawValue
-//                        ? userOrders
-//                        : filteredOrders,
                         getCorrectOrders(),
                         id: \.self
                     ) { order in
@@ -71,7 +80,7 @@ struct OrdersView: View {
     }
     
     private func getCorrectOrders() -> [Order] {
-        switch authVM.currentUser?.roleName {
+        switch authVM.currentUser?.role {
             case "user":
                 return userOrders
             case "driver":

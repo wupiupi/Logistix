@@ -11,8 +11,8 @@ struct TrackInfoView: View {
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var ordersVM: OrdersViewModel
     
-    let order: Order
-
+    var order: Order
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .center, spacing: 20) {
@@ -27,28 +27,23 @@ struct TrackInfoView: View {
                 
                 OrderDetailsView(
                     title: "Адрес отправителя",
-                    orderInfo: order.route?.sourceAddress ?? ""
+                    orderInfo: order.sourceAddress
                 )
                 OrderDetailsView(
                     title: "Адрес получателя",
-                    orderInfo: order.route?.destinationAddress ?? ""
+                    orderInfo: order.destinationAddress
                 )
                 OrderDetailsView(
                     title: "Поставщик",
-                    orderInfo: order.sender?.name ?? ""
+                    orderInfo: order.senderName
                 )
                 OrderDetailsView(
                     title: "Контактный телефон",
-                    orderInfo: order.sender?.phoneNumber ?? ""
-                )
-                OrderDetailsView(
-                    title: "Трек номер",
-                    orderInfo: order.trackingNumber,
-                    systemImageName: "doc.on.doc.fill"
+                    orderInfo: order.senderPhoneNumber
                 )
                 OrderDetailsView(
                     title: "Стоимость",
-                    orderInfo: order.price?.totalCost ?? ""
+                    orderInfo: order.totalCost
                 )
                 
                 Text("Статус заказа")
@@ -72,9 +67,9 @@ struct TrackInfoView: View {
                             )
                     }
                 
-                if authVM.currentUser?.roleName == "admin" {
+                if authVM.currentUser?.role == "admin" {
                     switch order.status {
-                        case "Завершён":
+                        case OrderStatus.finished.rawValue:
                             NavigationLink {
                                 OrderReportView(order: order)
                             } label: {
@@ -87,58 +82,108 @@ struct TrackInfoView: View {
                                             .fill(.green)
                                     }
                             }
-                        case "Отменен":
+                        case OrderStatus.cancelled.rawValue:
                             OrderButtonView(
-                                title: "Подтвердить заказ",
+                                title: ButtonAction.confirm.rawValue,
                                 titleColor: .white,
                                 backColor: .green) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Подтвержден"
-                                    }
-                                }
-                            
-                        case "Подтвержден":
-                            OrderButtonView(
-                                title: "Завершить",
-                                titleColor: .white,
-                                backColor: .green) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Завершён"
+                                    Task {
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.searchingForDriver.rawValue
+                                        )
                                     }
                                 }
                             OrderButtonView(
-                                title: "Отменить",
+                                title: ButtonAction.delete.rawValue,
                                 titleColor: .red,
                                 backColor: .clear) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Отменен"
+                                    Task {
+                                        await ordersVM.deleteOrder(withID: order.id)
+                                    }
+                                }
+                        case OrderStatus.searchingForDriver.rawValue:
+                            OrderButtonView(
+                                title: ButtonAction.cancel.rawValue,
+                                titleColor: .red,
+                                backColor: .clear) {
+                                    Task {
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.cancelled.rawValue
+                                        )
                                     }
                                 }
                         default:
                             OrderButtonView(
-                                title: "Подтвердить",
+                                title: ButtonAction.confirm.rawValue,
                                 titleColor: .white,
                                 backColor: .green) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Подтвержден"
+                                    Task {
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.searchingForDriver.rawValue
+                                        )
                                     }
                                 }
                             
                             OrderButtonView(
-                                title: "Отменить",
+                                title: ButtonAction.cancel.rawValue,
                                 titleColor: .red,
                                 backColor: .clear) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Отменен"
+                                    Task {
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.cancelled.rawValue
+                                        )
                                     }
                                 }
                     }
-                }
-                
-                // if you're a driver:
-                if authVM.currentUser?.roleName == "driver" {
+                } else if authVM.currentUser?.role == Role.driver.rawValue {
                     switch order.status {
-                        case "Завершён":
+                        case OrderStatus.searchingForDriver.rawValue:
+                            OrderButtonView(
+                                title: ButtonAction.assignJob.rawValue,
+                                titleColor: .white,
+                                backColor: .green) {
+                                    Task {
+                                        await ordersVM.assignDriverToOrder(
+                                            forOrderID: order.id,
+                                            driverID: authVM.currentUser?.id ?? ""
+                                        )
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.inProcess.rawValue
+                                        )
+                                    }
+                                }
+                        case OrderStatus.inProcess.rawValue:
+                            OrderButtonView(
+                                title: ButtonAction.complete.rawValue,
+                                titleColor: .white,
+                                backColor: .green) {
+                                    var updatedOrder = order
+                                    updatedOrder.status = OrderStatus.finished.rawValue
+                                    Task {
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.finished.rawValue
+                                        )
+                                        await authVM.addOrderToUser(order: updatedOrder)
+                                    }
+                                }
+                            OrderButtonView(
+                                title: ButtonAction.cancel.rawValue,
+                                titleColor: .red,
+                                backColor: .clear) {
+                                    Task {
+                                        await ordersVM.updateOrderStatus(
+                                            forOrderID: order.id,
+                                            status: OrderStatus.cancelled.rawValue)
+                                    }
+                                }
+                        default:
+                            // TODO: - SAVE TO DRIVER ORDERS
                             NavigationLink {
                                 OrderReportView(order: order)
                             } label: {
@@ -151,51 +196,6 @@ struct TrackInfoView: View {
                                             .fill(.green)
                                     }
                             }
-                        case "Отменен":
-                        OrderButtonView(
-                            title: "Взять в работу",
-                            titleColor: .white,
-                            backColor: .green) {
-                                ordersVM.storageManager.write {
-                                    order.thaw()?.status = "В работе"
-                                }
-                            }
-                            
-                        case "В работе":
-                            OrderButtonView(
-                                title: "Завершить",
-                                titleColor: .white,
-                                backColor: .green) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Завершён"
-                                    }
-                                }
-                            OrderButtonView(
-                                title: "Отменить",
-                                titleColor: .red,
-                                backColor: .clear) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Отменен"
-                                    }
-                                }
-                        default:
-                            OrderButtonView(
-                                title: "Взять в работу",
-                                titleColor: .white,
-                                backColor: .green) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "В работе"
-                                    }
-                                }
-                            
-                            OrderButtonView(
-                                title: "Отказаться",
-                                titleColor: .red,
-                                backColor: .clear) {
-                                    ordersVM.storageManager.write {
-                                        order.thaw()?.status = "Отменен"
-                                    }
-                                }
                     }
                 }
             }
@@ -204,3 +204,4 @@ struct TrackInfoView: View {
         .hAlign(.center)
     }
 }
+

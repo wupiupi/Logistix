@@ -18,8 +18,7 @@ struct RegistrationButtonView: View {
                     withEmail: registrationVM.email,
                     password: registrationVM.password,
                     fullName: registrationVM.fullName,
-                    phoneNumber: nil,
-                    roleName: registrationVM.auto.isEmpty ? "user" : "driver",
+                    role: registrationVM.auto.isEmpty ? Role.user.rawValue : Role.driver.rawValue,
                     auto: registrationVM.auto
                 )
             }

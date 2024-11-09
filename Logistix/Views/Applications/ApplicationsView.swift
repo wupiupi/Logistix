@@ -6,16 +6,15 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct ApplicationsView: View {
-    @ObservedResults(ApplicationForm.self) var applications
+//    var applications
     @EnvironmentObject private var applicationsVM: ApplicationsViewModel
     
-    private var filteredApplications: [ApplicationForm] {
-        guard !applicationsVM.searchTerm.isEmpty else { return Array(applications) }
-        return applications.filter { $0.name.localizedCaseInsensitiveContains(applicationsVM.searchTerm) }
-    }
+//    private var filteredApplications: [ApplicationForm] {
+//        guard !applicationsVM.searchTerm.isEmpty else { return Array(applications) }
+//        return applications.filter { $0.name.localizedCaseInsensitiveContains(applicationsVM.searchTerm) }
+//    }
     
     var body: some View {
         NavigationStack {
@@ -24,17 +23,17 @@ struct ApplicationsView: View {
                     
                     ApplicationsTitle()
                     
-                    if applications.isEmpty {
-                        Text("Заявок нет")
-                    }
+//                    if applications.isEmpty {
+//                        Text("Заявок нет")
+//                    }
                     
-                    ForEach(filteredApplications, id: \.self) { application in
+//                    ForEach(filteredApplications, id: \.self) { application in
                         
                         Divider()
                         
-                        ApplicationIdView(application: application)
+//                        ApplicationIdView(application: application)
                         
-                        ExpandableApplicationView(application: application)
+//                        ExpandableApplicationView(application: application)
                     }
                 }
                 .padding()
@@ -52,13 +51,9 @@ struct ApplicationsView: View {
                 for: .navigationBar
             )
         }
-        .searchable(
-            text: $applicationsVM.searchTerm,
-            prompt: "Поиск по документам или заказам"
-        )
+//        .searchable(
+//            text: $applicationsVM.searchTerm,
+//            prompt: "Поиск по документам или заказам"
+//        )
     }
-}
-
-#Preview {
-    ApplicationsView()
-}
+//}

@@ -5,13 +5,13 @@
 //  Created by Paul Makey on 28.05.24.
 //
 
-import Foundation
+import SwiftUI
 import FirebaseFirestore
 
 @MainActor
 final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
-
+    
     private let db = Firestore.firestore()
     
     init() {
@@ -39,33 +39,18 @@ final class UsersViewModel: ObservableObject {
             
             for document in querySnapshot.documents {
                 // document is dictionary of one user
-                var user = User(
+                let user = User(
                     id: document["id"] as? String ?? "",
-                    role: document["role"] as? DocumentReference,
+                    auto: document["auto"] as? String ?? "",
                     email: document["email"] as? String ?? "",
                     name: document["name"] as? String ?? "",
                     pass: document["pass"] as? String ?? "",
-                    auto: document["auto"] as? String ?? ""
+                    role: document["role"] as? String ?? "",
+                    orders: document["orders"] as? [Order] ?? []
                 )
                 
-                Task {
-                    guard let roleReference = user.role else { return }
-                    user.roleName = await self.fetchRoleName(for: roleReference)
-                    self.users.append(user)
-                }
+                self.users.append(user)
             }
-        }
-    }
-    
-    func fetchRoleName(for roleReference: DocumentReference) async -> String? {
-        do {
-            let snapshot = try await roleReference.getDocument()
-            let roleData = snapshot.data()
-            let rolename = roleData?["name"] as? String
-            return rolename
-        } catch {
-            print("Error fetching role name: \(error)")
-            return nil
         }
     }
     
