@@ -19,7 +19,7 @@ struct ExpandableOrderView: View {
                             TitleModifier(
                                 font: .title,
                                 fontWeight: .semibold,
-                                color: Color(hex: 0x363746, alpha: 1)
+                                color: Color.expandableViewMain
                             )
                         )
                 }

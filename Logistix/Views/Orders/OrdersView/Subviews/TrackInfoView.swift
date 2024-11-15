@@ -21,7 +21,7 @@ struct TrackInfoView: View {
                         TitleModifier(
                             font: .title,
                             fontWeight: .bold,
-                            color: Color(hex: 0x363746, alpha: 1)
+                            color: Color.expandableViewMain
                         )
                     )
                 
@@ -45,6 +45,12 @@ struct TrackInfoView: View {
                     title: "Стоимость",
                     orderInfo: order.totalCost
                 )
+                if authVM.currentUser?.role == Role.admin.rawValue {
+                    OrderDetailsView(
+                        title: "Создано пользователем с ID:",
+                        orderInfo: order.userID
+                    )
+                }
                 
                 Text("Статус заказа")
                     .font(.title3)
@@ -53,23 +59,24 @@ struct TrackInfoView: View {
                 Text(order.status)
                     .font(.title3)
                     .foregroundStyle(
-                        order.status == "Отменен"
-                        ? .red
-                        : Color(hex: 0x00CCA6, alpha: 1)
+                        ordersVM.getStatusColor(forOrderStatus: order.status).mainColor
                     )
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(order.status == "Отменен"
-                                  ? .red.opacity(0.2)
-                                  : .main.opacity(0.2)
+                            .fill(
+                                ordersVM.getStatusColor(
+                                    forOrderStatus: order.status
+                                ).backgroundColor
                             )
                     }
                 
+                Divider()
+                
                 if authVM.currentUser?.role == "admin" {
                     switch order.status {
-                        case OrderStatus.finished.rawValue:
+                        case OrderStatus.completed.rawValue:
                             NavigationLink {
                                 OrderReportView(order: order)
                             } label: {
@@ -163,27 +170,29 @@ struct TrackInfoView: View {
                                 titleColor: .white,
                                 backColor: .green) {
                                     var updatedOrder = order
-                                    updatedOrder.status = OrderStatus.finished.rawValue
+                                    updatedOrder.status = OrderStatus.completed.rawValue
                                     Task {
                                         await ordersVM.updateOrderStatus(
                                             forOrderID: order.id,
-                                            status: OrderStatus.finished.rawValue
+                                            status: OrderStatus.completed.rawValue
                                         )
                                         await authVM.addOrderToUser(order: updatedOrder)
                                     }
                                 }
                             OrderButtonView(
-                                title: ButtonAction.cancel.rawValue,
+                                title: ButtonAction.refuse.rawValue,
                                 titleColor: .red,
                                 backColor: .clear) {
                                     Task {
                                         await ordersVM.updateOrderStatus(
                                             forOrderID: order.id,
-                                            status: OrderStatus.cancelled.rawValue)
+                                            status: OrderStatus.searchingForDriver.rawValue)
+                                        await ordersVM.removeDriverFromOrder(
+                                            forOrderID: order.id
+                                        )
                                     }
                                 }
                         default:
-                            // TODO: - SAVE TO DRIVER ORDERS
                             NavigationLink {
                                 OrderReportView(order: order)
                             } label: {

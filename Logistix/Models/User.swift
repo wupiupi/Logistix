@@ -21,4 +21,5 @@ struct User: Codable, Identifiable {
     let pass: String
     let role: String
     var orders: [Order]
+    var applications: [Application]
 }

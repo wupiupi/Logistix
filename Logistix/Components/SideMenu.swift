@@ -32,7 +32,7 @@ struct SideMenu: View {
                     selectedTab: $selectedTab,
                     animation: animation
                 )
-                if authVM.currentUser?.role == "admin" {
+                if authVM.currentUser?.role == Role.admin.rawValue {
                     TabButton(
                         image: "folder",
                         title: "Заявки",
@@ -45,7 +45,7 @@ struct SideMenu: View {
                         selectedTab: $selectedTab,
                         animation: animation
                     )
-                } else if authVM.currentUser?.role == "user" {
+                } else if authVM.currentUser?.role == Role.user.rawValue {
                     TabButton(
                         image: "pencil.and.list.clipboard",
                         title: "Новый заказ",

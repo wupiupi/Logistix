@@ -16,7 +16,7 @@ struct DriverRegistrationView: View {
                 Text("Форма регистрации для водителей")
                     .font(.title2)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.main)
+                    .foregroundStyle(.statusGreen)
                 
                 Text("Регистрируйтесь и смотрите,\nкакие заказы сейчас доступны!")
                     .multilineTextAlignment(.center)

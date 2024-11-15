@@ -61,7 +61,7 @@ struct OrderReportView: View {
                     .padding([.leading, .trailing], 8)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.main.opacity(0.2))
+                            .fill(.statusGreenBackground)
                     }
             }
             .padding(.top, 30)

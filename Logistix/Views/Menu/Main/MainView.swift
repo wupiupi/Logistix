@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             // Background color
-            Color.main
+            Color.statusGreen
                 .ignoresSafeArea()
             
             // Side Menu

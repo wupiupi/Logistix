@@ -1,5 +1,5 @@
 //
-//  ApplicationForm.swift
+//  Application.swift
 //  Logistix
 //
 //  Created by Serge Broski on 5/20/24.
@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct ApplicationForm: Codable, Identifiable {
+enum ApplicationStatus: String {
+    case waitingForAnswer = "Ожидает ответа"
+    case completed = "Выполнен"
+}
+
+struct Application: Codable, Identifiable, Hashable {
     let id: String
     let userID: String
     let name: String

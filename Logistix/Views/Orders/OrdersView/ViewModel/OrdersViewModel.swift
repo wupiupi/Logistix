@@ -5,7 +5,7 @@
 //  Created by Paul Makey on 13.05.24.
 //
 
-import Foundation
+import SwiftUI
 import Firebase
 
 @MainActor
@@ -122,6 +122,39 @@ final class OrdersViewModel: ObservableObject {
         }
     }
     
+    func removeDriverFromOrder(forOrderID orderID: String) async {
+        let db = Firestore.firestore()
+        let usersRef = db.collection("users")
+        
+        do {
+            let snapshot = try await usersRef.getDocuments()
+            for document in snapshot.documents {
+                var ordersData = document.data()["orders"] as? [[String: Any]] ?? []
+                var orderIndex: Int?
+                
+                // Find the order index
+                for (index, orderData) in ordersData.enumerated() {
+                    if let id = orderData["id"] as? String, id == orderID {
+                        orderIndex = index
+                        break
+                    }
+                }
+                
+                // Assign the driver if the order is found
+                if let index = orderIndex {
+                    ordersData[index]["assignedDriverID"] = ""
+                    
+                    // Update the document with modified orders array
+                    try await usersRef.document(document.documentID).updateData([
+                        "orders": ordersData
+                    ])
+                }
+            }
+        } catch {
+            print("Error assigning driver to order: \(error)")
+        }
+    }
+    
     func deleteOrder(withID orderID: String) async {
         let db = Firestore.firestore()
         let usersRef = db.collection("users")
@@ -153,6 +186,24 @@ final class OrdersViewModel: ObservableObject {
             updateOrders()
         } catch {
             print("Error deleting order: \(error)")
+        }
+    }
+    
+    func getStatusColor(forOrderStatus status: String) -> (
+        mainColor: Color,
+        backgroundColor: Color
+    ) {
+        switch status {
+            case OrderStatus.onModeration.rawValue:
+                return (Color.statusOrange, Color.statusOrangeBackgound)
+            case OrderStatus.searchingForDriver.rawValue:
+                return (Color.statusPurple, Color.statusPurpleBackground)
+            case OrderStatus.cancelled.rawValue:
+                return (Color.statusRed, Color.statusRedBackground)
+            case OrderStatus.completed.rawValue:
+                return (Color.statusGreen, Color.statusGreenBackground)
+            default:
+                return (Color.statusBlue, Color.statusBlueBackground)
         }
     }
 }

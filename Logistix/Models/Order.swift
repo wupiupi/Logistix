@@ -10,9 +10,8 @@ import Foundation
 enum OrderStatus: String {
     case onModeration = "На модерации"
     case searchingForDriver = "Ищем водителя"
-    case inDelivery = "Передан в доставку"
     case cancelled = "Отменен"
-    case finished = "Завершен"
+    case completed = "Завершен"
     case inProcess = "В работе"
 }
 

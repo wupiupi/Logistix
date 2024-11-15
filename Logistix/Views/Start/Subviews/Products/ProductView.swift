@@ -67,7 +67,7 @@ struct ProductView: View {
                     .foregroundStyle(.white)
                     .background {
                         Capsule()
-                            .fill(.main)
+                            .fill(.statusGreen)
                     }
             }
             .frame(width: UIScreen.main.bounds.width - 32)

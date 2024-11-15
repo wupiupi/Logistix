@@ -107,7 +107,7 @@
 		CD3F7A242BFE191500390CD3 /* ApplicationIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3F7A232BFE191500390CD3 /* ApplicationIdView.swift */; };
 		CD3F7A262BFE19ED00390CD3 /* ApplicationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3F7A252BFE19ED00390CD3 /* ApplicationInfoView.swift */; };
 		CD3F7A282BFE1B8900390CD3 /* ExpandableApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3F7A272BFE1B8900390CD3 /* ExpandableApplicationView.swift */; };
-		CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */; };
+		CD44DDF22BFB3F84000A8356 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF12BFB3F84000A8356 /* Application.swift */; };
 		CD44DDF42BFB4569000A8356 /* ApplicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */; };
 		CD574CC92C9AE48100A6D273 /* DriverRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD574CC82C9AE48100A6D273 /* DriverRegistrationView.swift */; };
 		CD669F3F2BFCD16F00C09B09 /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD669F3E2BFCD16F00C09B09 /* ContactUsViewModel.swift */; };
@@ -238,7 +238,7 @@
 		CD3F7A232BFE191500390CD3 /* ApplicationIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationIdView.swift; sourceTree = "<group>"; };
 		CD3F7A252BFE19ED00390CD3 /* ApplicationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInfoView.swift; sourceTree = "<group>"; };
 		CD3F7A272BFE1B8900390CD3 /* ExpandableApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableApplicationView.swift; sourceTree = "<group>"; };
-		CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationForm.swift; sourceTree = "<group>"; };
+		CD44DDF12BFB3F84000A8356 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		CD44DDF32BFB4569000A8356 /* ApplicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsView.swift; sourceTree = "<group>"; };
 		CD574CC82C9AE48100A6D273 /* DriverRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRegistrationView.swift; sourceTree = "<group>"; };
 		CD669F3E2BFCD16F00C09B09 /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
@@ -397,15 +397,15 @@
 		A0D8EA3F2BEFFCB300529E5C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A00678572C0CBDC0004697B9 /* OrderReport */,
-				A09BDAB72C06431100FAED0E /* Users */,
+				CD44DDF52BFB4573000A8356 /* Applications */,
 				A0F6EBB32BF2BACF00E279BF /* Authentication */,
 				A0E39B342BF27E460055503E /* ContactUs */,
 				A0E39B332BF27E3C0055503E /* Content */,
 				A0F6EBB22BF2AD1800E279BF /* Menu */,
 				A0E39B362BF27E670055503E /* Orders */,
-				CD44DDF52BFB4573000A8356 /* Applications */,
+				A00678572C0CBDC0004697B9 /* OrderReport */,
 				A0E39B372BF27E710055503E /* Start */,
+				A09BDAB72C06431100FAED0E /* Users */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 		A0E39B302BF27CEF0055503E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CD44DDF12BFB3F84000A8356 /* ApplicationForm.swift */,
+				CD44DDF12BFB3F84000A8356 /* Application.swift */,
 				A0E39B312BF27D010055503E /* Order.swift */,
 				A08457812CDC28AA00B271CC /* User.swift */,
 			);
@@ -955,7 +955,7 @@
 				CD3F7A132BFE0F0B00390CD3 /* CustomDatePickerView.swift in Sources */,
 				CD3776A52BFCBE01005F322C /* SocialsView.swift in Sources */,
 				A04D648F2BF1FD92002725FC /* NewOrderView.swift in Sources */,
-				CD44DDF22BFB3F84000A8356 /* ApplicationForm.swift in Sources */,
+				CD44DDF22BFB3F84000A8356 /* Application.swift in Sources */,
 				A0F6EBAA2BF2999F00E279BF /* SideMenu.swift in Sources */,
 				A08F4B5F2BF0D6E700EE3585 /* Extension + Color.swift in Sources */,
 				CD3776972BFCB827005F322C /* CarrierInfoView.swift in Sources */,

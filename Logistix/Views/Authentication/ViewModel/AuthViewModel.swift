@@ -35,6 +35,7 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    // MARK: - AUTHORIZATION
     func signIn(
         withEmail email: String,
         password: String
@@ -77,7 +78,8 @@ final class AuthViewModel: ObservableObject {
                 name: fullName,
                 pass: hashedPass,
                 role: role,
-                orders: []
+                orders: [],
+                applications: []
             )
                         
             // Encoding our user
@@ -124,6 +126,7 @@ final class AuthViewModel: ObservableObject {
         currentUser = try? snapshot.data(as: User.self)
     }
     
+    // MARK: - ORDERS
     func addOrderToUser(order: Order) async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
@@ -137,6 +140,23 @@ final class AuthViewModel: ObservableObject {
             ])
         } catch {
             print("Error encoding order: \(error)")
+        }
+    }
+    
+    // MARK: - APPLICATIONS
+    func addApplicationToUser(application: Application) async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(uid)
+        
+        do {
+            let applicationData = try Firestore.Encoder().encode(application)
+            
+            try await userRef.updateData([
+                "applications": FieldValue.arrayUnion([applicationData])
+            ])
+        } catch {
+            print("Error encoding application: \(error)")
         }
     }
     

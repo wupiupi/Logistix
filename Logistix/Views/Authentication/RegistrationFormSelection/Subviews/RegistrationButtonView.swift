@@ -33,7 +33,7 @@ struct RegistrationButtonView: View {
                             width: UIScreen.main.bounds.width - 64,
                             height: 50
                         )
-                        .foregroundStyle(Color.main)
+                        .foregroundStyle(Color.statusGreen)
                 }
                 .disabled(!registrationVM.formIsValid)
                 .opacity(registrationVM.formIsValid ? 1.0 : 0.5)

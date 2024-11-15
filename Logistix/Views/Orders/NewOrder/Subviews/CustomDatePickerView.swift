@@ -24,7 +24,7 @@ struct CustomDatePickerView: View {
                 .background {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke()
-                        .foregroundStyle(Color.main)
+                        .foregroundStyle(Color.statusGreen)
                 }
         }
     }

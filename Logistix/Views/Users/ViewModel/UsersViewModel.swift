@@ -46,7 +46,8 @@ final class UsersViewModel: ObservableObject {
                     name: document["name"] as? String ?? "",
                     pass: document["pass"] as? String ?? "",
                     role: document["role"] as? String ?? "",
-                    orders: document["orders"] as? [Order] ?? []
+                    orders: document["orders"] as? [Order] ?? [],
+                    applications: document["applications"] as? [Application] ?? []
                 )
                 
                 self.users.append(user)

@@ -17,15 +17,16 @@ struct OrderIdView: View {
             HStack {
                 Text("№ \(order.id)")
                     .font(.title3)
-                    .foregroundStyle(order.status != "Отменен"
-                                     ? Color(hex: 0x00CCA6, alpha: 1)
-                                     : .red
+                    .foregroundStyle(
+                        ordersVM.getStatusColor(forOrderStatus: order.status).mainColor
                     )
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.main.opacity(0.2))
+                            .fill(
+                                ordersVM.getStatusColor(forOrderStatus: order.status).backgroundColor
+                            )
                     }
                 
                 Spacer()

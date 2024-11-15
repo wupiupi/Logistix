@@ -32,7 +32,7 @@ struct TabButton: View {
                 Text(title)
                     .fontWeight(.semibold)
             }
-            .foregroundStyle(selectedTab == title ? Color.main : .white)
+            .foregroundStyle(selectedTab == title ? Color.statusGreen : .white)
             .padding(.vertical, 12)
             .padding(.horizontal, 10)
             

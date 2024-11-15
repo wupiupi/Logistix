@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct OrdersTitle: View {
+    var title: String? = nil
+    
     var body: some View {
-        Text("Текущие заказы")
+        Text(title ?? "Текущие заказы")
             .modifier(
                 TitleModifier(
                     font: .largeTitle,
@@ -18,8 +20,4 @@ struct OrdersTitle: View {
                 )
             )
     }
-}
-
-#Preview {
-    OrdersTitle()
 }

@@ -33,7 +33,7 @@ struct OrdersView: View {
     
     private var driverOrders: [Order] {
         ordersVM.orders.filter {
-            ($0.status == OrderStatus.searchingForDriver.rawValue || $0.status == "В работе")
+            ($0.status == OrderStatus.searchingForDriver.rawValue || $0.status == OrderStatus.inProcess.rawValue)
             && ($0.assignedDriverID == "" || $0.assignedDriverID == authVM.currentUser?.id)
         }
     }

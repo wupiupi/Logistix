@@ -13,7 +13,7 @@ struct UserRegistrationView: View {
             Text("Есть товар, но некому доставить?")
                 .font(.title2)
                 .fontWeight(.semibold)
-                .foregroundStyle(.main)
+                .foregroundStyle(.statusGreen)
             
             Text("Регистрируйтесь и размещайте\nВаши предложения!")
                 .multilineTextAlignment(.center)

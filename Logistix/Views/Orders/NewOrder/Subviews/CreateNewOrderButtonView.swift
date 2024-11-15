@@ -61,7 +61,7 @@ struct CreateNewOrderButtonView: View {
             id: String.generateTrackNum(),
             userID: authVM.currentUser?.id ?? "",
             assignedDriverID: "",
-            status: "на модерации",
+            status: OrderStatus.onModeration.rawValue,
             sourceAddress: newOrderVM.sourceAddress,
             destinationAddress: newOrderVM.destinationAddress,
             senderName: newOrderVM.senderName,

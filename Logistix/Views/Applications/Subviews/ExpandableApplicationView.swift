@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ExpandableApplicationView: View {
-    let application: ApplicationForm
+    let application: Application
     
     var body: some View {
         ExpandableView(
             thumbnail: ThumbnailView(content: {
                 VStack {
-                    Text("Открыть")
+                    Text(application.company)
                         .modifier(
                             TitleModifier(
                                 font: .title,
                                 fontWeight: .semibold,
-                                color: Color(hex: 0x363746, alpha: 1)
+                                color: Color.expandableViewMain
                             )
                         )
                 }

@@ -30,7 +30,7 @@ struct LoginButtonView: View {
                             width: UIScreen.main.bounds.width - 64,
                             height: 50
                         )
-                        .foregroundStyle(Color.main)
+                        .foregroundStyle(Color.statusGreen)
                 }
         }
         .alert(authVM.alertMessage, isPresented: $authVM.showAlert, actions: {} )
