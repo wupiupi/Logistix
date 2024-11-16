@@ -24,9 +24,21 @@ struct DriverRegistrationView: View {
                     .fontWeight(.bold)
                 
                 InputView(
-                    text: $registrationVM.auto,
-                    title: "Авто",
-                    placeholder: "Номер и модель"
+                    text: $registrationVM.autoBrand,
+                    title: "Марка авто",
+                    placeholder: "BMW, Mercedes"
+                )
+                
+                InputView(
+                    text: $registrationVM.autoMaxWeight,
+                    title: "Максимально допустимый вес",
+                    placeholder: "xxx кг"
+                )
+                
+                InputView(
+                    text: $registrationVM.autoRegNumber,
+                    title: "Регистрационный номер",
+                    placeholder: "1111XX-X"
                 )
                 
                 RegistrationFieldsView()

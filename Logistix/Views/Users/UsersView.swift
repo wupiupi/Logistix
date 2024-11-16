@@ -30,6 +30,7 @@ struct UsersView: View {
                 }
                 .padding()
             }
+            
             .navigationTitle("Logistix")
             .toolbarBackground(
                 LinearGradient(
@@ -47,7 +48,6 @@ struct UsersView: View {
 }
 
 struct UsersTitle: View {
-    
     var body: some View {
         Text("Пользователи")
             .modifier(

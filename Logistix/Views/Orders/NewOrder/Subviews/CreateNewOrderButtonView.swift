@@ -10,9 +10,8 @@ import SwiftUI
 struct CreateNewOrderButtonView: View {
     @EnvironmentObject private var newOrderVM: NewOrderViewModel
     @EnvironmentObject private var authVM: AuthViewModel
-    
-    private let firestoreManager = FirestoreManager.shared
-    
+    @EnvironmentObject private var ordersVM: OrdersViewModel
+        
     var body: some View {
         Button {
             if newOrderVM.formIsValid {
@@ -77,6 +76,7 @@ struct CreateNewOrderButtonView: View {
             totalCost: newOrderVM.totalCost
         )
         await authVM.addOrderToUser(order: order)
+        ordersVM.updateOrders()
     }
     
     private func clearFields() {

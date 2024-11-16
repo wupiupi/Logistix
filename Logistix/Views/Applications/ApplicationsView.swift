@@ -50,6 +50,7 @@ struct ApplicationsView: View {
                 for: .navigationBar
             )
         }
+        .navigationBarBackButtonHidden(true)
         .searchable(
             text: $applicationsVM.searchTerm,
             prompt: "Поиск по документам или заказам"

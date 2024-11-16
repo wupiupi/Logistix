@@ -26,22 +26,30 @@ final class UsersViewModel: ObservableObject {
     }
     
     func fetchUsers() async {
-        
         let usersReference = db.collection("users")
-        usersReference.addSnapshotListener {
-            querySnapshot,
-            error in
+        usersReference.addSnapshotListener { querySnapshot, error in
             
             guard let querySnapshot else {
                 print("Error: \(String(describing: error))")
                 return
             }
             
+            self.users.removeAll() // Clear existing users before appending new ones
+            
             for document in querySnapshot.documents {
-                // document is dictionary of one user
+                // Extract the auto data as a dictionary
+                var auto: Auto? = nil
+                if let autoData = document["auto"] as? [String: Any] {
+                    auto = Auto(
+                        brand: autoData["brand"] as? String ?? "",
+                        maxWeightLimit: autoData["maxWeightLimit"] as? String ?? "",
+                        regNumber: autoData["regNumber"] as? String ?? ""
+                    )
+                }
+                
                 let user = User(
                     id: document["id"] as? String ?? "",
-                    auto: document["auto"] as? String ?? "",
+                    auto: auto,
                     email: document["email"] as? String ?? "",
                     name: document["name"] as? String ?? "",
                     pass: document["pass"] as? String ?? "",
@@ -49,7 +57,7 @@ final class UsersViewModel: ObservableObject {
                     orders: document["orders"] as? [Order] ?? [],
                     applications: document["applications"] as? [Application] ?? []
                 )
-                
+                print(user)
                 self.users.append(user)
             }
         }

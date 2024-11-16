@@ -56,7 +56,7 @@ final class AuthViewModel: ObservableObject {
         password: String,
         fullName: String,
         role: String,
-        auto: String?
+        auto: Auto?
     ) async throws {
         
         let hashedPass = hashPassword(password)
@@ -73,7 +73,7 @@ final class AuthViewModel: ObservableObject {
             // Creating our User data model
             let user = User(
                 id: result.user.uid,
-                auto: auto ?? "",
+                auto: auto,
                 email: email,
                 name: fullName,
                 pass: hashedPass,

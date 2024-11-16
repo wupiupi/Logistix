@@ -15,7 +15,7 @@ enum Role: String {
 
 struct User: Codable, Identifiable {
     let id: String
-    let auto: String
+    let auto: Auto?
     let email: String
     let name: String
     let pass: String

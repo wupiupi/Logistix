@@ -2,7 +2,7 @@
 //  RegistrationViewModel.swift
 //  Logistix
 //
-//  Created by Serge Broski on 5/21/24.
+//  Created by Paul Makey on 5/21/24.
 //
 
 import Foundation
@@ -12,7 +12,9 @@ final class RegistrationViewModel: ObservableObject {
     @Published var fullName = ""
     @Published var password = ""
     @Published var confirmPassword = ""
-    @Published var auto = ""
+    @Published var autoBrand = ""
+    @Published var autoMaxWeight = ""
+    @Published var autoRegNumber = ""
 }
 
 // MARK: - AuthenticationFormProtocol

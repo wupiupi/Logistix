@@ -14,12 +14,19 @@ struct RegistrationButtonView: View {
     var body: some View {
         Button {
             Task {
+                let auto = Auto(
+                    brand: registrationVM.autoBrand,
+                    maxWeightLimit: registrationVM.autoMaxWeight,
+                    regNumber: registrationVM.autoRegNumber
+                )
                 try await authVM.createUser(
                     withEmail: registrationVM.email,
                     password: registrationVM.password,
                     fullName: registrationVM.fullName,
-                    role: registrationVM.auto.isEmpty ? Role.user.rawValue : Role.driver.rawValue,
-                    auto: registrationVM.auto
+                    role: registrationVM.autoBrand == ""
+                    ? Role.user.rawValue
+                    : Role.driver.rawValue,
+                    auto: auto
                 )
             }
         } label: {

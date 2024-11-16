@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct ContentView: View {
     @EnvironmentObject private var authVM: AuthViewModel

@@ -37,6 +37,9 @@ struct RegistrationFieldsView: View {
             registrationVM.password = ""
             registrationVM.fullName = ""
             registrationVM.confirmPassword = ""
+            registrationVM.autoBrand = ""
+            registrationVM.autoMaxWeight = ""
+            registrationVM.autoRegNumber = ""
         }
         
         ZStack {

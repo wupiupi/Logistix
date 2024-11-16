@@ -27,15 +27,26 @@ import SwiftUI
              UserDetailsView(title: "ФИО", userInfo: user.name)
              UserDetailsView(title: "Почта", userInfo: user.email)
              UserDetailsView(title: "Роль", userInfo: user.role)
-             if !user.auto.isEmpty {
-                 UserDetailsView(title: "Автомобиль", userInfo: user.auto)
+             if user.role == Role.driver.rawValue {
+                 UserDetailsView(
+                    title: "Марка автомобиля",
+                    userInfo: user.auto?.brand ?? "НЕ УКАЗАНО"
+                 )
+                 UserDetailsView(
+                    title: "Грузоподъемность",
+                    userInfo: "\(user.auto?.maxWeightLimit ?? "НЕ УКАЗАНО") кг"
+                 )
+                 UserDetailsView(
+                    title: "Регистрационный номер ТС",
+                    userInfo: user.auto?.regNumber ?? "НЕ УКАЗАНО"
+                 )
              }
              
              if authVM.currentUser?.id != user.id {
                  OrderButtonView(
-                    title: user.role == Role.user.rawValue
-                    ? "Сделать администратором"
-                    : "Сделать пользователем",
+                    title: user.role == Role.admin.rawValue
+                    ? "Сделать пользователем"
+                    : "Сделать администратором",
                     titleColor: .white,
                     backColor: .green) {
                         usersVM.updateUserRole(

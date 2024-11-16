@@ -81,10 +81,10 @@ final class ApplicationsViewModel: ObservableObject {
                     ])
                 }
             }
-            updateApplications()
         } catch {
             print("Error updating order status: \(error)")
         }
+        updateApplications()
     }
     
     func deleteApplication(withID applicationID: String) async {
@@ -115,10 +115,10 @@ final class ApplicationsViewModel: ObservableObject {
                     ])
                 }
             }
-            updateApplications()
         } catch {
             print("Error deleting order: \(error)")
         }
+        updateApplications()
     }
     
     func getStatusColor(forApplicationStatus status: String) -> (
