@@ -58,6 +58,13 @@ struct SideMenu: View {
                         selectedTab: $selectedTab,
                         animation: animation
                     )
+                } else if authVM.currentUser?.role == Role.driver.rawValue {
+                    TabButton(
+                        image: "clock.fill",
+                        title: "История заказов",
+                        selectedTab: $selectedTab,
+                        animation: animation
+                    )
                 }
                 
             }

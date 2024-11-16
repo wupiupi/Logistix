@@ -41,6 +41,7 @@
 		A0D8EA362BEFFC7A00529E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */; };
 		A0D8EA392BEFFC7A00529E5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D8EA382BEFFC7A00529E5C /* Preview Assets.xcassets */; };
 		A0D8EA432BEFFDD200529E5C /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA422BEFFDD200529E5C /* StartView.swift */; };
+		A0DF3E8C2CE8A23A00D4D17D /* OrdersHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF3E8B2CE8A23A00D4D17D /* OrdersHistoryView.swift */; };
 		A0E36DA02BF015F300A4B8AE /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E36D9F2BF015F300A4B8AE /* Extension + View.swift */; };
 		A0E36DA22BF0177A00A4B8AE /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E36DA12BF0177A00A4B8AE /* CustomButtonView.swift */; };
 		A0E39B322BF27D010055503E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E39B312BF27D010055503E /* Order.swift */; };
@@ -54,6 +55,7 @@
 		A0F6EBB72BF2BB1F00E279BF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */; };
 		A0F6EBB92BF2BD1600E279BF /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */; };
 		A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */; };
+		A0FDF43C2CE8CD80008DF90F /* Auto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDF43B2CE8CD80008DF90F /* Auto.swift */; };
 		CD3002202BF2CF9500E136B3 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = CD30021E2BF2CF9500E136B3 /* .gitattributes */; };
 		CD3002212BF2CF9500E136B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD30021F2BF2CF9500E136B3 /* .gitignore */; };
 		CD3002282BF2D1B200E136B3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3002272BF2D1B200E136B3 /* StorageManager.swift */; };
@@ -172,6 +174,7 @@
 		A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0D8EA382BEFFC7A00529E5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0D8EA422BEFFDD200529E5C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		A0DF3E8B2CE8A23A00D4D17D /* OrdersHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersHistoryView.swift; sourceTree = "<group>"; };
 		A0E36D9F2BF015F300A4B8AE /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		A0E36DA12BF0177A00A4B8AE /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		A0E39B312BF27D010055503E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 		A0F6EBB62BF2BB1F00E279BF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A0F6EBB82BF2BD1600E279BF /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		A0F6EBBA2BF2BF7300E279BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A0FDF43B2CE8CD80008DF90F /* Auto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auto.swift; sourceTree = "<group>"; };
 		CD30021E2BF2CF9500E136B3 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		CD30021F2BF2CF9500E136B3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CD3002272BF2D1B200E136B3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -403,7 +407,6 @@
 				A0E39B332BF27E3C0055503E /* Content */,
 				A0F6EBB22BF2AD1800E279BF /* Menu */,
 				A0E39B362BF27E670055503E /* Orders */,
-				A00678572C0CBDC0004697B9 /* OrderReport */,
 				A0E39B372BF27E710055503E /* Start */,
 				A09BDAB72C06431100FAED0E /* Users */,
 			);
@@ -433,6 +436,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A0DF3E8A2CE8A21B00D4D17D /* OrdersHistory */ = {
+			isa = PBXGroup;
+			children = (
+				A0DF3E8B2CE8A23A00D4D17D /* OrdersHistoryView.swift */,
+			);
+			path = OrdersHistory;
+			sourceTree = "<group>";
+		};
 		A0E36D9D2BF015D600A4B8AE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +462,7 @@
 				CD44DDF12BFB3F84000A8356 /* Application.swift */,
 				A0E39B312BF27D010055503E /* Order.swift */,
 				A08457812CDC28AA00B271CC /* User.swift */,
+				A0FDF43B2CE8CD80008DF90F /* Auto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,7 +489,10 @@
 			isa = PBXGroup;
 			children = (
 				CD3F79F92BFDF87F00390CD3 /* NewOrder */,
+				A0DF3E8A2CE8A21B00D4D17D /* OrdersHistory */,
+				A00678572C0CBDC0004697B9 /* OrderReport */,
 				CD3F79F82BFDF84700390CD3 /* OrdersView */,
+				A0E39B3F2BF2851C0055503E /* ViewModel */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -691,7 +706,6 @@
 				A0E7A3412CDEB01D00866F46 /* Enumerations */,
 				A02B638F2BF116040014EE5B /* OrdersView.swift */,
 				CD3F79F12BFDF00900390CD3 /* Subviews */,
-				A0E39B3F2BF2851C0055503E /* ViewModel */,
 			);
 			path = OrdersView;
 			sourceTree = "<group>";
@@ -1008,6 +1022,7 @@
 				CD37769B2BFCB90F005F322C /* TermsView.swift in Sources */,
 				A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */,
 				A0E36DA22BF0177A00A4B8AE /* CustomButtonView.swift in Sources */,
+				A0FDF43C2CE8CD80008DF90F /* Auto.swift in Sources */,
 				CD3F7A1B2BFE120E00390CD3 /* InTotalNewOrderView.swift in Sources */,
 				CD574CC92C9AE48100A6D273 /* DriverRegistrationView.swift in Sources */,
 				CD37769D2BFCB963005F322C /* TermsLinkView.swift in Sources */,
@@ -1024,6 +1039,7 @@
 				CD3776AC2BFCC74E005F322C /* LoginViewModel.swift in Sources */,
 				CD3776A72BFCBE2F005F322C /* SocialLinkView.swift in Sources */,
 				CD3776942BFCB756005F322C /* CarrierView.swift in Sources */,
+				A0DF3E8C2CE8A23A00D4D17D /* OrdersHistoryView.swift in Sources */,
 				CD3F79FD2BFDFFE100390CD3 /* OrderIdView.swift in Sources */,
 				A01E3B6A2C0670490070BD64 /* ExpandableUserView.swift in Sources */,
 				A09BDABC2C06449000FAED0E /* UsersViewModel.swift in Sources */,

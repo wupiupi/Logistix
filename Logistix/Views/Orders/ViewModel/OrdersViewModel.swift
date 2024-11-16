@@ -13,7 +13,7 @@ final class OrdersViewModel: ObservableObject {
     @Published var searchTerm = ""
     @Published var isViewExpanded = false
     @Published var orders: [Order] = []
-        
+    
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
@@ -24,15 +24,17 @@ final class OrdersViewModel: ObservableObject {
         updateOrders()
     }
     
-    // TODO: - Можно использовать Set вместо флага в теории
-    func fetchSpecifiedOrders(isUserDriver: Bool) async {
+    // MARK: - DONT CALL UPDATEORDERS() HERE. BEWARE OF RECURSION
+    func fetchOrders() async {
         let db = Firestore.firestore()
         let usersRef = db.collection("users")
-
+        
         do {
-            let snapshot = isUserDriver 
-            ? try await usersRef.whereField("role", isEqualTo: Role.driver.rawValue).getDocuments()
-            : try await usersRef.whereField("role", isNotEqualTo: Role.driver.rawValue).getDocuments()
+            // Made so that orders dont duplicate
+            let snapshot = try await usersRef.whereField(
+                "role",
+                isNotEqualTo: Role.driver.rawValue
+            ).getDocuments()
             
             for document in snapshot.documents {
                 if let ordersData = document.data()["orders"] as? [[String: Any]] {
@@ -48,10 +50,34 @@ final class OrdersViewModel: ObservableObject {
         }
     }
     
+    func fetchCompletedOrders(forDriverID driverID: String) async -> [Order] {
+        let db = Firestore.firestore()
+        let usersRef = db.collection("users")
+        var userOrders: [Order] = []
+        
+        do {
+            let document = try await usersRef.document(driverID).getDocument()
+            
+            if let ordersData = document.data()?["orders"] as? [[String: Any]] {
+                for orderData in ordersData {
+                    if let order = try? Firestore.Decoder().decode(Order.self, from: orderData) {
+                        userOrders.append(order)
+                    }
+                }
+            } else {
+                print("No orders found for user with ID \(driverID)")
+            }
+        } catch {
+            print("Error fetching orders for user: \(error)")
+        }
+        
+        return userOrders
+    }
+    
     func updateOrders() {
         Task {
             self.orders = []
-            await fetchSpecifiedOrders(isUserDriver: false)
+            await fetchOrders()
         }
     }
     
@@ -120,6 +146,7 @@ final class OrdersViewModel: ObservableObject {
         } catch {
             print("Error assigning driver to order: \(error)")
         }
+        updateOrders()
     }
     
     func removeDriverFromOrder(forOrderID orderID: String) async {
@@ -153,6 +180,7 @@ final class OrdersViewModel: ObservableObject {
         } catch {
             print("Error assigning driver to order: \(error)")
         }
+        updateOrders()
     }
     
     func deleteOrder(withID orderID: String) async {
@@ -176,17 +204,17 @@ final class OrdersViewModel: ObservableObject {
                 // Remove the order if found
                 if let index = orderIndex {
                     ordersData.remove(at: index)
-
+                    
                     // Update the document with modified orders array
                     try await usersRef.document(document.documentID).updateData([
                         "orders": ordersData
                     ])
                 }
             }
-            updateOrders()
         } catch {
             print("Error deleting order: \(error)")
         }
+        updateOrders()
     }
     
     func getStatusColor(forOrderStatus status: String) -> (
