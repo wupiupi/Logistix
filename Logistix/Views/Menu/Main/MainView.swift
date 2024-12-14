@@ -29,5 +29,6 @@ struct MainView: View {
         .onAppear {
             mainVM.selectedTab = "Заказы"
         }
+        .navigationBarBackButtonHidden(true)
     }
 }

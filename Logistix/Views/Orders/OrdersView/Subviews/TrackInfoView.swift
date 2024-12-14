@@ -231,9 +231,6 @@ struct TrackInfoView: View {
         }
         .padding()
         .hAlign(.center)
-        .onAppear {
-            ordersVM.updateOrders()
-        }
     }
 }
 

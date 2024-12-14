@@ -59,7 +59,3 @@ struct TabButton: View {
         }
     }
 }
-
-#Preview {
-    OrdersView()
-}

@@ -43,6 +43,7 @@ struct BackgroundCardsView: View {
                 .cornerRadius(mainVM.showMenu ? 15 : 0)
             
         }
+        .navigationBarBackButtonHidden(true)
         // Scaling and Moving the View
         .scaleEffect(mainVM.showMenu ? 0.84 : 1)
         .offset(x: mainVM.showMenu ? getRect().width - 120 : 0)

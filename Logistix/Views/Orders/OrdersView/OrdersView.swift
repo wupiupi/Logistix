@@ -42,7 +42,7 @@ struct OrdersView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    OrdersTitle()
+                    OrdersTitle(isEmpty: getCorrectOrders().count == 0)
                     
                     ForEach(
                         getCorrectOrders(),
