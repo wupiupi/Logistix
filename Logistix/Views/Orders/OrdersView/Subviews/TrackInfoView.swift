@@ -89,6 +89,14 @@ struct TrackInfoView: View {
                                             .fill(.green)
                                     }
                             }
+                            OrderButtonView(
+                                title: ButtonAction.delete.rawValue,
+                                titleColor: .red,
+                                backColor: .clear) {
+                                    Task {
+                                        await ordersVM.deleteOrder(withID: order.id)
+                                    }
+                                }
                         case OrderStatus.cancelled.rawValue:
                             OrderButtonView(
                                 title: ButtonAction.confirm.rawValue,
@@ -109,7 +117,8 @@ struct TrackInfoView: View {
                                         await ordersVM.deleteOrder(withID: order.id)
                                     }
                                 }
-                        case OrderStatus.searchingForDriver.rawValue:
+                        case OrderStatus.searchingForDriver.rawValue,
+                            OrderStatus.inProcess.rawValue:
                             OrderButtonView(
                                 title: ButtonAction.cancel.rawValue,
                                 titleColor: .red,
@@ -206,11 +215,25 @@ struct TrackInfoView: View {
                                     }
                             }
                     }
+                } else if authVM.currentUser?.role == Role.user.rawValue
+                            && order.userID == authVM.currentUser?.id
+                            && order.status == OrderStatus.onModeration.rawValue {
+                    OrderButtonView(
+                        title: ButtonAction.delete.rawValue,
+                        titleColor: .red,
+                        backColor: .clear) {
+                            Task {
+                                await ordersVM.deleteOrder(withID: order.id)
+                            }
+                        }
                 }
             }
         }
         .padding()
         .hAlign(.center)
+        .onAppear {
+            ordersVM.updateOrders()
+        }
     }
 }
 

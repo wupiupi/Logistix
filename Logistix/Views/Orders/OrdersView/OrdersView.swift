@@ -77,13 +77,16 @@ struct OrdersView: View {
             text: $ordersVM.searchTerm,
             prompt: "Поиск по документам или заказам"
         )
+        .onAppear {
+            ordersVM.updateOrders()
+        }
     }
     
     private func getCorrectOrders() -> [Order] {
         switch authVM.currentUser?.role {
-            case "user":
+            case Role.user.rawValue:
                 return userOrders
-            case "driver":
+            case Role.driver.rawValue:
                 return driverOrders
             default:
                 return filteredOrders

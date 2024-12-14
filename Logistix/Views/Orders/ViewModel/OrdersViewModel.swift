@@ -205,6 +205,7 @@ final class OrdersViewModel: ObservableObject {
                 if let index = orderIndex {
                     ordersData.remove(at: index)
                     
+                    updateOrders()
                     // Update the document with modified orders array
                     try await usersRef.document(document.documentID).updateData([
                         "orders": ordersData
@@ -214,7 +215,6 @@ final class OrdersViewModel: ObservableObject {
         } catch {
             print("Error deleting order: \(error)")
         }
-        updateOrders()
     }
     
     func getStatusColor(forOrderStatus status: String) -> (
