@@ -33,4 +33,5 @@ struct Order: Codable, Identifiable, Hashable {
     let cargoCost: String
     let paymentType: String
     let totalCost: String
+    let imageID: String
 }
