@@ -2,10 +2,11 @@
 //  CreateNewOrderButtonView.swift
 //  Logistix
 //
-//  Created by Serge Broski on 5/22/24.
+//  Created by Paul Makey on 5/22/24.
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CreateNewOrderButtonView: View {
     @EnvironmentObject private var newOrderVM: NewOrderViewModel
@@ -56,6 +57,8 @@ struct CreateNewOrderButtonView: View {
     }
     
     private func createOrder() async {
+        let imageID = UUID().uuidString
+        
         let order = Order(
             id: String.generateTrackNum(),
             userID: authVM.currentUser?.id ?? "",
@@ -73,9 +76,16 @@ struct CreateNewOrderButtonView: View {
             dateOfDelivery: newOrderVM.dateOfDelivery ?? Date(),
             cargoCost: newOrderVM.cargoCost,
             paymentType: newOrderVM.payment.rawValue,
-            totalCost: newOrderVM.totalCost
+            totalCost: newOrderVM.totalCost,
+            imageID: imageID
         )
-        await authVM.addOrderToUser(order: order)
+        await authVM.addOrderToUser(
+            order: order,
+            image: RealmImage(
+                imageID: imageID,
+                data: newOrderVM.imageData
+            )
+        )
         ordersVM.updateOrders()
     }
     
