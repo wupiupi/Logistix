@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import RealmSwift
 
 @MainActor
 final class OrdersViewModel: ObservableObject {
@@ -48,6 +49,11 @@ final class OrdersViewModel: ObservableObject {
         } catch {
             print("Error fetching orders: \(error)")
         }
+    }
+    
+    func fetchOrderFromRealm(imageID: String) -> RealmImage? {
+        let realm = try! Realm()
+        return realm.objects(RealmImage.self).filter("imageID == %@", imageID).first
     }
     
     func fetchCompletedOrders(forDriverID driverID: String) async -> [Order] {
