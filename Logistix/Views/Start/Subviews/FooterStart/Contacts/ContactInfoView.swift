@@ -22,10 +22,3 @@ struct ContactInfoView: View {
         }
     }
 }
-
-#Preview {
-    ContactInfoView(
-        image: "phone",
-        text: "+375(29)555-66-77"
-    )
-}
