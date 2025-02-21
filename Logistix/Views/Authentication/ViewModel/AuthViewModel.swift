@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 import CryptoKit
+import RealmSwift
 
 protocol ValidationFormProtocol {
     var formIsValid: Bool { get }
@@ -127,7 +128,7 @@ final class AuthViewModel: ObservableObject {
     }
     
     // MARK: - ORDERS
-    func addOrderToUser(order: Order) async {
+    func addOrderToUser(order: Order, image: RealmImage? = nil) async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(uid)
@@ -138,6 +139,9 @@ final class AuthViewModel: ObservableObject {
             try await userRef.updateData([
                 "orders": FieldValue.arrayUnion([orderData])
             ])
+            if image != nil {
+                saveImageToRealm(imageID: image?.imageID ?? "", imageData: image?.data)
+            }
         } catch {
             print("Error encoding order: \(error)")
         }
