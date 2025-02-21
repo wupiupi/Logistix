@@ -12,6 +12,9 @@ struct TrackInfoView: View {
     @EnvironmentObject private var ordersVM: OrdersViewModel
     
     var order: Order
+    var realmImage: RealmImage? {
+        ordersVM.fetchOrderFromRealm(imageID: order.imageID)
+    }
     
     var body: some View {
         NavigationStack {
@@ -25,6 +28,15 @@ struct TrackInfoView: View {
                         )
                     )
                 
+                if let realmImage, let imageData = realmImage.data, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 200)
+                } else {
+                    Text("Нет фото")
+                }
+                                
                 OrderDetailsView(
                     title: "Адрес отправителя",
                     orderInfo: order.sourceAddress
