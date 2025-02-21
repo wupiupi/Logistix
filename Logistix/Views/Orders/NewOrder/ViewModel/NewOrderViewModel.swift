@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import PhotosUI
+import SwiftUI
 
 final class NewOrderViewModel: ObservableObject {
     // MARK: - Payment
@@ -51,6 +53,10 @@ final class NewOrderViewModel: ObservableObject {
     
     @Published var alertTitle = "Ошибка"
     @Published var alertMessage = "Пожалуйста, введите корректные данные"
+    
+    @Published var selectedImage: UIImage?
+    @Published var selectedItem: PhotosPickerItem?
+    @Published var imageData: Data?
     
     // MARK: - Computable Properties
     var totalCost: String {
