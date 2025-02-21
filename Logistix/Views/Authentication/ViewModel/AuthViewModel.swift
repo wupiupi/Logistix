@@ -143,6 +143,21 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    private func saveImageToRealm(imageID: String, imageData: Data?) {
+        let realm = try! Realm()
+        let newImage = RealmImage(imageID: imageID, data: imageData)
+        
+        try! realm.write({
+            realm.add(newImage)
+        })
+        
+        if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
+                    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+                    let fileURL = documentDirectory?.appendingPathComponent(realmURL.lastPathComponent)
+                    print("Realm file URL: \(fileURL?.path ?? "")")
+                }
+    }
+    
     // MARK: - APPLICATIONS
     func addApplicationToUser(application: Application) async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
