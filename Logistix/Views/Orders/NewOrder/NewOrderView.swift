@@ -30,6 +30,11 @@ struct NewOrderView: View {
                     
                     Divider()
                     
+                    // MARK: - Image Picker
+                    SelectImageView()
+                    
+                    Divider()
+                    
                     // MARK: - Worth of order
                     WorthNewOrderView()
                     
