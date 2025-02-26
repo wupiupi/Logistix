@@ -1,10 +1,3 @@
-//
-//  RealmImage.swift
-//  Logistix
-//
-//  Created by Paul Makey on 20.02.25.
-//
-
 import Foundation
 import RealmSwift
 

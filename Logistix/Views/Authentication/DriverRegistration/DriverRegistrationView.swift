@@ -1,10 +1,3 @@
-//
-//  DriverRegistrationView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 9/18/24.
-//
-
 import SwiftUI
 
 struct DriverRegistrationView: View {

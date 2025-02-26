@@ -1,10 +1,3 @@
-//
-//  ButtonAction.swift
-//  Logistix
-//
-//  Created by Paul Makey on 8.11.24.
-//
-
 import Foundation
 
 enum ButtonAction: String {

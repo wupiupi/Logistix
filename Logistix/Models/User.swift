@@ -1,10 +1,3 @@
-//
-//  User.swift
-//  Logistix
-//
-//  Created by Paul Makey on 7.11.24.
-//
-
 import Foundation
 
 enum Role: String {

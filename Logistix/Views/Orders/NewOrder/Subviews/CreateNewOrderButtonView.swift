@@ -1,10 +1,3 @@
-//
-//  CreateNewOrderButtonView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 5/22/24.
-//
-
 import SwiftUI
 import RealmSwift
 

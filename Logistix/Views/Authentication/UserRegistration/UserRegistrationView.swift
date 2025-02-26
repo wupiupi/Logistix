@@ -1,10 +1,3 @@
-//
-//  UserRegistrationView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 1.11.24.
-//
-
 import SwiftUI
 
 struct UserRegistrationView: View {

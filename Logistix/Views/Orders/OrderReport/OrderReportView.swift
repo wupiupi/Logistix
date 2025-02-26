@@ -1,10 +1,3 @@
-//
-//  OrderReportView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 2.06.24.
-//
-
 import SwiftUI
 
 struct OrderReportView: View {

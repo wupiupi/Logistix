@@ -1,10 +1,3 @@
-//
-//  UserInfoView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 30.05.24.
-//
-
 import SwiftUI
 
  struct UserInfoView: View {

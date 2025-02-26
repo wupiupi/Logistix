@@ -704,8 +704,8 @@
 		CD3F79F82BFDF84700390CD3 /* OrdersView */ = {
 			isa = PBXGroup;
 			children = (
-				A0E7A3412CDEB01D00866F46 /* Enumerations */,
 				A02B638F2BF116040014EE5B /* OrdersView.swift */,
+				A0E7A3412CDEB01D00866F46 /* Enumerations */,
 				CD3F79F12BFDF00900390CD3 /* Subviews */,
 			);
 			path = OrdersView;

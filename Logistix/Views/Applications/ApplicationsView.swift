@@ -1,10 +1,3 @@
-//
-//  ApplicationsView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/20/24.
-//
-
 import SwiftUI
 
 struct ApplicationsView: View {

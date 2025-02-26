@@ -1,10 +1,3 @@
-//
-//  FirestoreManager.swift
-//  Logistix
-//
-//  Created by Paul Makey on 7.11.24.
-//
-
 import Foundation
 import FirebaseFirestore
 
@@ -13,6 +6,4 @@ final class FirestoreManager {
     static let shared = FirestoreManager()
     
     private init() {}
-    
-    
 }

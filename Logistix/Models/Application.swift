@@ -1,10 +1,3 @@
-//
-//  Application.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/20/24.
-//
-
 import Foundation
 
 enum ApplicationStatus: String {

@@ -1,10 +1,3 @@
-//
-//  RegistrationViewModel.swift
-//  Logistix
-//
-//  Created by Paul Makey on 5/21/24.
-//
-
 import Foundation
 
 final class RegistrationViewModel: ObservableObject {
