@@ -29,8 +29,3 @@ struct ContactUsFieldsView: View {
         .padding(.bottom, 30)
     }
 }
-
-#Preview {
-    ContactUsFieldsView()
-        .environmentObject(ContactUsViewModel())
-}

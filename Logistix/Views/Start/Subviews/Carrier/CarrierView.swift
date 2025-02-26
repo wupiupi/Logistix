@@ -31,7 +31,3 @@ struct CarrierView: View {
         .padding(.bottom, -10)
     }
 }
-
-#Preview {
-    CarrierView()
-}

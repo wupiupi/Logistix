@@ -75,10 +75,3 @@ struct ProductView: View {
         .padding(.horizontal, 15)
     }
 }
-
-#Preview {
-    ProductView(
-        imageName: "hammer.right",
-        text: "Транспортные тендеры"
-    )
-}

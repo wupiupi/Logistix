@@ -20,7 +20,3 @@ struct CarrierButtonView: View {
         .frame(width: UIScreen.main.bounds.width - 32)
     }
 }
-
-#Preview {
-    CarrierButtonView()
-}

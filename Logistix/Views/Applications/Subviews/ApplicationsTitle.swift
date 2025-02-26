@@ -12,7 +12,3 @@ struct ApplicationsTitle: View {
             )
     }
 }
-
-#Preview {
-    ApplicationsTitle()
-}

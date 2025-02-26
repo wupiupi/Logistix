@@ -49,7 +49,3 @@ struct ProductsView: View {
         .padding(.bottom, -10)
     }
 }
-
-#Preview {
-    ProductsView()
-}

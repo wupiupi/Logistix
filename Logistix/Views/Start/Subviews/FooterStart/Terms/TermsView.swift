@@ -21,7 +21,3 @@ struct TermsView: View {
         .padding(.bottom, 40)
     }
 }
-
-#Preview {
-    TermsView()
-}

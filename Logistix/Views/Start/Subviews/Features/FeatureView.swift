@@ -37,10 +37,3 @@ struct FeatureView: View {
         }
     }
 }
-
-#Preview {
-    FeatureView(
-        imageName: "handshake",
-        text: "Более 6 000 перевозчиков работают с нами"
-    )
-}

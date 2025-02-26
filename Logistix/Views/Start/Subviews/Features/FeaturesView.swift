@@ -20,7 +20,3 @@ struct FeaturesView: View {
         )
     }
 }
-
-#Preview {
-    FeaturesView()
-}

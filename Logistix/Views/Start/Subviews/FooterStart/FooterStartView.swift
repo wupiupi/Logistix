@@ -17,7 +17,3 @@ struct FooterStartView: View {
         .padding(.bottom, -33)
     }
 }
-
-#Preview {
-    FooterStartView()
-}

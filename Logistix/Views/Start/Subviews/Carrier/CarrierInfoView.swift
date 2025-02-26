@@ -16,7 +16,3 @@ struct CarrierInfoView: View {
         }
     }
 }
-
-#Preview {
-    CarrierInfoView(text: "Все грузовладельцы на одной платформе – получайте выгодные заказы")
-}

@@ -12,7 +12,3 @@ struct SocialLinkView: View {
         })
     }
 }
-
-#Preview {
-    SocialLinkView(image: "facebook.info", stringURL: "")
-}

@@ -23,7 +23,3 @@ struct ContactsView: View {
         SocialsView()
     }
 }
-
-#Preview {
-    ContactsView()
-}
