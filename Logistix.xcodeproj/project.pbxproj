@@ -37,6 +37,7 @@
 		A0D2EBFF2C0CD5A7003BD59C /* LogistixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2EBFE2C0CD5A7003BD59C /* LogistixTests.swift */; };
 		A0D2EC062C0CD603003BD59C /* AuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2EC052C0CD603003BD59C /* AuthorizationTests.swift */; };
 		A0D2EC082C0CDF70003BD59C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2EC072C0CDF70003BD59C /* UserTests.swift */; };
+		A0D74EE02D6FB730008BCDD7 /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D74EDF2D6FB730008BCDD7 /* SelectImageView.swift */; };
 		A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */; };
 		A0D8EA342BEFFC7A00529E5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8EA332BEFFC7A00529E5C /* ContentView.swift */; };
 		A0D8EA362BEFFC7A00529E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D8EA352BEFFC7A00529E5C /* Assets.xcassets */; };
@@ -169,6 +170,7 @@
 		A0D2EBFE2C0CD5A7003BD59C /* LogistixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogistixTests.swift; sourceTree = "<group>"; };
 		A0D2EC052C0CD603003BD59C /* AuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTests.swift; sourceTree = "<group>"; };
 		A0D2EC072C0CDF70003BD59C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		A0D74EDF2D6FB730008BCDD7 /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		A0D8EA2E2BEFFC7A00529E5C /* Logistix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logistix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D8EA312BEFFC7A00529E5C /* LogistixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogistixApp.swift; sourceTree = "<group>"; };
 		A0D8EA332BEFFC7A00529E5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 				CD3F7A0C2BFE0D9100390CD3 /* ContactNewOrderView.swift */,
 				CD3F7A0E2BFE0E2500390CD3 /* CarrierNewOrderView.swift */,
 				CD3F7A102BFE0E9800390CD3 /* EstimatedTimeNewOrderView.swift */,
+				A0D74EDF2D6FB730008BCDD7 /* SelectImageView.swift */,
 				CD3F7A122BFE0F0B00390CD3 /* CustomDatePickerView.swift */,
 				CD3F7A052BFE083100390CD3 /* DatePickerTextFieldView.swift */,
 				CD3F7A162BFE110400390CD3 /* WorthNewOrderView.swift */,
@@ -1025,6 +1028,7 @@
 				A0F6EBBB2BF2BF7300E279BF /* AuthViewModel.swift in Sources */,
 				A0E36DA22BF0177A00A4B8AE /* CustomButtonView.swift in Sources */,
 				A0FDF43C2CE8CD80008DF90F /* Auto.swift in Sources */,
+				A0D74EE02D6FB730008BCDD7 /* SelectImageView.swift in Sources */,
 				A0B0D5132D67AB7E002CA7D6 /* StorageManager.swift in Sources */,
 				CD3F7A1B2BFE120E00390CD3 /* InTotalNewOrderView.swift in Sources */,
 				CD574CC92C9AE48100A6D273 /* DriverRegistrationView.swift in Sources */,
