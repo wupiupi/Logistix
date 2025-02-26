@@ -26,6 +26,8 @@ struct TrackInfoView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))
                 } else {
                     Text("Нет фото")
                 }
