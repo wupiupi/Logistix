@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TabButton: View {
+    @EnvironmentObject private var mainVM: MainViewModel
+    
     var image: String
     var title: String
     var action: (() -> Void)?
@@ -15,6 +17,7 @@ struct TabButton: View {
             (action ?? {})()
             withAnimation(.spring()) {
                 selectedTab = title
+                mainVM.showMenu = false
             }
         } label: {
             HStack(spacing: 15) {
