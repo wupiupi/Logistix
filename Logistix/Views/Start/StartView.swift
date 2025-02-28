@@ -1,10 +1,3 @@
-//
-//  StartView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 11.05.24.
-//
-
 import SwiftUI
 
 struct StartView: View {
@@ -26,8 +19,4 @@ struct StartView: View {
                 .navigationTitle("Logistix")
         }
     }
-}
-
-#Preview {
-    StartView()
 }

@@ -1,12 +1,7 @@
-//
-//  NewOrderViewModel.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import Foundation
 import UIKit
+import PhotosUI
+import SwiftUI
 
 final class NewOrderViewModel: ObservableObject {
     // MARK: - Payment
@@ -52,6 +47,10 @@ final class NewOrderViewModel: ObservableObject {
     @Published var alertTitle = "Ошибка"
     @Published var alertMessage = "Пожалуйста, введите корректные данные"
     
+    @Published var selectedImage: UIImage?
+    @Published var selectedItem: PhotosPickerItem?
+    @Published var imageData: Data?
+    
     // MARK: - Computable Properties
     var totalCost: String {
         switch selectedWeight {
@@ -79,7 +78,7 @@ final class NewOrderViewModel: ObservableObject {
         self.recipientPhoneNumber = recipientPhoneNumber
         self.selectedWeight = selectedWeight
         
-        UISegmentedControl.appearance().selectedSegmentTintColor = .main
+        UISegmentedControl.appearance().selectedSegmentTintColor = .statusGreen
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
             for: .selected

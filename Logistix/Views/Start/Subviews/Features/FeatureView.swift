@@ -1,10 +1,3 @@
-//
-//  FeatureView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct FeatureView: View {
@@ -43,11 +36,4 @@ struct FeatureView: View {
                 .frame(width: UIScreen.main.bounds.width)
         }
     }
-}
-
-#Preview {
-    FeatureView(
-        imageName: "handshake",
-        text: "Более 6 000 перевозчиков работают с нами"
-    )
 }

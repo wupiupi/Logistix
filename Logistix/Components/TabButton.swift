@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Logistix
-//
-//  Created by Paul Makey on 13.05.24.
-//
-
 import SwiftUI
 
 struct TabButton: View {
@@ -32,7 +25,7 @@ struct TabButton: View {
                 Text(title)
                     .fontWeight(.semibold)
             }
-            .foregroundStyle(selectedTab == title ? Color.main : .white)
+            .foregroundStyle(selectedTab == title ? Color.statusGreen : .white)
             .padding(.vertical, 12)
             .padding(.horizontal, 10)
             
@@ -58,8 +51,4 @@ struct TabButton: View {
             )
         }
     }
-}
-
-#Preview {
-    OrdersView()
 }

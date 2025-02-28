@@ -1,10 +1,3 @@
-//
-//  ExpandableUserView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 28.05.24.
-//
-
 import SwiftUI
 
 struct ExpandableUserView: View {

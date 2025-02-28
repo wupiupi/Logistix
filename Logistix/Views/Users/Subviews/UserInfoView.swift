@@ -1,10 +1,3 @@
-//
-//  UserInfoView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 30.05.24.
-//
-
 import SwiftUI
 
  struct UserInfoView: View {
@@ -14,7 +7,7 @@ import SwiftUI
 
      var body: some View {
          VStack(alignment: .center, spacing: 20) {
-             Text("Пользователь: \(user.id)")
+             Text("Пользователь: \(user.name)")
                  .modifier(
                     TitleModifier(
                         font: .title3,
@@ -27,15 +20,33 @@ import SwiftUI
              UserDetailsView(title: "ФИО", userInfo: user.name)
              UserDetailsView(title: "Почта", userInfo: user.email)
              UserDetailsView(title: "Роль", userInfo: user.role)
+             if user.role == Role.driver.rawValue {
+                 UserDetailsView(
+                    title: "Марка автомобиля",
+                    userInfo: user.auto?.brand ?? "НЕ УКАЗАНО"
+                 )
+                 UserDetailsView(
+                    title: "Грузоподъемность",
+                    userInfo: "\(user.auto?.maxWeightLimit ?? "НЕ УКАЗАНО") кг"
+                 )
+                 UserDetailsView(
+                    title: "Регистрационный номер ТС",
+                    userInfo: user.auto?.regNumber ?? "НЕ УКАЗАНО"
+                 )
+             }
              
              if authVM.currentUser?.id != user.id {
                  OrderButtonView(
-                    title: user.role == "user" ? "Сделать администратором" : "Сделать пользователем",
+                    title: user.role == Role.admin.rawValue
+                    ? "Сделать пользователем"
+                    : "Сделать администратором",
                     titleColor: .white,
                     backColor: .green) {
                         usersVM.updateUserRole(
                             id: user.id,
-                            role: user.role == "user" ? .admin : .user
+                            role: user.role == Role.user.rawValue
+                            ? Role.admin.rawValue
+                            : Role.user.rawValue
                         )
                         
                     }

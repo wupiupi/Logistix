@@ -1,10 +1,3 @@
-//
-//  UserIdView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 28.05.24.
-//
-
 import SwiftUI
 
 struct UserIdView: View {
@@ -20,7 +13,7 @@ struct UserIdView: View {
                      .padding([.leading, .trailing], 8)
                      .background {
                          RoundedRectangle(cornerRadius: 10)
-                             .fill(.main.opacity(0.2))
+                             .fill(.statusGreenBackground)
                      }
 
                  Spacer()

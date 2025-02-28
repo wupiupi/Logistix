@@ -1,10 +1,3 @@
-//
-//  NewOrderView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 13.05.24.
-//
-
 import SwiftUI
 
 struct NewOrderView: View {
@@ -14,37 +7,34 @@ struct NewOrderView: View {
                 VStack(alignment: .leading) {
                     // MARK: - Header
                     HeaderNewOrderView()
-                    
                     Divider()
                     
                     // MARK: - Route
                     RouteNewOrderView()
-                    
                     Divider()
                     
                     // MARK: - Contact info
                     ContactNewOrderView()
-                    
                     Divider()
                     
                     // MARK: - Carrier info
                     CarrierNewOrderView()
-                    
                     Divider()
                     
                     // MARK: - Estimated time
                     EstimatedTimeNewOrderView()
+                    Divider()
                     
+                    // MARK: - Image Picker
+                    SelectImageView()
                     Divider()
                     
                     // MARK: - Worth of order
                     WorthNewOrderView()
-                    
                     Divider()
                     
                     // MARK: - Payment method
                     PaymentMethodNewOrderView()
-                    
                     Divider()
                     
                     // MARK: - In total
@@ -57,10 +47,4 @@ struct NewOrderView: View {
             }
         }
     }
-}
-
-#Preview {
-    NewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
-        .environmentObject(AuthViewModel())
 }

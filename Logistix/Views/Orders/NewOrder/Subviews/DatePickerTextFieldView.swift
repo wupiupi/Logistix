@@ -1,10 +1,3 @@
-//
-//  DatePickerTextFieldView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 /// - Connecting UIKit DatePicker to SwiftUI.
@@ -89,11 +82,4 @@ struct DatePickerTextFieldView: UIViewRepresentable {
             doneButtonTapped?()
         }
     }
-}
-
-#Preview {
-    DatePickerTextFieldView(
-        placeholder: "Placeholder",
-        date: .constant(Date.now)
-    )
 }

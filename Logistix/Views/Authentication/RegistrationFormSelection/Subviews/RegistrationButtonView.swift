@@ -1,10 +1,3 @@
-//
-//  RegistrationButtonView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct RegistrationButtonView: View {
@@ -14,12 +7,19 @@ struct RegistrationButtonView: View {
     var body: some View {
         Button {
             Task {
+                let auto = Auto(
+                    brand: registrationVM.autoBrand,
+                    maxWeightLimit: registrationVM.autoMaxWeight,
+                    regNumber: registrationVM.autoRegNumber
+                )
                 try await authVM.createUser(
                     withEmail: registrationVM.email,
                     password: registrationVM.password,
                     fullName: registrationVM.fullName,
-                    phoneNumber: nil,
-                    role: .user
+                    role: registrationVM.autoBrand == ""
+                    ? Role.user.rawValue
+                    : Role.driver.rawValue,
+                    auto: auto
                 )
             }
         } label: {
@@ -33,17 +33,11 @@ struct RegistrationButtonView: View {
                             width: UIScreen.main.bounds.width - 64,
                             height: 50
                         )
-                        .foregroundStyle(Color.main)
+                        .foregroundStyle(Color.statusGreen)
                 }
                 .disabled(!registrationVM.formIsValid)
                 .opacity(registrationVM.formIsValid ? 1.0 : 0.5)
         }
         .alert(authVM.alertMessage, isPresented: $authVM.isEmailTaken, actions: {} )
     }
-}
-
-#Preview {
-    RegistrationButtonView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(RegistrationViewModel())
 }

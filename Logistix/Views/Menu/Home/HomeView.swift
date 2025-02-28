@@ -1,10 +1,3 @@
-//
-//  HomeView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 13.05.24.
-//
-
 import SwiftUI
 
 struct HomeView: View {
@@ -26,6 +19,9 @@ struct HomeView: View {
             
             NewOrderView()
                 .tag("Новый заказ")
+            
+            OrdersHistoryView()
+                .tag("История заказов")
             
             ContactUsView()
                 .tag("Связаться с нами")

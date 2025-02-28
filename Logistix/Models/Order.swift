@@ -1,24 +1,30 @@
-//
-//  Order.swift
-//  Logistix
-//
-//  Created by Paul Makey on 13.05.24.
-//
-
 import Foundation
-import RealmSwift
 
-final class Order: Object, Codable, Identifiable {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var userID = ""
-    @Persisted var trackingNumber = " "
-    @Persisted var status = "ожидает подтверждения"
-    @Persisted var route: Route?
-    @Persisted var sender: Sender?
-    @Persisted var recipient: Recipient?
-    @Persisted var cargoType = ""
-    @Persisted var weight = ""
-    @Persisted var dateOfLoading = Date()
-    @Persisted var dateOfDelivery = Date()
-    @Persisted var price: Price?
+enum OrderStatus: String {
+    case onModeration = "На модерации"
+    case searchingForDriver = "Ищем водителя"
+    case cancelled = "Отменен"
+    case completed = "Завершен"
+    case inProcess = "В работе"
+}
+
+struct Order: Codable, Identifiable, Hashable {
+    let id: String
+    let userID: String
+    var assignedDriverID: String?
+    var status: String
+    let sourceAddress: String
+    let destinationAddress: String
+    let senderName: String
+    let senderPhoneNumber: String
+    let recipientName: String
+    let recipientPhoneNumber: String
+    let cargoType: String
+    let weight: String
+    let dateOfLoading: Date
+    let dateOfDelivery: Date
+    let cargoCost: String
+    let paymentType: String
+    let totalCost: String
+    let imageID: String
 }

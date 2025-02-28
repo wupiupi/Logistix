@@ -1,10 +1,3 @@
-//
-//  ContactUsViewModel.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import Foundation
 
 final class ContactUsViewModel: ObservableObject {

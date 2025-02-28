@@ -1,10 +1,3 @@
-//
-//  RegistrationFieldsView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct RegistrationFieldsView: View {
@@ -37,6 +30,9 @@ struct RegistrationFieldsView: View {
             registrationVM.password = ""
             registrationVM.fullName = ""
             registrationVM.confirmPassword = ""
+            registrationVM.autoBrand = ""
+            registrationVM.autoMaxWeight = ""
+            registrationVM.autoRegNumber = ""
         }
         
         ZStack {
@@ -64,10 +60,4 @@ struct RegistrationFieldsView: View {
         }
         .padding(.bottom, 20)
     }
-}
-
-#Preview {
-    RegistrationFieldsView()
-        .environmentObject(AuthViewModel())
-        .environmentObject(RegistrationViewModel())
 }

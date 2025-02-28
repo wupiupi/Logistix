@@ -1,10 +1,3 @@
-//
-//  CarrierButtonView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct CarrierButtonView: View {
@@ -21,13 +14,9 @@ struct CarrierButtonView: View {
                 .foregroundStyle(.white)
                 .background {
                     Capsule()
-                        .fill(.main)
+                        .fill(.statusGreen)
                 }
         }
         .frame(width: UIScreen.main.bounds.width - 32)
     }
-}
-
-#Preview {
-    CarrierButtonView()
 }

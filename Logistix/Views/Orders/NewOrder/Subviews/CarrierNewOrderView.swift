@@ -1,10 +1,3 @@
-//
-//  CarrierNewOrderView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct CarrierNewOrderView: View {
@@ -54,9 +47,4 @@ struct CarrierNewOrderView: View {
         }
         .padding(.bottom, 20)
     }
-}
-
-#Preview {
-    CarrierNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
 }

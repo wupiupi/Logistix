@@ -1,10 +1,3 @@
-//
-//  FeaturesView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct FeaturesView: View {
@@ -23,11 +16,7 @@ struct FeaturesView: View {
             imageName: "insurance",
             text: "Своя служба безопасности",
             textColor: .white,
-            backgroundColor: .main
+            backgroundColor: .statusGreen
         )
     }
-}
-
-#Preview {
-    FeaturesView()
 }

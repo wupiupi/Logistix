@@ -1,10 +1,3 @@
-//
-//  CustomDatePickerView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct CustomDatePickerView: View {
@@ -24,12 +17,8 @@ struct CustomDatePickerView: View {
                 .background {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke()
-                        .foregroundStyle(Color.main)
+                        .foregroundStyle(Color.statusGreen)
                 }
         }
     }
-}
-
-#Preview {
-    CustomDatePickerView(date: .constant(Date.now))
 }

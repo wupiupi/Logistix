@@ -1,10 +1,3 @@
-//
-//  PaymentMethodNewOrderView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct PaymentMethodNewOrderView: View {
@@ -32,9 +25,4 @@ struct PaymentMethodNewOrderView: View {
         }
         .padding(.bottom, 20)
     }
-}
-
-#Preview {
-    PaymentMethodNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
 }

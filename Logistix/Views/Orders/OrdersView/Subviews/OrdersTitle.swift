@@ -1,15 +1,11 @@
-//
-//  OrdersTitle.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct OrdersTitle: View {
+    var title: String? = nil
+    var isEmpty: Bool = false
+    
     var body: some View {
-        Text("Текущие заказы")
+        Text(isEmpty ? "Пока что заказов нет" : title ?? "Текущие заказы")
             .modifier(
                 TitleModifier(
                     font: .largeTitle,
@@ -18,8 +14,4 @@ struct OrdersTitle: View {
                 )
             )
     }
-}
-
-#Preview {
-    OrdersTitle()
 }

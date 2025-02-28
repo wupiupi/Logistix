@@ -1,10 +1,3 @@
-//
-//  SideMenu.swift
-//  Logistix
-//
-//  Created by Paul Makey on 13.05.24.
-//
-
 import SwiftUI
 
 struct SideMenu: View {
@@ -32,7 +25,7 @@ struct SideMenu: View {
                     selectedTab: $selectedTab,
                     animation: animation
                 )
-                if authVM.currentUser?.role == "admin" {
+                if authVM.currentUser?.role == Role.admin.rawValue {
                     TabButton(
                         image: "folder",
                         title: "Заявки",
@@ -45,7 +38,7 @@ struct SideMenu: View {
                         selectedTab: $selectedTab,
                         animation: animation
                     )
-                } else {
+                } else if authVM.currentUser?.role == Role.user.rawValue {
                     TabButton(
                         image: "pencil.and.list.clipboard",
                         title: "Новый заказ",
@@ -55,6 +48,13 @@ struct SideMenu: View {
                     TabButton(
                         image: "phone.fill",
                         title: "Связаться с нами",
+                        selectedTab: $selectedTab,
+                        animation: animation
+                    )
+                } else if authVM.currentUser?.role == Role.driver.rawValue {
+                    TabButton(
+                        image: "clock.fill",
+                        title: "История заказов",
                         selectedTab: $selectedTab,
                         animation: animation
                     )
@@ -92,8 +92,4 @@ struct SideMenu: View {
             alignment: .topLeading
         )
     }
-}
-
-#Preview {
-    MainView()
 }

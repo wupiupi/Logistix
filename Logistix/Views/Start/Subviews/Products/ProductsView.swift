@@ -1,10 +1,3 @@
-//
-//  ProductsView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct ProductsView: View {
@@ -55,8 +48,4 @@ struct ProductsView: View {
         }
         .padding(.bottom, -10)
     }
-}
-
-#Preview {
-    ProductsView()
 }

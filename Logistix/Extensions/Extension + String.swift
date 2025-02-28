@@ -1,10 +1,3 @@
-//
-//  Extension + String.swift
-//  Logistix
-//
-//  Created by Paul Makey on 14.05.24.
-//
-
 import Foundation
 
 extension String {
@@ -26,26 +19,17 @@ extension String {
         var result = ""
 
         // Генерируем три случайные буквы
-        for _ in 1...3 {
+        (1...3).forEach { _ in
             let randomIndex = Int.random(in: 0..<letters.count)
             let randomLetter = letters[letters.index(letters.startIndex, offsetBy: randomIndex)]
             result.append(randomLetter)
         }
 
         // Генерируем 9 случайных цифр
-        for _ in 1...9 {
+        (1...9).forEach { _ in
             let randomDigit = Int.random(in: 0..<10)
             result.append(String(randomDigit))
         }
-
-        // Генерируем две случайные буквы. Убери коммент, и 50 строку, если хочешь любые 2 цифры
-        /*
-        for _ in 1...2 {
-            let randomIndex = Int.random(in: 0..<letters.count)
-            let randomLetter = letters[letters.index(letters.startIndex, offsetBy: randomIndex)]
-            result.append(randomLetter)
-        }
-         */
         
         result.append("RU")
 

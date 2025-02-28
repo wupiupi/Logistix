@@ -1,12 +1,4 @@
-//
-//  ContentView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 11.05.24.
-//
-
 import SwiftUI
-import RealmSwift
 
 struct ContentView: View {
     @EnvironmentObject private var authVM: AuthViewModel
@@ -20,8 +12,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

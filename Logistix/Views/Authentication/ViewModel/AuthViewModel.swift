@@ -1,14 +1,8 @@
-//
-//  AuthViewModel.swift
-//  Logistix
-//
-//  Created by Paul Makey on 14.05.24.
-//
-
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 import CryptoKit
+import RealmSwift
 
 protocol ValidationFormProtocol {
     var formIsValid: Bool { get }
@@ -35,6 +29,7 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    // MARK: - AUTHORIZATION
     func signIn(
         withEmail email: String,
         password: String
@@ -54,8 +49,8 @@ final class AuthViewModel: ObservableObject {
         withEmail email: String,
         password: String,
         fullName: String,
-        phoneNumber: String?,
-        role: Role
+        role: String,
+        auto: Auto?
     ) async throws {
         
         let hashedPass = hashPassword(password)
@@ -72,10 +67,13 @@ final class AuthViewModel: ObservableObject {
             // Creating our User data model
             let user = User(
                 id: result.user.uid,
-                role: role.rawValue,
+                auto: auto,
                 email: email,
                 name: fullName,
-                pass: hashedPass
+                pass: hashedPass,
+                role: role,
+                orders: [],
+                applications: []
             )
                         
             // Encoding our user
@@ -120,6 +118,58 @@ final class AuthViewModel: ObservableObject {
         }
         
         currentUser = try? snapshot.data(as: User.self)
+    }
+    
+    // MARK: - ORDERS
+    func addOrderToUser(order: Order, image: RealmImage? = nil) async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(uid)
+        
+        do {
+            let orderData = try Firestore.Encoder().encode(order)
+            
+            try await userRef.updateData([
+                "orders": FieldValue.arrayUnion([orderData])
+            ])
+            if image != nil {
+                saveImageToRealm(imageID: image?.imageID ?? "", imageData: image?.data)
+            }
+        } catch {
+            print("Error encoding order: \(error)")
+        }
+    }
+    
+    private func saveImageToRealm(imageID: String, imageData: Data?) {
+        let realm = try! Realm()
+        let newImage = RealmImage(imageID: imageID, data: imageData)
+        
+        try! realm.write({
+            realm.add(newImage)
+        })
+        
+        if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
+                    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+                    let fileURL = documentDirectory?.appendingPathComponent(realmURL.lastPathComponent)
+                    print("Realm file URL: \(fileURL?.path ?? "")")
+                }
+    }
+    
+    // MARK: - APPLICATIONS
+    func addApplicationToUser(application: Application) async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(uid)
+        
+        do {
+            let applicationData = try Firestore.Encoder().encode(application)
+            
+            try await userRef.updateData([
+                "applications": FieldValue.arrayUnion([applicationData])
+            ])
+        } catch {
+            print("Error encoding application: \(error)")
+        }
     }
     
     func hashPassword(_ password: String) -> String {

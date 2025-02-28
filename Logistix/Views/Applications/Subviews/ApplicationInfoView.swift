@@ -1,18 +1,9 @@
-//
-//  ApplicationInfoView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
-import RealmSwift
 
 struct ApplicationInfoView: View {
-    @ObservedResults(ApplicationForm.self) var applications
     @EnvironmentObject private var applicationsVM: ApplicationsViewModel
     
-    let application: ApplicationForm
+    let application: Application
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -21,7 +12,7 @@ struct ApplicationInfoView: View {
                     TitleModifier(
                         font: .title,
                         fontWeight: .bold,
-                        color: Color(hex: 0x363746, alpha: 1)
+                        color: .expandableViewMain
                     )
                 )
             
@@ -41,6 +32,10 @@ struct ApplicationInfoView: View {
                 title: "Контактный телефон",
                 orderInfo: application.phone
             )
+            OrderDetailsView(
+                title: "Создано поользователем c UID:",
+                orderInfo: application.userID
+            )
             
             Text("Статус")
                 .font(.title3)
@@ -50,38 +45,47 @@ struct ApplicationInfoView: View {
                 .font(.title3)
                 .foregroundStyle(
                     Color(
-                        hex: 0x00CCA6,
-                        alpha: 1
+                        applicationsVM.getStatusColor(
+                            forApplicationStatus: application.status
+                        ).mainColor
                     )
                 )
                 .padding([.top, .bottom], 8)
                 .padding([.leading, .trailing], 8)
                 .background {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(.main.opacity(0.2))
+                        .fill(
+                            applicationsVM.getStatusColor(
+                                forApplicationStatus: application.status
+                            ).backgroundColor
+                        )
                 }
             
-            OrderButtonView(
-                title: "Подтвердить ответ",
-                titleColor: .white,
-                backColor: .green) {
-                    applicationsVM.storageManager.write {
-                        application.thaw()?.status = "Отвечено"
-                    }
-                }
-            
-            OrderButtonView(
-                title: "Удалить",
-                titleColor: .red,
-                backColor: .clear) {
-                    $applications.remove(application)
-                }
+            switch application.status {
+                case ApplicationStatus.waitingForAnswer.rawValue:
+                    OrderButtonView(
+                        title: "Отметить как выполненное",
+                        titleColor: .statusGreen,
+                        backColor: .statusGreenBackground) {
+                            Task {
+                                await applicationsVM.updateApplicationStatus(
+                                    forID: application.id,
+                                    status: ApplicationStatus.completed.rawValue
+                                )
+                            }
+                        }
+                default:
+                    OrderButtonView(
+                        title: "Удалить",
+                        titleColor: .red,
+                        backColor: .clear) {
+                            Task {
+                                await applicationsVM.deleteApplication(withID: application.id)
+                            }
+                        }
+            }
         }
         .padding()
-        .hAlign(.center)    }
-}
-
-#Preview {
-    ApplicationInfoView(application: ApplicationForm())
-        .environmentObject(ApplicationForm())
+        .hAlign(.center)
+    }
 }

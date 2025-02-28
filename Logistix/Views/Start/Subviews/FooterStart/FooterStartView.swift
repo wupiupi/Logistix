@@ -1,10 +1,3 @@
-//
-//  FooterStartView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct FooterStartView: View {
@@ -23,8 +16,4 @@ struct FooterStartView: View {
         .foregroundStyle(.black)
         .padding(.bottom, -33)
     }
-}
-
-#Preview {
-    FooterStartView()
 }

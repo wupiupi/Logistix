@@ -1,10 +1,3 @@
-//
-//  ContactUsFieldsView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct ContactUsFieldsView: View {
@@ -35,9 +28,4 @@ struct ContactUsFieldsView: View {
         }
         .padding(.bottom, 30)
     }
-}
-
-#Preview {
-    ContactUsFieldsView()
-        .environmentObject(ContactUsViewModel())
 }

@@ -1,24 +1,19 @@
-//
-//  CreateNewOrderButtonView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 import RealmSwift
 
 struct CreateNewOrderButtonView: View {
-    @ObservedResults(Order.self) private var orders
     @EnvironmentObject private var newOrderVM: NewOrderViewModel
     @EnvironmentObject private var authVM: AuthViewModel
-    
+    @EnvironmentObject private var ordersVM: OrdersViewModel
+        
     var body: some View {
         Button {
             if newOrderVM.formIsValid {
-                createOrder()
-                newOrderVM.alertTitle = "Готово"
-                newOrderVM.alertMessage = "Ваша заявка успешно зарегистрирована!"
+                Task {
+                    newOrderVM.alertTitle = "Готово"
+                    newOrderVM.alertMessage = "Ваш заказ отправлен на модерацию.\n" + #"Вы можете просмотреть его в разделе "Заказы""#
+                    await createOrder()
+                }
             }
             newOrderVM.showAlert = true
         } label: {
@@ -54,42 +49,37 @@ struct CreateNewOrderButtonView: View {
         )
     }
     
-    private func createOrder() {
-        let order = Order()
-        let route = Route()
-        let sender = Sender()
-        let recipient = Recipient()
-        let price = Price()
+    private func createOrder() async {
+        let imageID = UUID().uuidString
         
-        order.userID = authVM.currentUser?.id ?? ""
-        order.trackingNumber = .generateTrackNum()
-        
-        /// - Route Implementation
-        route.sourceAddress = newOrderVM.sourceAddress
-        route.destinationAddress = newOrderVM.destinationAddress
-        order.route = route
-        
-        /// - Sender Implementation
-        sender.name = newOrderVM.senderName
-        sender.phoneNumber = newOrderVM.senderPhoneNumber
-        order.sender = sender
-        
-        /// - Recipient Implementation
-        recipient.name = newOrderVM.recipientName
-        recipient.phoneNumber = newOrderVM.recipientPhoneNumber
-        order.recipient = recipient
-        
-        order.cargoType = newOrderVM.cargoType.rawValue
-        order.weight = newOrderVM.selectedWeight.rawValue
-        order.dateOfLoading = newOrderVM.dateOfLoading ?? Date()
-        order.dateOfDelivery = newOrderVM.dateOfDelivery ?? Date()
-        
-        price.payment = newOrderVM.payment.rawValue
-        price.cargoCost = newOrderVM.cargoCost
-        price.totalCost = newOrderVM.totalCost
-        order.price = price
-        
-        $orders.append(order)
+        let order = Order(
+            id: String.generateTrackNum(),
+            userID: authVM.currentUser?.id ?? "",
+            assignedDriverID: "",
+            status: OrderStatus.onModeration.rawValue,
+            sourceAddress: newOrderVM.sourceAddress,
+            destinationAddress: newOrderVM.destinationAddress,
+            senderName: newOrderVM.senderName,
+            senderPhoneNumber: newOrderVM.senderPhoneNumber,
+            recipientName: newOrderVM.recipientName,
+            recipientPhoneNumber: newOrderVM.recipientPhoneNumber,
+            cargoType: newOrderVM.cargoType.rawValue,
+            weight: newOrderVM.selectedWeight.rawValue,
+            dateOfLoading: newOrderVM.dateOfLoading ?? Date(),
+            dateOfDelivery: newOrderVM.dateOfDelivery ?? Date(),
+            cargoCost: newOrderVM.cargoCost,
+            paymentType: newOrderVM.payment.rawValue,
+            totalCost: newOrderVM.totalCost,
+            imageID: imageID
+        )
+        await authVM.addOrderToUser(
+            order: order,
+            image: RealmImage(
+                imageID: imageID,
+                data: newOrderVM.imageData
+            )
+        )
+        ordersVM.updateOrders()
     }
     
     private func clearFields() {

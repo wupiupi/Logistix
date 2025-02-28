@@ -1,10 +1,3 @@
-//
-//  Modifier + ViewModifier.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct TitleModifier: ViewModifier {

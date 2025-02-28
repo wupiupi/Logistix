@@ -1,10 +1,3 @@
-//
-//  MainView.swift
-//  Logistix
-//
-//  Created by Paul Makey on 13.05.24.
-//
-
 import SwiftUI
 
 struct MainView: View {
@@ -13,7 +6,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             // Background color
-            Color.main
+            Color.statusGreen
                 .ignoresSafeArea()
             
             // Side Menu
@@ -29,10 +22,6 @@ struct MainView: View {
         .onAppear {
             mainVM.selectedTab = "Заказы"
         }
+        .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    MainView()
-        .environmentObject(MainViewModel())
 }

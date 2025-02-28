@@ -1,27 +1,24 @@
-//
-//  ContactUsButtonView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
-import RealmSwift
 
 struct ContactUsButtonView: View {
     @EnvironmentObject private var contactUsVM: ContactUsViewModel
-    @ObservedResults(ApplicationForm.self) var applications
+    @EnvironmentObject private var authVM: AuthViewModel
     
     var body: some View {
         Button {
-            let application = ApplicationForm()
-            application.name = contactUsVM.name
-            application.email = contactUsVM.email
-            application.company = contactUsVM.company
-            application.phone = contactUsVM.phone
-            application.date = Date.now
-            
-            $applications.append(application)
+            let application = Application(
+                id: UUID().uuidString,
+                userID: authVM.currentUser?.id ?? "",
+                name: contactUsVM.name,
+                email: contactUsVM.email,
+                company: contactUsVM.company,
+                phone: contactUsVM.phone,
+                status: ApplicationStatus.waitingForAnswer.rawValue,
+                date: Date()
+            )
+            Task {
+                await authVM.addApplicationToUser(application: application)
+            }
             
             contactUsVM.isShowingAlert = true
         } label: {
@@ -56,9 +53,4 @@ struct ContactUsButtonView: View {
         .disabled(!contactUsVM.formIsValid)
         .opacity(contactUsVM.formIsValid ? 1.0 : 0.5)
     }
-}
-
-#Preview {
-    ContactUsButtonView()
-        .environmentObject(ContactUsViewModel())
 }

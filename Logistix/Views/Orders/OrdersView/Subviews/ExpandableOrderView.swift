@@ -1,10 +1,3 @@
-//
-//  ExpandableOrderView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct ExpandableOrderView: View {
@@ -19,7 +12,7 @@ struct ExpandableOrderView: View {
                             TitleModifier(
                                 font: .title,
                                 fontWeight: .semibold,
-                                color: Color(hex: 0x363746, alpha: 1)
+                                color: Color.expandableViewMain
                             )
                         )
                 }

@@ -1,10 +1,3 @@
-//
-//  SocialButtonView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct SocialLinkView: View {
@@ -18,8 +11,4 @@ struct SocialLinkView: View {
                 .frame(width: 23, height: 23)
         })
     }
-}
-
-#Preview {
-    SocialLinkView(image: "facebook.info", stringURL: "")
 }

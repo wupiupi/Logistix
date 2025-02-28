@@ -1,10 +1,3 @@
-//
-//  HeaderStartView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct HeaderStartView: View {
@@ -20,8 +13,4 @@ struct HeaderStartView: View {
         }
         .padding(.leading, 8)
     }
-}
-
-#Preview {
-    HeaderStartView()
 }

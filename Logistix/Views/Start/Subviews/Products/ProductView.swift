@@ -1,10 +1,3 @@
-//
-//  ProductView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct ProductView: View {
@@ -67,7 +60,7 @@ struct ProductView: View {
                     .foregroundStyle(.white)
                     .background {
                         Capsule()
-                            .fill(.main)
+                            .fill(.statusGreen)
                     }
             }
             .frame(width: UIScreen.main.bounds.width - 32)
@@ -81,11 +74,4 @@ struct ProductView: View {
         }
         .padding(.horizontal, 15)
     }
-}
-
-#Preview {
-    ProductView(
-        imageName: "hammer.right",
-        text: "Транспортные тендеры"
-    )
 }

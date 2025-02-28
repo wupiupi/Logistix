@@ -1,10 +1,3 @@
-//
-//  TermsView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/21/24.
-//
-
 import SwiftUI
 
 struct TermsView: View {
@@ -27,8 +20,4 @@ struct TermsView: View {
         }
         .padding(.bottom, 40)
     }
-}
-
-#Preview {
-    TermsView()
 }

@@ -1,10 +1,3 @@
-//
-//  RouteNewOrderView.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/22/24.
-//
-
 import SwiftUI
 
 struct RouteNewOrderView: View {
@@ -35,9 +28,4 @@ struct RouteNewOrderView: View {
         }
         .padding(.bottom, 50)
     }
-}
-
-#Preview {
-    RouteNewOrderView()
-        .environmentObject(NewOrderViewModel(selectedWeight: .belowOneHundred))
 }

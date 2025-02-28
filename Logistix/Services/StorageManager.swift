@@ -1,11 +1,3 @@
-//
-//  StorageManager.swift
-//  Logistix
-//
-//  Created by Serge Broski on 5/14/24.
-//
-
-
 import Foundation
 import RealmSwift
 
