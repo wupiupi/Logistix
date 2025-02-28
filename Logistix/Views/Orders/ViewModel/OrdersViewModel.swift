@@ -24,7 +24,7 @@ final class OrdersViewModel: ObservableObject {
         let usersRef = db.collection("users")
         
         do {
-            // Made so that orders dont duplicate
+            // Order was duplicating. This is the fix
             let snapshot = try await usersRef.whereField(
                 "role",
                 isNotEqualTo: Role.driver.rawValue
@@ -44,9 +44,13 @@ final class OrdersViewModel: ObservableObject {
         }
     }
     
-    func fetchOrderFromRealm(imageID: String) -> RealmImage? {
+    func fetchOrderFromRealm(imageID: String) -> UIImage? {
         let realm = try! Realm()
-        return realm.objects(RealmImage.self).filter("imageID == %@", imageID).first
+        let realmImage = realm.objects(RealmImage.self).filter("imageID == %@", imageID).first
+        if let imageData = realmImage?.data, let uiImage = UIImage(data: imageData) {
+            return uiImage
+        }
+        return nil
     }
     
     func fetchCompletedOrders(forDriverID driverID: String) async -> [Order] {

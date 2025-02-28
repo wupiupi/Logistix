@@ -5,7 +5,7 @@ struct TrackInfoView: View {
     @EnvironmentObject private var ordersVM: OrdersViewModel
     
     var order: Order
-    var realmImage: RealmImage? {
+    var realmImage: UIImage? {
         ordersVM.fetchOrderFromRealm(imageID: order.imageID)
     }
     
@@ -21,8 +21,8 @@ struct TrackInfoView: View {
                         )
                     )
                 
-                if let realmImage, let imageData = realmImage.data, let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
+                if let realmImage {
+                    Image(uiImage: realmImage)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
