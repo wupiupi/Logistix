@@ -31,17 +31,6 @@ struct ApplicationsView: View {
                 .padding()
             }
             .navigationTitle("Logistix")
-            .toolbarBackground(
-                LinearGradient(
-                    colors: [
-                        Color(hex: 0x00CCA6, alpha: 1),
-                        Color(hex: 0x29B197, alpha: 0.5)
-                    ],
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ),
-                for: .navigationBar
-            )
         }
         .navigationBarBackButtonHidden(true)
         .searchable(
