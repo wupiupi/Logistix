@@ -8,8 +8,6 @@ struct UsersView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    UsersTitle()
-                    
                     ForEach(usersVM.users) {
                         
                         Divider()
@@ -26,18 +24,5 @@ struct UsersView: View {
             
             .navigationTitle("Logistix")
         }
-    }
-}
-
-struct UsersTitle: View {
-    var body: some View {
-        Text("Пользователи")
-            .modifier(
-                TitleModifier(
-                    font: .largeTitle,
-                    fontWeight: .semibold,
-                    color: Color(hex: 0x363746, alpha: 1)
-                )
-            )
     }
 }
