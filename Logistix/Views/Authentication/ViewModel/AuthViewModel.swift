@@ -21,6 +21,8 @@ final class AuthViewModel: ObservableObject {
     @Published var isEmailTaken = false
     @Published var alertMessage = ""
     
+    @Published var isLoadingOrders = false
+    
     init() {
         userSession = Auth.auth().currentUser
         
@@ -101,12 +103,14 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    func deleteAccount() {
-        print("Deleting account...")
-    }
-    
     func fetchUser() async {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        isLoadingOrders = true
+        defer { isLoadingOrders = false }
+        
+        guard let uid = Auth.auth().currentUser?.uid else { 
+            isLoadingOrders = false
+            return
+        }
         
         guard let snapshot = try? await Firestore
             .firestore()
@@ -135,6 +139,8 @@ final class AuthViewModel: ObservableObject {
             if image != nil {
                 saveImageToRealm(imageID: image?.imageID ?? "", imageData: image?.data)
             }
+            
+            await fetchUser()
         } catch {
             print("Error encoding order: \(error)")
         }

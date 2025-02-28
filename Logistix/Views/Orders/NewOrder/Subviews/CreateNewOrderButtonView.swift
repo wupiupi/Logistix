@@ -8,14 +8,15 @@ struct CreateNewOrderButtonView: View {
         
     var body: some View {
         Button {
-            if newOrderVM.formIsValid {
-                Task {
+            Task {
+                if newOrderVM.formIsValid {
                     newOrderVM.alertTitle = "Готово"
                     newOrderVM.alertMessage = "Ваш заказ отправлен на модерацию.\n" + #"Вы можете просмотреть его в разделе "Заказы""#
                     await createOrder()
+                    ordersVM.updateOrders()
+                    newOrderVM.showAlert = true
                 }
             }
-            newOrderVM.showAlert = true
         } label: {
             HStack {
                 Text("Отправить заявку")
