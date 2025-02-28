@@ -60,8 +60,10 @@ struct ExpandableView: View {
                 }
             } label: {
                 Image(systemName: "xmark")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.red)
+                    .bold()
             }
+            .padding(.top, -20)
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
             .matchedGeometryEffect(id: "mask", in: namespace)
