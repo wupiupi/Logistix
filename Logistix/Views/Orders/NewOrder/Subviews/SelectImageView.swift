@@ -7,7 +7,7 @@ struct SelectImageView: View {
     var body: some View {
         VStack {
             PhotosPicker(selection: $newOrderVM.selectedItem, matching: .images) {
-                Text("Выбрать фото")
+                Text("Загрузите фотографию груза")
             }
             .onChange(of: newOrderVM.selectedItem) { _, newItem in
                 Task {
