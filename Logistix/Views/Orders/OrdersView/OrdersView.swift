@@ -4,10 +4,6 @@ struct OrdersView: View {
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var ordersVM: OrdersViewModel
     
-    private var userOrders: [Order] {
-        filteredOrders.filter { $0.userID == authVM.currentUser?.id ?? ""}
-    }
-    
     private var filteredOrders: [Order] {
         if authVM.currentUser?.role == Role.admin.rawValue {
             guard !ordersVM.searchTerm.isEmpty else {
@@ -22,6 +18,10 @@ struct OrdersView: View {
                 $0.id.localizedCaseInsensitiveContains(ordersVM.searchTerm)
             } ?? []
         }
+    }
+    
+    private var userOrders: [Order] {
+        filteredOrders.filter { $0.userID == authVM.currentUser?.id ?? ""}
     }
     
     private var driverOrders: [Order] {
