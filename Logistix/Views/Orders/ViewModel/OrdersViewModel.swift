@@ -4,6 +4,7 @@ import RealmSwift
 
 @MainActor
 final class OrdersViewModel: ObservableObject {
+    
     @Published var searchTerm = ""
     @Published var isViewExpanded = false
     @Published var orders: [Order] = []
@@ -16,6 +17,13 @@ final class OrdersViewModel: ObservableObject {
     
     init() {
         updateOrders()
+    }
+    
+    func updateOrders() {
+        Task {
+            self.orders = []
+            await fetchOrders()
+        }
     }
     
     // MARK: - DONT CALL UPDATEORDERS() HERE. BEWARE OF RECURSION
@@ -75,13 +83,6 @@ final class OrdersViewModel: ObservableObject {
         }
         
         return userOrders
-    }
-    
-    func updateOrders() {
-        Task {
-            self.orders = []
-            await fetchOrders()
-        }
     }
     
     func updateOrderStatus(forOrderID orderID: String, status: String) async {
@@ -209,6 +210,7 @@ final class OrdersViewModel: ObservableObject {
                     ordersData.remove(at: index)
                     
                     updateOrders()
+                    
                     // Update the document with modified orders array
                     try await usersRef.document(document.documentID).updateData([
                         "orders": ordersData
