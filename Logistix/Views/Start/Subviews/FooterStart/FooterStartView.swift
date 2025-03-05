@@ -3,9 +3,9 @@ import SwiftUI
 struct FooterStartView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            TermsView()
-            
             ContactsView()
+            
+            TermsView()
         }
         .padding(.leading, 8)
         .padding(.vertical, 35)

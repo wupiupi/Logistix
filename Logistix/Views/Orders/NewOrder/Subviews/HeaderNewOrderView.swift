@@ -15,7 +15,7 @@ struct HeaderNewOrderView: View {
                 .frame(width: 83, height: 65)
         }
         .padding(.horizontal)
-        .padding(.bottom, 90)
+        .padding(.bottom, 20)
     }
 }
 

@@ -6,7 +6,7 @@ import SwiftUI
 final class NewOrderViewModel: ObservableObject {
     // MARK: - Payment
     enum Payment: String, CaseIterable {
-        case card = "Картой онлайн"
+        case card = "Банковским переводом"
         case cache = "Наличными"
     }
     

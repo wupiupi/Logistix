@@ -44,26 +44,12 @@ struct ProductView: View {
                 Text("• \($0)")
             }
             .foregroundStyle(.black)
-            .hAlign(.center)
+            .padding(.leading, 12)
+            .hAlign(.leading)
             .font(.subheadline)
             
-            // TODO: - Extract to Separate View
-            NavigationLink {
-                RegistrationView()
-            } label: {
-                Text("Попробовать")
-                    .font(.title2)
-                    .padding(.leading, 16)
-                    .padding(.trailing, 16)
-                    .padding(.top, 15)
-                    .padding(.bottom, 10)
-                    .foregroundStyle(.white)
-                    .background {
-                        Capsule()
-                            .fill(.statusGreen)
-                    }
-            }
-            .frame(width: UIScreen.main.bounds.width - 32)
+            ProductButtonView()
+            
         }
         .padding(.vertical, 35)
         .hAlign(.center)
@@ -73,5 +59,27 @@ struct ProductView: View {
                 .shadow(radius: 10)
         }
         .padding(.horizontal, 15)
+    }
+}
+
+struct ProductButtonView: View {
+    var body: some View {
+        NavigationLink {
+            RegistrationView()
+        } label: {
+            Text("Попробовать")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .padding(.leading, 16)
+                .padding(.trailing, 16)
+                .padding(.top, 15)
+                .padding(.bottom, 15)
+                .foregroundStyle(.white)
+                .background {
+                    Capsule()
+                        .fill(.statusGreen)
+                }
+        }
+        .frame(width: UIScreen.main.bounds.width - 32)
     }
 }

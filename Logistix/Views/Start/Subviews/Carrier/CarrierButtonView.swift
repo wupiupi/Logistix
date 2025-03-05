@@ -7,10 +7,11 @@ struct CarrierButtonView: View {
         } label: {
             Text("Присоединяйтесь")
                 .font(.title2)
+                .fontWeight(.semibold)
                 .padding(.leading, 16)
                 .padding(.trailing, 16)
                 .padding(.top, 15)
-                .padding(.bottom, 10)
+                .padding(.bottom, 18)
                 .foregroundStyle(.white)
                 .background {
                     Capsule()

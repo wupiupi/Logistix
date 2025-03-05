@@ -29,7 +29,7 @@ struct CarrierNewOrderView: View {
             )
             .background {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(hex: 0x00CCA6, alpha: 1))
+                    .fill(.statusGreen)
             }
             .hAlign(.center)
             

@@ -4,12 +4,12 @@ struct FeaturesView: View {
     var body: some View {
         FeatureView(
             imageName: "handshake",
-            text: "Более 6 000 перевозчиков работают с нами"
+            text: "Более 6 000 водителей и поставщиков работают с нами"
         )
         
         FeatureView(
             imageName: "truck",
-            text: "Свыше 100 000 рейсов в год"
+            text: "Свыше 100 000 сделок в год"
         )
         
         FeatureView(

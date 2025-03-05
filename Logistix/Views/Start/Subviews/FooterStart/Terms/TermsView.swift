@@ -18,6 +18,5 @@ struct TermsView: View {
                 stringURL: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
             )
         }
-        .padding(.bottom, 40)
     }
 }

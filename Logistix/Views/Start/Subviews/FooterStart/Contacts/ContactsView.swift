@@ -2,24 +2,25 @@ import SwiftUI
 
 struct ContactsView: View {
     var body: some View {
-        Text("Контакты")
-            .fontWeight(.bold)
-        
-        ContactInfoView(
-            image: "phone",
-            text: "+375(29)555-66-77"
-        )
-                
-        ContactInfoView(
-            image: "location",
-            text: "г. Минск, ул. Петруся Бровки, д. 2"
-        )
-        
-        ContactInfoView(
-            image: "email",
-            text: "info@logistix.by"
-        )
-        
-        SocialsView()
+        VStack(alignment: .leading) {
+            Text("Контакты")
+                .fontWeight(.bold)
+            
+            ContactInfoView(
+                image: "phone",
+                text: "+375(29)555-66-77"
+            )
+            
+            ContactInfoView(
+                image: "location",
+                text: "г. Минск, ул. Петруся Бровки, д. 2"
+            )
+            
+            ContactInfoView(
+                image: "email",
+                text: "info@logistix.by"
+            )
+        }
+        .padding(.bottom, 20)
     }
 }

@@ -25,13 +25,13 @@ struct CreateNewOrderButtonView: View {
                     .fontWeight(.semibold)
             }
             .padding(.top, 10)
-            .padding(.bottom, 5)
+            .padding(.bottom, 10)
             .padding([.leading, .trailing], 16)
             .foregroundStyle(.white)
         }
         .background {
             Capsule()
-                .fill(Color(hex: 0x00CCA6, alpha: 1))
+                .fill(.statusGreen)
         }
         .hAlign(.center)
         .disabled(!newOrderVM.isAgreededPrivacy)
