@@ -8,7 +8,7 @@ struct RouteNewOrderView: View {
             Text("Маршрут")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .padding(.leading)
             
             VStack {

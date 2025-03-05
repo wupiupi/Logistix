@@ -8,11 +8,11 @@ struct PaymentMethodNewOrderView: View {
             Text("Способ оплаты")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .padding(.leading)
             
             Text("Выберите способ оплаты:")
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .font(.title3)
                 .padding(.leading)
             

@@ -6,7 +6,7 @@ struct HeaderNewOrderView: View {
             Text("Оформление доставки")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
             
             Spacer()
             

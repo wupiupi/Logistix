@@ -9,11 +9,11 @@ struct CarrierNewOrderView: View {
                 Text("Что везём")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                    .foregroundStyle(.text)
                     .padding(.leading)
                 
                 Text("Тип вложения")
-                    .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                    .foregroundStyle(.text)
                     .font(.title3)
             }
             
@@ -34,7 +34,7 @@ struct CarrierNewOrderView: View {
             .hAlign(.center)
             
             Text("Вес:")
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .font(.title3)
                 .padding(.leading)
             

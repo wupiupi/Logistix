@@ -9,7 +9,7 @@ struct SelectImageView: View {
             Text("Фото посылки")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .padding(.bottom, 20)
             
             VStack {

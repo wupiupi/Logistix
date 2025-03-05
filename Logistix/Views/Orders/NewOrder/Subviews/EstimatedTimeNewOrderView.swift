@@ -8,16 +8,16 @@ struct EstimatedTimeNewOrderView: View {
             Text("Расчетное время")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
             
             Text("Дата погрузки")
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .font(.title3)
             
             CustomDatePickerView(date: $newOrderVM.dateOfLoading)
             
             Text("Дата доставки")
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
                 .font(.title3)
             
             CustomDatePickerView(date: $newOrderVM.dateOfDelivery)

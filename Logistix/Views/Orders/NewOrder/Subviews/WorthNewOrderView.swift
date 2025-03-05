@@ -9,7 +9,7 @@ struct WorthNewOrderView: View {
                 Text("Ценность груза")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                    .foregroundStyle(.text)
                 
                 Text("BYN")
                     .font(.footnote)
