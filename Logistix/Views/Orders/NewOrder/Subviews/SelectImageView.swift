@@ -39,6 +39,7 @@ struct SelectImageView: View {
             .hAlign(.center)
         }
         .padding(.leading, 16)
+        .padding(.bottom, 20)
     }
 }
 
