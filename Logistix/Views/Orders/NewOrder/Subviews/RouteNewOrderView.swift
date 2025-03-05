@@ -26,6 +26,6 @@ struct RouteNewOrderView: View {
             }
             .hAlign(.center)
         }
-        .padding(.bottom, 50)
+        .padding(.bottom, 20)
     }
 }
