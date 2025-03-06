@@ -6,18 +6,20 @@ import SwiftUI
      let user: User
 
      var body: some View {
-         VStack(alignment: .center, spacing: 20) {
-             Text("Пользователь: \(user.name)")
-                 .modifier(
-                    TitleModifier(
-                        font: .title3,
-                        fontWeight: .bold,
-                        color: Color(hex: 0x363746, alpha: 1)
-                    )
-                 )
+         VStack(alignment: .leading, spacing: 14) {
+             VStack {
+                 Text(user.name)
+                     .modifier(
+                        TitleModifier(
+                            font: .headline,
+                            fontWeight: .bold,
+                            color: .text
+                        )
+                     )
+             }
+             .hAlign(.center)
 
              UserDetailsView(title: "ID", userInfo: user.id)
-             UserDetailsView(title: "ФИО", userInfo: user.name)
              UserDetailsView(title: "Почта", userInfo: user.email)
              UserDetailsView(title: "Роль", userInfo: user.role)
              if user.role == Role.driver.rawValue {
@@ -36,30 +38,32 @@ import SwiftUI
              }
              
              if authVM.currentUser?.id != user.id {
-                 OrderButtonView(
-                    title: user.role == Role.admin.rawValue
-                    ? "Сделать пользователем"
-                    : "Сделать администратором",
-                    titleColor: .white,
-                    backColor: .green) {
-                        usersVM.updateUserRole(
-                            id: user.id,
-                            role: user.role == Role.user.rawValue
-                            ? Role.admin.rawValue
-                            : Role.user.rawValue
-                        )
-                        
-                    }
-                 
-                 OrderButtonView(
-                    title: "Удалить пользователя",
-                    titleColor: .white,
-                    backColor: .red) {
-                        usersVM.deleteUser(user)
-                    }
+                 VStack {
+                     OrderButtonView(
+                        title: user.role == Role.admin.rawValue
+                        ? "Сделать пользователем"
+                        : "Сделать администратором",
+                        titleColor: .green,
+                        backColor: .clear) {
+                            usersVM.updateUserRole(
+                                id: user.id,
+                                role: user.role == Role.user.rawValue
+                                ? Role.admin.rawValue
+                                : Role.user.rawValue
+                            )
+                            
+                        }
+                     
+                     OrderButtonView(
+                        title: "Удалить пользователя",
+                        titleColor: .red,
+                        backColor: .clear) {
+                            usersVM.deleteUser(user)
+                        }
+                 }
+                 .hAlign(.center)
              }
          }
          .padding()
-         .hAlign(.center)
      }
  }
