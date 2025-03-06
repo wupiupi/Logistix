@@ -136,6 +136,7 @@ final class AuthViewModel: ObservableObject {
             try await userRef.updateData([
                 "orders": FieldValue.arrayUnion([orderData])
             ])
+            
             if image != nil {
                 saveImageToRealm(imageID: image?.imageID ?? "", imageData: image?.data)
             }

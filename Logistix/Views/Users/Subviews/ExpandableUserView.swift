@@ -12,7 +12,7 @@ struct ExpandableUserView: View {
                              TitleModifier(
                                  font: .title3,
                                  fontWeight: .semibold,
-                                 color: Color(hex: 0x363746, alpha: 1)
+                                 color: .text
                              )
                          )
                  }

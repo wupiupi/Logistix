@@ -8,12 +8,12 @@ struct UserIdView: View {
              HStack {
                  Text("№ \(user.id)")
                      .font(.headline)
-                     .foregroundStyle(Color(hex: 0x00CCA6, alpha: 1))
+                     .foregroundStyle(.text)
                      .padding([.top, .bottom], 8)
                      .padding([.leading, .trailing], 8)
                      .background {
                          RoundedRectangle(cornerRadius: 10)
-                             .fill(.statusGreenBackground)
+                             .fill(.expandableViewMain)
                      }
 
                  Spacer()
