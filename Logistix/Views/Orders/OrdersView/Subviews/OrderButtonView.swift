@@ -11,11 +11,11 @@ struct OrderButtonView: View {
             action()
         } label: {
             Text(title)
-                .font(.title2)
+                .font(.headline)
                 .foregroundStyle(titleColor)
-                .padding()
+                .padding(10)
                 .background {
-                    RoundedRectangle(cornerRadius: 12)
+                    RoundedRectangle(cornerRadius: 16)
                         .fill(backColor)
                 }
         }

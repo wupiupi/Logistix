@@ -6,18 +6,20 @@ import SwiftUI
      let user: User
 
      var body: some View {
-         VStack(alignment: .leading, spacing: 20) {
-             Text("Пользователь: \(user.name)")
-                 .modifier(
-                    TitleModifier(
-                        font: .title3,
-                        fontWeight: .bold,
-                        color: .text
-                    )
-                 )
+         VStack(alignment: .leading, spacing: 14) {
+             VStack {
+                 Text(user.name)
+                     .modifier(
+                        TitleModifier(
+                            font: .headline,
+                            fontWeight: .bold,
+                            color: .text
+                        )
+                     )
+             }
+             .hAlign(.center)
 
              UserDetailsView(title: "ID", userInfo: user.id)
-             UserDetailsView(title: "ФИО", userInfo: user.name)
              UserDetailsView(title: "Почта", userInfo: user.email)
              UserDetailsView(title: "Роль", userInfo: user.role)
              if user.role == Role.driver.rawValue {
@@ -41,8 +43,8 @@ import SwiftUI
                         title: user.role == Role.admin.rawValue
                         ? "Сделать пользователем"
                         : "Сделать администратором",
-                        titleColor: .white,
-                        backColor: .green) {
+                        titleColor: .green,
+                        backColor: .clear) {
                             usersVM.updateUserRole(
                                 id: user.id,
                                 role: user.role == Role.user.rawValue
@@ -54,8 +56,8 @@ import SwiftUI
                      
                      OrderButtonView(
                         title: "Удалить пользователя",
-                        titleColor: .white,
-                        backColor: .red) {
+                        titleColor: .red,
+                        backColor: .clear) {
                             usersVM.deleteUser(user)
                         }
                  }
