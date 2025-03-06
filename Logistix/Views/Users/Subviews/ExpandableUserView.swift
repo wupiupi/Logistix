@@ -10,7 +10,7 @@ struct ExpandableUserView: View {
                      Text(user.email)
                          .modifier(
                              TitleModifier(
-                                 font: .title3,
+                                 font: .headline,
                                  fontWeight: .semibold,
                                  color: .text
                              )

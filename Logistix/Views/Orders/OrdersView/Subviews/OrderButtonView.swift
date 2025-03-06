@@ -11,7 +11,7 @@ struct OrderButtonView: View {
             action()
         } label: {
             Text(title)
-                .font(.headline)
+                .font(.subheadline)
                 .foregroundStyle(titleColor)
                 .padding(10)
                 .background {

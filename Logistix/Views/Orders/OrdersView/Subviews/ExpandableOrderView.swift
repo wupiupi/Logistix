@@ -10,9 +10,9 @@ struct ExpandableOrderView: View {
                     Text(order.cargoType)
                         .modifier(
                             TitleModifier(
-                                font: .title,
+                                font: .headline,
                                 fontWeight: .semibold,
-                                color: Color.expandableViewMain
+                                color: .text
                             )
                         )
                 }

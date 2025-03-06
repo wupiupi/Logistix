@@ -6,28 +6,19 @@ struct OrderDetailsView: View {
     var systemImageName: String? = nil
     
     var body: some View {
-        Text(title)
-            .font(.title3)
-            .foregroundStyle(.gray)
-        
-        HStack {
-            if let systemImageName {
-                Link(destination: URL(string: "https://belpost.by/Otsleditotpravleniye")!) {
-                    Image(systemName: systemImageName)
-                }
-                .onTapGesture {
-                    UIPasteboard.general.string = orderInfo
-                }
-            }
+        VStack(alignment: .leading) {
+            Text("\(title):")
+                .font(.subheadline)
+                .foregroundStyle(.black)
             
             if title == "Стоимость" {
                 Text("\(orderInfo) BYN")
-                    .font(.title3)
-                    .foregroundStyle(.black)
+                    .font(.body)
+                    .foregroundStyle(.gray)
             } else {
                 Text(orderInfo)
-                    .font(.title3)
-                    .foregroundStyle(.black)
+                    .font(.body)
+                    .foregroundStyle(.gray)
             }
         }
     }

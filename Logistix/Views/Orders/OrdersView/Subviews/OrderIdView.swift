@@ -9,7 +9,7 @@ struct OrderIdView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("№ \(order.id)")
-                    .font(.title3)
+                    .font(.headline)
                     .foregroundStyle(
                         ordersVM.getStatusColor(forOrderStatus: order.status).mainColor
                     )
@@ -25,7 +25,7 @@ struct OrderIdView: View {
                 Spacer()
                 
                 Text(ordersVM.dateFormatter.string(from: order.dateOfLoading))
-                    .font(.title3)
+                    .font(.headline)
             }
         }
     }
