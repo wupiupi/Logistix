@@ -24,7 +24,7 @@ struct CustomButtonView: View {
         .foregroundStyle(.white)
         .background {
             Capsule()
-                .fill(Color(hex: 0x00CCA6, alpha: 1))
+                .fill(.statusGreen)
         }
     }
 }

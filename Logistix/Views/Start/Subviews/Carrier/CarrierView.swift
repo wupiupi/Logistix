@@ -9,24 +9,26 @@ struct CarrierView: View {
                 .fontWeight(.bold)
             
             CarrierInfoView(
-                text: "Все грузовладельцы на одной платформе – получайте выгодные заказы"
+                text: "Все поставщики на одной платформе – забирайте самые выгодные заказы"
             )
             
             CarrierInfoView(
-                text: "Только выгодные рейсы – наши перевозчики зарабатывают более 200 000 рублей в год с каждой машины"
+                text: "Только выгодные рейсы – наши пользователи зарабатывают более 7 000 белорусских рублей в год"
             )
             
             CarrierInfoView(
-                text: "Гарантия загрузки – более 70 000 рейсов"
+                text: "Гарантия загрузки – за ложные заказы предусмотрены штрафы"
             )
             
             CarrierButtonView()
+                .padding(.top, 10)
         }
         .padding([.leading, .trailing], 8)
         .padding(.vertical, 35)
         .background {
             Rectangle()
-                .fill(Color(hex: 0x252B42, alpha: 1))
+                .fill(.carrierBlue)
+                .padding([.leading, .trailing], -8)
         }
         .padding(.bottom, -10)
     }

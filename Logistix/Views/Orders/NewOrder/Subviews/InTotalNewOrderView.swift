@@ -7,7 +7,7 @@ struct InTotalNewOrderView: View {
         VStack(alignment: .center) {
             Text("Итого:")
                 .font(.title3)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
+                .foregroundStyle(.text)
             
             
             Text("\(newOrderVM.totalCost) BYN")

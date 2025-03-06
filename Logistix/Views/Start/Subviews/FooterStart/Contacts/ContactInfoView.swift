@@ -8,8 +8,7 @@ struct ContactInfoView: View {
         HStack {
             Image(image)
                 .resizable()
-                .foregroundStyle(.statusGreen)
-                .frame(width: 22.81, height: 22.81)
+                .frame(width: 20, height: 25)
             
             Text(text)
         }
