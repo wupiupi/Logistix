@@ -3,81 +3,69 @@ import FirebaseFirestore
 
 @MainActor
 final class UsersViewModel: ObservableObject {
-    @Published var users: [User] = []
-    
+    @Published var searchTerm = ""
+    @Published private(set) var users: [User] = []
+
     private let db = Firestore.firestore()
-    
+    private var listener: ListenerRegistration?
+
     init() {
-        updateUsers()
+        setupListener()
     }
-    
-    func updateUsers() {
-        Task {
-            self.users = []
-            await fetchUsers()
-        }
+
+    deinit {
+        listener?.remove()  // Отключаем listener при удалении
     }
-    
-    func fetchUsers() async {
-        let usersReference = db.collection("users")
-        usersReference.addSnapshotListener { querySnapshot, error in
-            
-            guard let querySnapshot else {
-                print("Error: \(String(describing: error))")
+
+    var filteredUsers: [User] {
+        guard !searchTerm.isEmpty else { return users }
+        return users.filter { $0.id.localizedStandardContains(searchTerm) }
+    }
+
+    private func setupListener() {
+        listener = db.collection("users").addSnapshotListener { [weak self] snapshot, error in
+            guard let self = self, let snapshot else {
+                print("Error listening for users: \(String(describing: error))")
                 return
             }
-            
-            self.users.removeAll() // Clear existing users before appending new ones
-            
-            for document in querySnapshot.documents {
-                // Extract the auto data as a dictionary
+
+            self.users = snapshot.documents.compactMap { doc -> User? in
                 var auto: Auto? = nil
-                if let autoData = document["auto"] as? [String: Any] {
+                if let autoData = doc["auto"] as? [String: Any] {
                     auto = Auto(
                         brand: autoData["brand"] as? String ?? "",
                         maxWeightLimit: autoData["maxWeightLimit"] as? String ?? "",
                         regNumber: autoData["regNumber"] as? String ?? ""
                     )
                 }
-                
-                let user = User(
-                    id: document["id"] as? String ?? "",
+
+                return User(
+                    id: doc["id"] as? String ?? "",
                     auto: auto,
-                    email: document["email"] as? String ?? "",
-                    name: document["name"] as? String ?? "",
-                    pass: document["pass"] as? String ?? "",
-                    role: document["role"] as? String ?? "",
-                    orders: document["orders"] as? [Order] ?? [],
-                    applications: document["applications"] as? [Application] ?? []
+                    email: doc["email"] as? String ?? "",
+                    name: doc["name"] as? String ?? "",
+                    pass: doc["pass"] as? String ?? "",
+                    role: doc["role"] as? String ?? "",
+                    orders: [],
+                    applications: []
                 )
-                print(user)
-                self.users.append(user)
             }
         }
     }
-    
+
     func updateUserRole(id: String, role: String) {
-        let docRef = db.collection("users").document(id)
-        docRef.updateData(["role": role]) { error in
+        db.collection("users").document(id).updateData(["role": role]) { error in
             if let error {
-                print("Error updating document: \(error)")
+                print("Error updating role: \(error)")
             }
-            self.updateUsers()
         }
     }
-    
+
     func deleteUser(_ user: User) {
-        let db = Firestore.firestore()
-        db.collection("users")
-            .document(user.id)
-            .delete { error in
-                if let error {
-                    print("Error deleting user: \(error)")
-                    return
-                }
-                
-                // Remove the deleted user from the users array
-                self.updateUsers()
+        db.collection("users").document(user.id).delete { error in
+            if let error {
+                print("Error deleting user: \(error)")
             }
+        }
     }
 }

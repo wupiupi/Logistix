@@ -2,26 +2,23 @@ import SwiftUI
 
 struct UsersView: View {
     @EnvironmentObject private var usersVM: UsersViewModel
-    @EnvironmentObject private var ordersVM: OrdersViewModel
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    ForEach(usersVM.users) {
-                        
+                    ForEach(usersVM.filteredUsers) { user in
                         Divider()
-                        
-                        // Order ID & Date of Loading
-                        UserIdView(user: $0)
-                        
-                        // Expands the details of the order
-                        ExpandableUserView(user: $0)
+                        UserIdView(user: user)
+                        ExpandableUserView(user: user)
                     }
                 }
                 .padding()
             }
-            
+            .searchable(
+                text: $usersVM.searchTerm,
+                prompt: "Поиск пользователей по UID"
+            )
             .navigationTitle("Logistix")
         }
     }
