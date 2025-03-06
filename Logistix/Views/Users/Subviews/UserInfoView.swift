@@ -6,13 +6,13 @@ import SwiftUI
      let user: User
 
      var body: some View {
-         VStack(alignment: .center, spacing: 20) {
+         VStack(alignment: .leading, spacing: 20) {
              Text("Пользователь: \(user.name)")
                  .modifier(
                     TitleModifier(
                         font: .title3,
                         fontWeight: .bold,
-                        color: Color(hex: 0x363746, alpha: 1)
+                        color: .text
                     )
                  )
 
@@ -36,30 +36,32 @@ import SwiftUI
              }
              
              if authVM.currentUser?.id != user.id {
-                 OrderButtonView(
-                    title: user.role == Role.admin.rawValue
-                    ? "Сделать пользователем"
-                    : "Сделать администратором",
-                    titleColor: .white,
-                    backColor: .green) {
-                        usersVM.updateUserRole(
-                            id: user.id,
-                            role: user.role == Role.user.rawValue
-                            ? Role.admin.rawValue
-                            : Role.user.rawValue
-                        )
-                        
-                    }
-                 
-                 OrderButtonView(
-                    title: "Удалить пользователя",
-                    titleColor: .white,
-                    backColor: .red) {
-                        usersVM.deleteUser(user)
-                    }
+                 VStack {
+                     OrderButtonView(
+                        title: user.role == Role.admin.rawValue
+                        ? "Сделать пользователем"
+                        : "Сделать администратором",
+                        titleColor: .white,
+                        backColor: .green) {
+                            usersVM.updateUserRole(
+                                id: user.id,
+                                role: user.role == Role.user.rawValue
+                                ? Role.admin.rawValue
+                                : Role.user.rawValue
+                            )
+                            
+                        }
+                     
+                     OrderButtonView(
+                        title: "Удалить пользователя",
+                        titleColor: .white,
+                        backColor: .red) {
+                            usersVM.deleteUser(user)
+                        }
+                 }
+                 .hAlign(.center)
              }
          }
          .padding()
-         .hAlign(.center)
      }
  }
