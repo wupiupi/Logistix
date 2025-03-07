@@ -7,14 +7,15 @@ struct WorthNewOrderView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Ценность груза")
-                    .font(.title)
+                    .font(.title3)
                     .fontWeight(.bold)
                     .foregroundStyle(.text)
                 
                 Text("BYN")
                     .font(.footnote)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.backgroundGray)
+                    .foregroundStyle(.gray)
+                    .padding([.top, .leading], -4)
             }
             
             InputView(
@@ -27,9 +28,9 @@ struct WorthNewOrderView: View {
             Text("Компенсируем ценность поврежденного груза в течении трех рабочих дней. Максимальная компенсация – 3000 BYN")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
-                .foregroundStyle(.backgroundGray)
+                .foregroundStyle(.gray)
         }
         .hAlign(.center)
-        .padding(.bottom, 20)
+        .padding([.leading, .trailing], 16)
     }
 }

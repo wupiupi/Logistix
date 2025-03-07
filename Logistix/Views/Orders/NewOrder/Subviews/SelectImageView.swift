@@ -5,12 +5,11 @@ struct SelectImageView: View {
     @EnvironmentObject private var newOrderVM: NewOrderViewModel
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             Text("Фото посылки")
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundStyle(.text)
-                .padding(.bottom, 20)
             
             VStack {
                 if let selectedImage = newOrderVM.selectedImage {
@@ -39,7 +38,6 @@ struct SelectImageView: View {
             .hAlign(.center)
         }
         .padding(.leading, 16)
-        .padding(.bottom, 20)
     }
 }
 

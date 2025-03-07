@@ -4,7 +4,7 @@ struct NewOrderView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 12) {
                     // MARK: - Header
                     HeaderNewOrderView()
                     Divider()

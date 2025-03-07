@@ -4,21 +4,21 @@ struct EstimatedTimeNewOrderView: View {
     @EnvironmentObject private var newOrderVM: NewOrderViewModel
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 8) {
             Text("Расчетное время")
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundStyle(.text)
             
             Text("Дата погрузки")
-                .foregroundStyle(.text)
-                .font(.title3)
+                .font(.headline)
+                .foregroundStyle(.gray)
             
             CustomDatePickerView(date: $newOrderVM.dateOfLoading)
             
             Text("Дата доставки")
-                .foregroundStyle(.text)
-                .font(.title3)
+                .font(.headline)
+                .foregroundStyle(.gray)
             
             CustomDatePickerView(date: $newOrderVM.dateOfDelivery)
         }

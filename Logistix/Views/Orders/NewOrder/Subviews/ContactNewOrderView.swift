@@ -6,10 +6,9 @@ struct ContactNewOrderView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Контактные данные")
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundStyle(.text)
-                .padding(.leading)
             
             VStack {
                 InputView(
@@ -38,6 +37,6 @@ struct ContactNewOrderView: View {
             }
             .hAlign(.center)
         }
-        .padding(.bottom, 20)
+        .padding([.leading, .trailing], 16)
     }
 }

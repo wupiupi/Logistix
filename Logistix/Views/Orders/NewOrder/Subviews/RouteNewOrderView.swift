@@ -6,10 +6,9 @@ struct RouteNewOrderView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Маршрут")
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundStyle(.text)
-                .padding(.leading)
             
             VStack {
                 InputView(
@@ -26,6 +25,6 @@ struct RouteNewOrderView: View {
             }
             .hAlign(.center)
         }
-        .padding(.bottom, 20)
+        .padding([.leading, .trailing], 16)
     }
 }

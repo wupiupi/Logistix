@@ -4,8 +4,8 @@ struct HeaderNewOrderView: View {
     var body: some View {
         HStack {
             Text("Оформление доставки")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                .font(.title)
+                .fontWeight(.semibold)
                 .foregroundStyle(.text)
             
             Spacer()
@@ -15,7 +15,6 @@ struct HeaderNewOrderView: View {
                 .frame(width: 83, height: 65)
         }
         .padding(.horizontal)
-        .padding(.bottom, 20)
     }
 }
 

@@ -7,20 +7,21 @@ struct InTotalNewOrderView: View {
         VStack(alignment: .center) {
             Text("Итого:")
                 .font(.title3)
-                .foregroundStyle(.text)
+                .foregroundStyle(.gray)
             
             
             Text("\(newOrderVM.totalCost) BYN")
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
         }
         .frame(width: UIScreen.main.bounds.width - 42)
-        .padding(.vertical, 40)
+        .padding(.vertical, 25)
         .background {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(.white)
                 .shadow(radius: 10)
         }
+        .padding([.leading, .trailing], 16)
         .hAlign(.center)
         
         VStack {

@@ -4,39 +4,39 @@ struct CarrierNewOrderView: View {
     @EnvironmentObject private var newOrderVM: NewOrderViewModel
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            VStack {
+        VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading) {
                 Text("Что везём")
-                    .font(.title)
+                    .font(.title3)
                     .fontWeight(.bold)
                     .foregroundStyle(.text)
-                    .padding(.leading)
                 
                 Text("Тип вложения")
-                    .foregroundStyle(.text)
-                    .font(.title3)
-            }
-            
-            Picker("Тип вложения", selection: $newOrderVM.cargoType) {
-                ForEach(NewOrderViewModel.CargoType.allCases, id: \.self) {
-                    Text($0.rawValue)
+                    .font(.headline)
+                    .foregroundStyle(.gray)
+                
+                Picker("Тип вложения", selection: $newOrderVM.cargoType) {
+                    ForEach(NewOrderViewModel.CargoType.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
                 }
+                .tint(.white)
+                .frame(
+                    width: UIScreen.main.bounds.width - 32,
+                    height: 40
+                )
+                .background {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.statusGreen)
+                }
+                .hAlign(.center)
             }
-            .tint(.white)
-            .frame(
-                width: UIScreen.main.bounds.width - 32,
-                height: 40
-            )
-            .background {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.statusGreen)
-            }
-            .hAlign(.center)
+            .padding([.leading, .trailing], 16)
             
             Text("Вес:")
-                .foregroundStyle(.text)
-                .font(.title3)
-                .padding(.leading)
+                .foregroundStyle(.gray)
+                .font(.headline)
+                .padding(.leading, 16)
             
             Picker("", selection: $newOrderVM.selectedWeight) {
                 ForEach(NewOrderViewModel.Weight.allCases, id: \.self) {
@@ -45,6 +45,5 @@ struct CarrierNewOrderView: View {
             }
             .pickerStyle(.segmented)
         }
-        .padding(.bottom, 20)
     }
 }

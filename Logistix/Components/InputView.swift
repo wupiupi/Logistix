@@ -8,10 +8,10 @@ struct InputView: View {
     var isNumPad = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 8) {
             Text(title)
-                .foregroundStyle(Color(hex: 0x363746, alpha: 1))
-                .font(.title3)
+                .font(.headline)
+                .foregroundStyle(.gray)
             
             if isSecureField {
                 SecureField(placeholder, text: $text)
@@ -30,7 +30,6 @@ struct InputViewModifier: ViewModifier {
         content
             .foregroundStyle(.black)
             .frame(
-                width: UIScreen.main.bounds.width - 80,
                 height: 50
             )
             .padding(.leading, 16)
@@ -54,5 +53,6 @@ struct InputViewModifier: ViewModifier {
                             )
                     }
             }
+//            .padding([.leading, .trailing], 16)
     }
 }

@@ -5,16 +5,18 @@ struct PaymentMethodNewOrderView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Способ оплаты")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundStyle(.text)
-                .padding(.leading)
-            
-            Text("Выберите способ оплаты:")
-                .foregroundStyle(.text)
-                .font(.title3)
-                .padding(.leading)
+            VStack(alignment: .leading) {
+                Text("Способ оплаты")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.text)
+                
+                Text("Выберите способ оплаты:")
+                    .font(.headline)
+                    .foregroundStyle(.gray)
+            }
+            .hAlign(.leading)
+            .padding([.leading, .trailing], 16)
             
             Picker("", selection: $newOrderVM.payment) {
                 ForEach(NewOrderViewModel.Payment.allCases, id: \.self) {
@@ -23,6 +25,5 @@ struct PaymentMethodNewOrderView: View {
             }
             .pickerStyle(.segmented)
         }
-        .padding(.bottom, 20)
     }
 }
