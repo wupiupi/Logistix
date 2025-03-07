@@ -53,6 +53,5 @@ struct InputViewModifier: ViewModifier {
                             )
                     }
             }
-//            .padding([.leading, .trailing], 16)
     }
 }

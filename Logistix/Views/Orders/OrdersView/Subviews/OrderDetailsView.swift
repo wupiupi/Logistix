@@ -11,7 +11,7 @@ struct OrderDetailsView: View {
                 .font(.subheadline)
                 .foregroundStyle(.black)
             
-            if title == "Стоимость" {
+            if title == "Оплата за доставку" {
                 Text("\(orderInfo) BYN")
                     .font(.body)
                     .foregroundStyle(.gray)

@@ -38,6 +38,7 @@ final class NewOrderViewModel: ObservableObject {
     @Published var dateOfLoading: Date?
     @Published var dateOfDelivery: Date?
     @Published var cargoCost = ""
+    @Published var totalCost = ""
     @Published var payment: Payment = .cache
     @Published var cargoType: CargoType = .perishable
     
@@ -51,13 +52,11 @@ final class NewOrderViewModel: ObservableObject {
     @Published var selectedItem: PhotosPickerItem?
     @Published var imageData: Data?
     
-    // MARK: - Computable Properties
-    var totalCost: String {
-        switch selectedWeight {
-            case .belowOneHundred: "5.000"
-            case .belowFourHundred: "7.500"
-            case .overFourHundred: "10.000"
-        }
+    // MARK: - Computed properties
+    var costIncludingFee: Double {
+        let startCost = Double(totalCost) ?? 0
+        let costWithFee = startCost + startCost * 0.02
+        return (costWithFee * 100).rounded() / 100
     }
     
     // MARK: - Init
@@ -102,5 +101,6 @@ extension NewOrderViewModel: ValidationFormProtocol {
         && dateOfLoading != nil
         && dateOfDelivery != nil
         && dateOfLoading ?? Date() <= dateOfDelivery ?? Date()
+        && totalCost != ""
     }
 }

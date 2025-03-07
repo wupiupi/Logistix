@@ -7,36 +7,40 @@ struct DriverRegistrationView: View {
         ScrollView {
             VStack(spacing: 20) {
                 Text("Форма регистрации для водителей")
-                    .font(.title2)
+                    .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.statusGreen)
+                    .foregroundStyle(.black)
                 
                 Text("Регистрируйтесь и смотрите,\nкакие заказы сейчас доступны!")
-                    .multilineTextAlignment(.center)
-                    .font(.title3)
+                    .font(.headline)
                     .fontWeight(.bold)
-                
-                InputView(
-                    text: $registrationVM.autoBrand,
-                    title: "Марка авто",
-                    placeholder: "BMW, Mercedes"
-                )
-                
-                InputView(
-                    text: $registrationVM.autoMaxWeight,
-                    title: "Максимально допустимый вес",
-                    placeholder: "xxx кг"
-                )
-                
-                InputView(
-                    text: $registrationVM.autoRegNumber,
-                    title: "Регистрационный номер",
-                    placeholder: "1111XX-X"
-                )
+                    .foregroundStyle(.gray)
+                    .multilineTextAlignment(.center)
                 
                 RegistrationFieldsView()
-                
                 RegistrationButtonView()
+                
+                VStack {
+                    InputView(
+                        text: $registrationVM.autoBrand,
+                        title: "Марка авто",
+                        placeholder: "BMW, Mercedes"
+                    )
+                    
+                    InputView(
+                        text: $registrationVM.autoMaxWeight,
+                        title: "Максимально допустимый вес",
+                        placeholder: "xxx кг"
+                    )
+                    
+                    InputView(
+                        text: $registrationVM.autoRegNumber,
+                        title: "Регистрационный номер",
+                        placeholder: "1111XX-X"
+                    )
+                }
+                .padding([.leading, .trailing], 16)
+                
             }
         }
         .scrollIndicators(.hidden)

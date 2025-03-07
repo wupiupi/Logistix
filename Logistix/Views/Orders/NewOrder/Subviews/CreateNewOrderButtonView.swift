@@ -92,5 +92,6 @@ struct CreateNewOrderButtonView: View {
         newOrderVM.recipientPhoneNumber = ""
         newOrderVM.cargoCost = ""
         newOrderVM.isAgreededPrivacy = false
+        newOrderVM.totalCost = ""
     }
 }

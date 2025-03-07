@@ -66,7 +66,7 @@ struct TrackInfoView: View {
                 orderInfo: order.senderPhoneNumber
             )
             OrderDetailsView(
-                title: "Стоимость",
+                title: "Оплата за доставку",
                 orderInfo: order.totalCost
             )
             if authVM.currentUser?.role == Role.admin.rawValue {

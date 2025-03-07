@@ -4,17 +4,17 @@ struct UserRegistrationView: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Есть товар, но некому доставить?")
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.semibold)
-                .foregroundStyle(.statusGreen)
+                .foregroundStyle(.black)
             
             Text("Регистрируйтесь и размещайте\nВаши предложения!")
                 .multilineTextAlignment(.center)
-                .font(.title3)
+                .font(.headline)
                 .fontWeight(.bold)
+                .foregroundStyle(.gray)
             
             RegistrationFieldsView()
-            
             RegistrationButtonView()
             
             Spacer()

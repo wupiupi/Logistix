@@ -9,15 +9,10 @@ struct RegistrationView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 50)
             
-            //RegistrationFieldsView()
-            
-            //RegistrationButtonView()
-            
             NavigationLink {
                 UserRegistrationView()
             } label: {
                 Text("Я ищу водителя!")
-                    .modifier(InputViewModifier())
                     .font(.title3)
             }
             
@@ -25,7 +20,6 @@ struct RegistrationView: View {
                 DriverRegistrationView()
             } label: {
                 Text("Я ищу грузы!")
-                    .modifier(InputViewModifier())
                     .font(.title3)
             }
         }
