@@ -4,7 +4,7 @@ struct ContactUsFieldsView: View {
     @EnvironmentObject private var contactUsVM: ContactUsViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 12) {
             InputView(
                 text: $contactUsVM.name,
                 title: "Имя *",
