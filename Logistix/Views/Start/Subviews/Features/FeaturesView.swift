@@ -16,7 +16,7 @@ struct FeaturesView: View {
             imageName: "insurance",
             text: "Своя служба безопасности",
             textColor: .white,
-            backgroundColor: .carrierBlue
+            backgroundColor: .mainGreen
         )
     }
 }
