@@ -38,8 +38,9 @@ struct TrackInfoView: View {
                 if let realmImage {
                     Image(uiImage: realmImage)
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .frame(height: 200)
+                        .frame(maxWidth: .infinity)
                         .clipShape(RoundedRectangle(cornerRadius: CornerRadius.image.rawValue))
                         .overlay(
                             RoundedRectangle(
@@ -47,9 +48,10 @@ struct TrackInfoView: View {
                             ).stroke(Color.black, lineWidth: 2)
                         )
                 } else {
-                    Text("Нет фото")
+                    NoImageView()
                 }
             }
+            .padding(.horizontal, 16)
             .hAlign(.center)
             
             

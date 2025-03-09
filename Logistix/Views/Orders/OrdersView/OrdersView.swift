@@ -44,10 +44,7 @@ struct OrdersView: View {
                         
                         Divider()
                         
-                        // Order ID & Date of Loading
                         OrderIdView(order: order)
-                        
-                        // Expands the details of the order
                         ExpandableOrderView(order: order)
                     }
                 }

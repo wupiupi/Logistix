@@ -20,6 +20,7 @@
 		A02B638E2BF106950014EE5B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B638D2BF106950014EE5B /* InputView.swift */; };
 		A02B63902BF116040014EE5B /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B638F2BF116040014EE5B /* OrdersView.swift */; };
 		A04A89AC2D7DD9A300DCEF1D /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A89AB2D7DD9A300DCEF1D /* CornerRadius.swift */; };
+		A04A89AE2D7DF45800DCEF1D /* NoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A89AD2D7DF45800DCEF1D /* NoImageView.swift */; };
 		A04D648F2BF1FD92002725FC /* NewOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D648E2BF1FD92002725FC /* NewOrderView.swift */; };
 		A08457802CDC122700B271CC /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084577F2CDC122700B271CC /* FirestoreManager.swift */; };
 		A08457822CDC28AA00B271CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08457812CDC28AA00B271CC /* User.swift */; };
@@ -152,6 +153,7 @@
 		A02B638D2BF106950014EE5B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A02B638F2BF116040014EE5B /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		A04A89AB2D7DD9A300DCEF1D /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		A04A89AD2D7DF45800DCEF1D /* NoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoImageView.swift; sourceTree = "<group>"; };
 		A04D648E2BF1FD92002725FC /* NewOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderView.swift; sourceTree = "<group>"; };
 		A084577F2CDC122700B271CC /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		A08457812CDC28AA00B271CC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				CD3F79EF2BFDF00400390CD3 /* OrderDetailsView.swift */,
 				CD3F79FE2BFE051F00390CD3 /* OrdersTitle.swift */,
 				CD3F79FA2BFDFCF500390CD3 /* TrackInfoView.swift */,
+				A04A89AD2D7DF45800DCEF1D /* NoImageView.swift */,
 				CD3F79FC2BFDFFE100390CD3 /* OrderIdView.swift */,
 				CD3F7A002BFE058800390CD3 /* ExpandableOrderView.swift */,
 			);
@@ -1004,6 +1007,7 @@
 				CD3776802BFCA7EB005F322C /* LoginStartButtonView.swift in Sources */,
 				CD669F542BFCDA5900C09B09 /* ShowMenuButtonView.swift in Sources */,
 				CD3F7A152BFE10A000390CD3 /* Modifier + ToggleStyle.swift in Sources */,
+				A04A89AE2D7DF45800DCEF1D /* NoImageView.swift in Sources */,
 				A00155E02CD54B29005C132F /* UserRegistrationView.swift in Sources */,
 				A0D8EA322BEFFC7A00529E5C /* LogistixApp.swift in Sources */,
 				CD44DDF42BFB4569000A8356 /* ApplicationsView.swift in Sources */,
