@@ -42,7 +42,7 @@ struct ProductsView: View {
         }
         .padding(.vertical, 20)
         .background {
-            Color(hex: 0xF3FFFD, alpha: 1)
+            Color.startMint
         }
         .padding(.bottom, -10)
     }

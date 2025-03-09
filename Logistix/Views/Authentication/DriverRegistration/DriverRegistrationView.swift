@@ -18,7 +18,6 @@ struct DriverRegistrationView: View {
                     .multilineTextAlignment(.center)
                 
                 RegistrationFieldsView()
-                RegistrationButtonView()
                 
                 VStack {
                     InputView(
@@ -40,7 +39,9 @@ struct DriverRegistrationView: View {
                     )
                 }
                 .padding([.leading, .trailing], 16)
+                .padding(.bottom, 6)
                 
+                RegistrationButtonView()
             }
         }
         .scrollIndicators(.hidden)

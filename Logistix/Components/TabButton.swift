@@ -28,7 +28,9 @@ struct TabButton: View {
                 Text(title)
                     .fontWeight(.semibold)
             }
-            .foregroundStyle(selectedTab == title ? Color.statusGreen : .white)
+            .foregroundStyle(
+                selectedTab == title ? Color.menuBackground : Color.menuText
+            )
             .padding(.vertical, 12)
             .padding(.horizontal, 10)
             
@@ -39,12 +41,12 @@ struct TabButton: View {
                 // Hero Animation
                 ZStack {
                     if selectedTab == title {
-                        Color.white
+                        Color.menuText
                             .opacity(selectedTab == title ? 1 : 0)
                             .clipShape(
                                 CustomCorners(
                                     corners: [.topRight, .bottomRight],
-                                    radius: 12
+                                    radius: CornerRadius.rectangle.rawValue
                                 )
                             )
                             .matchedGeometryEffect(id: "TAB", in: animation)

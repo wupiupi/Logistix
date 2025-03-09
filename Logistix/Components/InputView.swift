@@ -34,16 +34,13 @@ struct InputViewModifier: ViewModifier {
             )
             .padding(.leading, 16)
             .background {
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                     .shadow(radius: 3, x: 0, y: -1)
                     .foregroundStyle(
-                        Color(
-                            hex: 0xF9F9F9,
-                            alpha: 1
-                        )
+                        Color.menuText
                     )
                     .background {
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                             .stroke(
                                 Color(
                                     hex: 0xDDDDDD,

@@ -31,8 +31,8 @@ struct ContactUsButtonView: View {
                     height: 50
                 )
                 .background {
-                    Capsule()
-                        .fill(.statusGreen)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                        .fill(.greenButton)
                 }
         }
         .alert(

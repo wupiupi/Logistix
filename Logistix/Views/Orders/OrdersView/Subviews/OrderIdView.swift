@@ -16,7 +16,7 @@ struct OrderIdView: View {
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                             .fill(
                                 ordersVM.getStatusColor(forOrderStatus: order.status).backgroundColor
                             )

@@ -13,7 +13,7 @@ struct SideMenu: View {
                 Text(authVM.currentUser?.name ?? "Безымянный")
                     .font(.title)
                     .fontWeight(.heavy)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.menuText)
                     .padding(.top, 50)
             }
             
@@ -80,7 +80,7 @@ struct SideMenu: View {
                 Text("Версия приложения 1.0.0")
                     .font(.caption)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.menuText)
                     .opacity(0.6)
             }
             

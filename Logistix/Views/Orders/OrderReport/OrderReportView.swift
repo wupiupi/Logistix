@@ -53,8 +53,8 @@ struct OrderReportView: View {
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.statusGreenBackground)
+                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                            .fill(.completed)
                     }
             }
             .padding(.top, 30)

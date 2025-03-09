@@ -17,8 +17,16 @@ struct SelectImageView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))
+                        .clipShape(
+                            RoundedRectangle(
+                                cornerRadius: CornerRadius.rectangle.rawValue
+                            )
+                        )
+                        .overlay(
+                            RoundedRectangle(
+                                cornerRadius: CornerRadius.rectangle.rawValue
+                            ).stroke(Color.black, lineWidth: 2)
+                        )
                 }
                 
                 PhotosPicker(selection: $newOrderVM.selectedItem, matching: .images) {

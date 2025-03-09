@@ -228,15 +228,15 @@ final class OrdersViewModel: ObservableObject {
     ) {
         switch status {
             case OrderStatus.onModeration.rawValue:
-                return (Color.statusOrange, Color.statusOrangeBackgound)
+                return (Color.onModeration, Color.onModerationBackgound)
             case OrderStatus.searchingForDriver.rawValue:
-                return (Color.statusPurple, Color.statusPurpleBackground)
+                return (Color.searchingForDriver, Color.searchingForDriverBackground)
             case OrderStatus.cancelled.rawValue:
-                return (Color.statusRed, Color.statusRedBackground)
+                return (Color.cancelled, Color.cancelledBackground)
             case OrderStatus.completed.rawValue:
-                return (Color.statusGreen, Color.statusGreenBackground)
-            default:
-                return (Color.statusBlue, Color.statusBlueBackground)
+                return (Color.completed, Color.completedBackground)
+            default: // Taken by driver
+                return (Color.inProcess, Color.inProcessBackground)
         }
     }
 }

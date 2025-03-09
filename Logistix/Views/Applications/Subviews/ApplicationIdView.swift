@@ -18,7 +18,7 @@ struct ApplicationIdView: View {
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                             .fill(
                                 applicationsVM.getStatusColor(
                                     forApplicationStatus: application.status

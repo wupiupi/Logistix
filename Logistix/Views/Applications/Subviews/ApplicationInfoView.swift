@@ -53,7 +53,7 @@ struct ApplicationInfoView: View {
                 .padding([.top, .bottom], 8)
                 .padding([.leading, .trailing], 8)
                 .background {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                         .fill(
                             applicationsVM.getStatusColor(
                                 forApplicationStatus: application.status
@@ -65,8 +65,8 @@ struct ApplicationInfoView: View {
                 case ApplicationStatus.waitingForAnswer.rawValue:
                     OrderButtonView(
                         title: "Отметить как выполненное",
-                        titleColor: .statusGreen,
-                        backColor: .statusGreenBackground) {
+                        titleColor: .answered,
+                        backColor: .answeredBackground) {
                             Task {
                                 await applicationsVM.updateApplicationStatus(
                                     forID: application.id,

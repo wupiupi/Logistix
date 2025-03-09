@@ -120,9 +120,9 @@ final class ApplicationsViewModel: ObservableObject {
     ) {
         switch status {
             case ApplicationStatus.waitingForAnswer.rawValue:
-                return (Color.statusOrange, Color.statusOrangeBackgound)
-            default:
-                return (Color.statusGreen, Color.statusGreenBackground)
+                return (Color.waitingForAnswer, Color.waitingForAnswerBackground)
+            default: // Answered
+                return (Color.answered, Color.answeredBackground)
         }
     }
 }

@@ -23,8 +23,8 @@ struct CustomButtonView: View {
         .padding([.leading, .trailing], 16)
         .foregroundStyle(.white)
         .background {
-            Capsule()
-                .fill(.statusGreen)
+            RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                .fill(.greenButton)
         }
     }
 }

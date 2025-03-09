@@ -28,12 +28,12 @@ struct RegistrationButtonView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .background {
-                    Capsule()
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                         .frame(
                             width: UIScreen.main.bounds.width - 64,
                             height: 50
                         )
-                        .foregroundStyle(Color.statusGreen)
+                        .foregroundStyle(.greenButton)
                 }
                 .disabled(!registrationVM.formIsValid)
                 .opacity(registrationVM.formIsValid ? 1.0 : 0.5)

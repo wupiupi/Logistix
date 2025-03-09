@@ -18,12 +18,12 @@ struct LoginButtonView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .background {
-                    Capsule()
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                         .frame(
                             width: UIScreen.main.bounds.width - 64,
                             height: 50
                         )
-                        .foregroundStyle(Color.statusGreen)
+                        .foregroundStyle(.greenButton)
                 }
         }
         .alert(authVM.alertMessage, isPresented: $authVM.showAlert, actions: {} )

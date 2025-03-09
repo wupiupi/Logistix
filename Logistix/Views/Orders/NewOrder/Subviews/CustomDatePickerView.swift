@@ -12,12 +12,12 @@ struct CustomDatePickerView: View {
         .padding(.horizontal, 16)
         .frame(width: UIScreen.main.bounds.width - 32, height: 46)
         .background {
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                 .fill(.white)
                 .background {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                         .stroke()
-                        .foregroundStyle(Color.statusGreen)
+                        .foregroundStyle(.completed)
                 }
         }
     }

@@ -8,14 +8,13 @@ struct CarrierButtonView: View {
             Text("Присоединяйтесь")
                 .font(.title2)
                 .fontWeight(.semibold)
-                .padding(.leading, 16)
-                .padding(.trailing, 16)
+                .padding([.leading, .trailing], 16)
                 .padding(.top, 15)
                 .padding(.bottom, 18)
                 .foregroundStyle(.white)
                 .background {
-                    Capsule()
-                        .fill(.statusGreen)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                        .fill(.greenButton)
                 }
         }
         .frame(width: UIScreen.main.bounds.width - 32)

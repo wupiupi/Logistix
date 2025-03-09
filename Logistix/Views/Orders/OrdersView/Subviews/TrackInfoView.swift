@@ -40,8 +40,12 @@ struct TrackInfoView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))
+                        .clipShape(RoundedRectangle(cornerRadius: CornerRadius.image.rawValue))
+                        .overlay(
+                            RoundedRectangle(
+                                cornerRadius: CornerRadius.image.rawValue
+                            ).stroke(Color.black, lineWidth: 2)
+                        )
                 } else {
                     Text("Нет фото")
                 }
@@ -91,7 +95,7 @@ struct TrackInfoView: View {
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                             .fill(
                                 ordersVM.getStatusColor(
                                     forOrderStatus: order.status
@@ -113,7 +117,7 @@ struct TrackInfoView: View {
                                     .foregroundStyle(.white)
                                     .padding()
                                     .background {
-                                        RoundedRectangle(cornerRadius: 12)
+                                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                                             .fill(.green)
                                     }
                             }
@@ -238,7 +242,7 @@ struct TrackInfoView: View {
                                     .foregroundStyle(.white)
                                     .padding()
                                     .background {
-                                        RoundedRectangle(cornerRadius: 12)
+                                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                                             .fill(.green)
                                     }
                             }

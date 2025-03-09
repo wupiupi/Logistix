@@ -35,7 +35,10 @@ struct ExpandableView: View {
                 .matchedGeometryEffect(id: "background", in: namespace)
         )
         .mask {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
+            RoundedRectangle(
+                cornerRadius: CornerRadius.rectangle.rawValue,
+                style: .continuous
+            )
                 .matchedGeometryEffect(id: "mask", in: namespace)
         }
     }
@@ -50,7 +53,10 @@ struct ExpandableView: View {
                         .matchedGeometryEffect(id: "background", in: namespace)
                 )
                 .mask {
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    RoundedRectangle(
+                        cornerRadius: CornerRadius.rectangle.rawValue,
+                        style: .continuous
+                    )
                         .matchedGeometryEffect(id: "mask", in: namespace)
                 }
                     

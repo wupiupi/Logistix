@@ -26,8 +26,8 @@ struct CarrierNewOrderView: View {
                     height: 40
                 )
                 .background {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.statusGreen)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                        .fill(.picker)
                 }
                 .hAlign(.center)
             }

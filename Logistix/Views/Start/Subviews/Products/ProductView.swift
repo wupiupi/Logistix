@@ -54,7 +54,7 @@ struct ProductView: View {
         .padding(.vertical, 35)
         .hAlign(.center)
         .background {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
+            RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue, style: .continuous)
                 .fill(.white)
                 .shadow(radius: 10)
         }
@@ -70,14 +70,12 @@ struct ProductButtonView: View {
             Text("Попробовать")
                 .font(.title2)
                 .fontWeight(.semibold)
-                .padding(.leading, 16)
-                .padding(.trailing, 16)
-                .padding(.top, 15)
-                .padding(.bottom, 15)
-                .foregroundStyle(.white)
+                .padding([.leading, .trailing], 16)
+                .padding([.top, .bottom], 15)
+                .foregroundStyle(.menuText)
                 .background {
-                    Capsule()
-                        .fill(.statusGreen)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                        .fill(.greenButton)
                 }
         }
         .frame(width: UIScreen.main.bounds.width - 32)

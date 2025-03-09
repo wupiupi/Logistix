@@ -19,6 +19,7 @@
 		A02B638C2BF1063B0014EE5B /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B638B2BF1063B0014EE5B /* ContactUsView.swift */; };
 		A02B638E2BF106950014EE5B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B638D2BF106950014EE5B /* InputView.swift */; };
 		A02B63902BF116040014EE5B /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B638F2BF116040014EE5B /* OrdersView.swift */; };
+		A04A89AC2D7DD9A300DCEF1D /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A89AB2D7DD9A300DCEF1D /* CornerRadius.swift */; };
 		A04D648F2BF1FD92002725FC /* NewOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D648E2BF1FD92002725FC /* NewOrderView.swift */; };
 		A08457802CDC122700B271CC /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084577F2CDC122700B271CC /* FirestoreManager.swift */; };
 		A08457822CDC28AA00B271CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08457812CDC28AA00B271CC /* User.swift */; };
@@ -150,6 +151,7 @@
 		A02B638B2BF1063B0014EE5B /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		A02B638D2BF106950014EE5B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A02B638F2BF116040014EE5B /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
+		A04A89AB2D7DD9A300DCEF1D /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		A04D648E2BF1FD92002725FC /* NewOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderView.swift; sourceTree = "<group>"; };
 		A084577F2CDC122700B271CC /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		A08457812CDC28AA00B271CC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -323,6 +325,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A04A89AA2D7DD99300DCEF1D /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				A0E7A3422CDEB02F00866F46 /* ButtonAction.swift */,
+				A04A89AB2D7DD9A300DCEF1D /* CornerRadius.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
 		A09BDAB72C06431100FAED0E /* Users */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +389,7 @@
 				A0D8EA402BEFFCB800529E5C /* App */,
 				A0D8EA412BEFFCC700529E5C /* Components */,
 				A0E36D9D2BF015D600A4B8AE /* Extensions */,
+				A04A89AA2D7DD99300DCEF1D /* Enumerations */,
 				A0E39B302BF27CEF0055503E /* Models */,
 				A0D8EA372BEFFC7A00529E5C /* Preview Content */,
 				A02B638A2BF0EEDD0014EE5B /* Resources */,
@@ -511,14 +523,6 @@
 				A0E39B382BF27E8B0055503E /* OrdersViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A0E7A3412CDEB01D00866F46 /* Enumerations */ = {
-			isa = PBXGroup;
-			children = (
-				A0E7A3422CDEB02F00866F46 /* ButtonAction.swift */,
-			);
-			path = Enumerations;
 			sourceTree = "<group>";
 		};
 		A0F6EBB22BF2AD1800E279BF /* Menu */ = {
@@ -701,7 +705,6 @@
 			isa = PBXGroup;
 			children = (
 				A02B638F2BF116040014EE5B /* OrdersView.swift */,
-				A0E7A3412CDEB01D00866F46 /* Enumerations */,
 				CD3F79F12BFDF00900390CD3 /* Subviews */,
 			);
 			path = OrdersView;
@@ -972,6 +975,7 @@
 				CD3776972BFCB827005F322C /* CarrierInfoView.swift in Sources */,
 				CD669F562BFCDA7600C09B09 /* MainViewModel.swift in Sources */,
 				CD3F7A032BFE066A00390CD3 /* NewOrderViewModel.swift in Sources */,
+				A04A89AC2D7DD9A300DCEF1D /* CornerRadius.swift in Sources */,
 				A0D030682BF37F98008618D2 /* ExpandableView.swift in Sources */,
 				CD3F7A0B2BFE0CBB00390CD3 /* RouteNewOrderView.swift in Sources */,
 				A0E7A3432CDEB02F00866F46 /* ButtonAction.swift in Sources */,

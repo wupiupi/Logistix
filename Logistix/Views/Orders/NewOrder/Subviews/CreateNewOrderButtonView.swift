@@ -30,8 +30,8 @@ struct CreateNewOrderButtonView: View {
             .foregroundStyle(.white)
         }
         .background {
-            Capsule()
-                .fill(.statusGreen)
+            RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                .fill(.greenButton)
         }
         .hAlign(.center)
         .disabled(!newOrderVM.isAgreededPrivacy)

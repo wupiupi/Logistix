@@ -77,7 +77,7 @@ final class NewOrderViewModel: ObservableObject {
         self.recipientPhoneNumber = recipientPhoneNumber
         self.selectedWeight = selectedWeight
         
-        UISegmentedControl.appearance().selectedSegmentTintColor = .statusGreen
+        UISegmentedControl.appearance().selectedSegmentTintColor = .picker
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
             for: .selected

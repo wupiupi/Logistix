@@ -15,7 +15,7 @@ struct OrderButtonView: View {
                 .foregroundStyle(titleColor)
                 .padding(10)
                 .background {
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                         .fill(backColor)
                 }
         }

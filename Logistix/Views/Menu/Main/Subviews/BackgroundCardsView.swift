@@ -8,7 +8,9 @@ struct BackgroundCardsView: View {
             // Two Background Cards
             Color.white
                 .opacity(0.5)
-                .cornerRadius(mainVM.showMenu ? 15 : 0)
+                .cornerRadius(
+                    mainVM.showMenu ? CornerRadius.fifteen.rawValue : CornerRadius.zero.rawValue
+                )
             // Shadow
                 .shadow(
                     color: .black.opacity(0.07),
@@ -21,7 +23,9 @@ struct BackgroundCardsView: View {
             
             Color.white
                 .opacity(0.4)
-                .cornerRadius(mainVM.showMenu ? 15 : 0)
+                .cornerRadius(
+                    mainVM.showMenu ? CornerRadius.fifteen.rawValue : CornerRadius.zero.rawValue
+                )
             // Shadow
                 .shadow(
                     color: .black.opacity(0.07),
@@ -33,7 +37,7 @@ struct BackgroundCardsView: View {
                 .padding(.vertical, 60)
             
             HomeView(selectedTab: $mainVM.selectedTab)
-                .cornerRadius(mainVM.showMenu ? 15 : 0)
+                .cornerRadius(mainVM.showMenu ? CornerRadius.fifteen.rawValue : CornerRadius.zero.rawValue)
             
         }
         .navigationBarBackButtonHidden(true)
