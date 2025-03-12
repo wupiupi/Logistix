@@ -68,4 +68,12 @@ final class UsersViewModel: ObservableObject {
             }
         }
     }
+    
+    func getShortenedUserID(forUser user: User) -> String {
+        let userID = user.id
+        guard userID.count > 6 else { return userID }
+            let start = userID.prefix(4)
+            let end = userID.suffix(4)
+            return "\(start)...\(end)"
+    }
 }

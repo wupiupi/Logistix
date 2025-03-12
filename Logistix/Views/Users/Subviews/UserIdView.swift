@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct UserIdView: View {
+    @EnvironmentObject private var usersVM: UsersViewModel
+    
      let user: User
 
      var body: some View {

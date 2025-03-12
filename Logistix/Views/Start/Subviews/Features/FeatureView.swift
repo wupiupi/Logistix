@@ -29,7 +29,7 @@ struct FeatureView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(textColor)
         }
-        .padding(.vertical, 30)
+        .padding(.vertical, 20)
         .background {
             Rectangle()
                 .fill(backgroundColor)

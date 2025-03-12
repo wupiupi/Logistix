@@ -19,24 +19,21 @@ struct ProductView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 25) {
+        VStack(alignment: .center, spacing: 25) {
             Image(imageName)
                 .resizable()
                 .frame(width: 102, height: 102)
-                .hAlign(.center)
             
             Text(text)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(.black)
-                .hAlign(.center)
             
             if let subtext = subtext {
                 Text(subtext)
                     .font(.caption)
                     .fontWeight(.light)
                     .foregroundStyle(.secondary)
-                    .hAlign(.center)
                     .padding(.top, -20)
             }
             
@@ -44,13 +41,13 @@ struct ProductView: View {
                 Text("• \($0)")
             }
             .foregroundStyle(.black)
-            .padding(.leading, 12)
-            .hAlign(.leading)
             .font(.subheadline)
+            .fontWeight(.semibold)
             
             ProductButtonView()
             
         }
+        .multilineTextAlignment(.center)
         .padding(.vertical, 35)
         .hAlign(.center)
         .background {
