@@ -17,7 +17,7 @@ struct UsersView: View {
             }
             .searchable(
                 text: $usersVM.searchTerm,
-                prompt: "Поиск пользователей по UID"
+                prompt: "Поиск пользователей по эл. почте"
             )
             .navigationTitle("Logistix")
         }

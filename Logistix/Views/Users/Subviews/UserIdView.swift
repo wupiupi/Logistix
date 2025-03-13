@@ -8,7 +8,7 @@ struct UserIdView: View {
      var body: some View {
          VStack(alignment: .leading) {
              HStack {
-                 Text("№ \(user.id)")
+                 Text(user.email)
                      .font(.headline)
                      .foregroundStyle(.text)
                      .padding([.top, .bottom], 8)
