@@ -45,7 +45,7 @@ struct TrackInfoView: View {
                         .overlay(
                             RoundedRectangle(
                                 cornerRadius: CornerRadius.image.rawValue
-                            ).stroke(Color.black, lineWidth: 2)
+                            ).stroke(Color.clear, lineWidth: 2)
                         )
                 } else {
                     NoImageView()
