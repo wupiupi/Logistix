@@ -7,7 +7,6 @@ struct FeaturesView: View {
             text: "Более 6 000 водителей и поставщиков работают с нами"
         )
         
-        ArrowsView()
         
         FeatureView(
             imageName: "truck",
