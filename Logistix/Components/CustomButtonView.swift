@@ -25,6 +25,8 @@ struct CustomButtonView: View {
         .background {
             RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
                 .fill(.greenButton)
+                .frame(height: 40)
+                .shadow(color: .black, radius: 15)
         }
     }
 }

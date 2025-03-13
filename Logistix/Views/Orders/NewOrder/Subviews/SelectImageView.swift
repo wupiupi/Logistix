@@ -73,7 +73,7 @@ struct PlaceholderImageView: View {
                 .font(.callout)
                 .foregroundStyle(.black)
             
-            Text("Форматы JPEG, JPG, PNG, HEIC до 20 МБ каждый")
+            Text("Форматы JPEG, JPG, PNG, HEIC\nдо 20 МБ каждый")
                 .font(.footnote)
                 .foregroundStyle(.gray)
         }
