@@ -7,7 +7,7 @@ struct ExpandableUserView: View {
          ExpandableView(
              thumbnail: ThumbnailView(content: {
                  VStack {
-                     Text(user.email)
+                     Text(user.name)
                          .modifier(
                              TitleModifier(
                                  font: .headline,
