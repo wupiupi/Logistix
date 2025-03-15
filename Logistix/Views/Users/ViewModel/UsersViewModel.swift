@@ -19,7 +19,7 @@ final class UsersViewModel: ObservableObject {
 
     var filteredUsers: [User] {
         guard !searchTerm.isEmpty else { return users }
-        return users.filter { $0.id.localizedStandardContains(searchTerm) }
+        return users.filter { $0.email.localizedStandardContains(searchTerm) }
     }
 
     private func setupListener() {
