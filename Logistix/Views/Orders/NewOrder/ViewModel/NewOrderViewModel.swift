@@ -115,6 +115,12 @@ final class NewOrderViewModel: ObservableObject {
             for: .normal
         )
     }
+    
+    func updateDateValidation() {
+        if let loading = dateOfLoading, let delivery = dateOfDelivery, loading > delivery {
+            dateOfDelivery = nil
+        }
+    }
 }
 
 // MARK: - AuthenticationFormProtocol
