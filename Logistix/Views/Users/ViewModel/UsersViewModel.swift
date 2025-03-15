@@ -69,11 +69,18 @@ final class UsersViewModel: ObservableObject {
         }
     }
     
-    func getShortenedUserID(forUser user: User) -> String {
-        let userID = user.id
-        guard userID.count > 6 else { return userID }
-            let start = userID.prefix(4)
-            let end = userID.suffix(4)
-            return "\(start)...\(end)"
+    func getRoleColor(forRole role: String) -> (
+        mainColor: Color,
+        backgroundColor: Color
+    ) {
+        switch role {
+            case Role.admin.rawValue:
+                return (Color.adminRole, Color.adminRoleBackground)
+            case Role.user.rawValue:
+                return (Color.userRole, Color.userRoleBackground)
+            default: // Taken by driver
+                return (Color.driverRole, Color.driverRoleBackground)
+        }
     }
+    
 }

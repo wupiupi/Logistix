@@ -10,12 +10,14 @@ struct UserIdView: View {
              HStack {
                  Text(user.email)
                      .font(.headline)
-                     .foregroundStyle(.text)
+                     .foregroundStyle(
+                        usersVM.getRoleColor(forRole: user.role).mainColor
+                     )
                      .padding([.top, .bottom], 8)
                      .padding([.leading, .trailing], 8)
                      .background {
                          RoundedRectangle(cornerRadius: 10)
-                             .fill(.expandableViewMain)
+                             .fill(usersVM.getRoleColor(forRole: user.role).backgroundColor)
                      }
 
                  Spacer()
