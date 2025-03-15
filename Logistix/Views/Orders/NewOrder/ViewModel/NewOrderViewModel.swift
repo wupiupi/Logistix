@@ -59,6 +59,34 @@ final class NewOrderViewModel: ObservableObject {
         return (costWithFee * 100).rounded() / 100
     }
     
+    var isAddressValid: (String) -> Bool = { address in
+        !address.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    
+    var isNameValid: (String) -> Bool = { name in
+        let pattern = "^[a-zA-Zа-яА-Я\\s]+$"
+        return !name.isEmpty && NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: name)
+    }
+    
+    var isPhoneValid: (String) -> Bool = { phone in
+            let pattern = "^(\\+375\\d{9}|80\\d{9})$"
+            return NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: phone)
+        }
+    
+    var isTotalCostValid: Bool {
+        if let cost = Double(totalCost) {
+            return cost > 5
+        }
+        return false
+    }
+    
+    var isDateValid: Bool {
+        if let loading = dateOfLoading, let delivery = dateOfDelivery {
+            return loading <= delivery
+        }
+        return false
+    }
+    
     // MARK: - Init
     init(
         sourceAddress: String = "",
@@ -92,15 +120,15 @@ final class NewOrderViewModel: ObservableObject {
 // MARK: - AuthenticationFormProtocol
 extension NewOrderViewModel: ValidationFormProtocol {
     var formIsValid: Bool {
-        sourceAddress != "" 
-        && destinationAddress != ""
-        && senderName != ""
-        && senderPhoneNumber != ""
-        && recipientName != ""
-        && recipientPhoneNumber != ""
+        isAddressValid(sourceAddress)
+        && isAddressValid(destinationAddress)
+        && isNameValid(senderName)
+        && isPhoneValid(senderPhoneNumber)
+        && isNameValid(recipientName)
+        && isPhoneValid(recipientPhoneNumber)
         && dateOfLoading != nil
         && dateOfDelivery != nil
-        && dateOfLoading ?? Date() <= dateOfDelivery ?? Date()
-        && totalCost != ""
+        && isDateValid
+        && isTotalCostValid
     }
 }

@@ -13,14 +13,18 @@ struct RouteNewOrderView: View {
             VStack {
                 InputView(
                     text: $newOrderVM.sourceAddress,
-                    title: "Откуда:",
-                    placeholder: "Адрес отправки"
+                    title: "Где забирать груз?",
+                    placeholder: "Пример: ул. Зыбицкая, д.1",
+                    isInvalid: !newOrderVM.sourceAddress.isEmpty
+                    && !newOrderVM.isAddressValid(newOrderVM.sourceAddress)
                 )
                 
                 InputView(
                     text: $newOrderVM.destinationAddress,
-                    title: "Куда:",
-                    placeholder: "Адрес доставки"
+                    title: "Куда доставить?",
+                    placeholder: "Пример: ул. Пушкинская, д.2",
+                    isInvalid: !newOrderVM.destinationAddress.isEmpty
+                    && !newOrderVM.isAddressValid(newOrderVM.destinationAddress)
                 )
             }
             .hAlign(.center)

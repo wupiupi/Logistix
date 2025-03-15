@@ -8,7 +8,9 @@ struct InTotalNewOrderView: View {
             InputView(
                 text: $newOrderVM.totalCost,
                 title: "Итого:",
-                placeholder: "Сумма, которую получит водитель"
+                placeholder: "Сумма, которую получит водитель (от 5 BYN)",
+                isInvalid: !newOrderVM.totalCost.isEmpty
+                && !newOrderVM.isTotalCostValid
             )
             
             Text("Уважаемые пользователи, просим обратить внимание, что комиссия за услуги сервиса составляет 2% от введённой Вами суммы. Таким образом, Вам необходимо заплатить: \(String(format: "%.2f", newOrderVM.costIncludingFee)) BYN")
