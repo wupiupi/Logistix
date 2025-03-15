@@ -1,14 +1,17 @@
 import SwiftUI
 
 struct ApplicationsTitle: View {
+    let title: String
+    
     var body: some View {
-        Text("Заявки")
+        Text(title)
             .modifier(
                 TitleModifier(
-                    font: .largeTitle,
+                    font: .title,
                     fontWeight: .semibold,
-                    color: Color(hex: 0x363746, alpha: 1)
+                    color: .text
                 )
             )
+            .multilineTextAlignment(.center)
     }
 }

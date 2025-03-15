@@ -13,11 +13,11 @@ struct ApplicationsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     
-                    ApplicationsTitle()
-                    
-                    if applicationsVM.applications.isEmpty {
-                        Text("Заявок нет")
-                    }
+                    ApplicationsTitle(
+                        title: applicationsVM.applications.isEmpty
+                        ? "Никто еще не оставил заявку"
+                        : "Заявки"
+                    )
                     
                     ForEach(filteredApplications, id: \.self) { application in
                         
@@ -35,7 +35,7 @@ struct ApplicationsView: View {
         .navigationBarBackButtonHidden(true)
         .searchable(
             text: $applicationsVM.searchTerm,
-            prompt: "Поиск по документам или заказам"
+            prompt: "Поиск по заявкам"
         )
     }
 }
