@@ -12,7 +12,7 @@ struct OrderReportView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .center, spacing: 20) {
+            VStack(alignment: .leading, spacing: 20) {
                 Text(order.cargoType)
                     .modifier(
                         TitleModifier(
@@ -49,7 +49,7 @@ struct OrderReportView: View {
                 
                 Text("\(order.status): \(dateFormatter.string(from: Date.now))")
                     .font(.title3)
-                    .foregroundStyle(Color(hex: 0x00CCA6, alpha: 1))
+                    .foregroundStyle(.text)
                     .padding([.top, .bottom], 8)
                     .padding([.leading, .trailing], 8)
                     .background {
