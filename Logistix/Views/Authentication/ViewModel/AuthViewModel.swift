@@ -43,7 +43,7 @@ final class AuthViewModel: ObservableObject {
         } catch {
             print("DEBUG: failed to sign in with error: \(error)")
             showAlert.toggle()
-            alertMessage = error.localizedDescription
+            alertMessage = "Ошибка! Пожалуйста, проверьте корректность введённых данных"
         }
     }
     

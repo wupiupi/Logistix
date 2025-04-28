@@ -18,6 +18,7 @@ struct DriverRegistrationView: View {
                     .multilineTextAlignment(.center)
                 
                 RegistrationFieldsView()
+                    .padding(.bottom, -5)
                 
                 VStack {
                     InputView(

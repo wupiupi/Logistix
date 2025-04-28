@@ -14,25 +14,32 @@ struct ContactNewOrderView: View {
                 InputView(
                     text: $newOrderVM.senderName,
                     title: "Отправитель:",
-                    placeholder: "Иванов Иван Иванович"
+                    placeholder: "Иванов Иван Иванович",
+                    isInvalid: !newOrderVM.senderName.isEmpty
+                    && !newOrderVM.isNameValid(newOrderVM.senderName)
                 )
                 
                 InputView(
                     text: $newOrderVM.senderPhoneNumber,
                     title: "Телефон:",
-                    placeholder: "+375(XX)XXX-XX-XX"
+                    placeholder: "+375XXXXXXXXX или 80ХХХХХХХХХ",
+                    isInvalid: !newOrderVM.senderPhoneNumber.isEmpty
+                    && !newOrderVM.isPhoneValid(newOrderVM.senderPhoneNumber)
                 )
                 
                 InputView(
                     text: $newOrderVM.recipientName,
                     title: "Получатель:",
-                    placeholder: "Иванов Иван Иванович"
+                    placeholder: "Иванов Иван Иванович",
+                    isInvalid: !newOrderVM.recipientName.isEmpty
+                    && !newOrderVM.isNameValid(newOrderVM.recipientName)
                 )
                 
                 InputView(
                     text: $newOrderVM.recipientPhoneNumber,
                     title: "Телефон:",
-                    placeholder: "+375(XX)XXX-XX-XX"
+                    placeholder: "+375XXXXXXXXX или 80ХХХХХХХХХ",
+                    isInvalid: !newOrderVM.recipientPhoneNumber.isEmpty && !newOrderVM.isPhoneValid(newOrderVM.recipientPhoneNumber)
                 )
             }
             .hAlign(.center)

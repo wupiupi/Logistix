@@ -34,8 +34,8 @@ struct CreateNewOrderButtonView: View {
                 .fill(.greenButton)
         }
         .hAlign(.center)
-        .disabled(!newOrderVM.isAgreededPrivacy)
-        .opacity(newOrderVM.isAgreededPrivacy ? 1 : 0.3)
+        .disabled(!newOrderVM.formIsValid || !newOrderVM.isAgreededPrivacy)
+        .opacity(newOrderVM.formIsValid && newOrderVM.isAgreededPrivacy ? 1 : 0.3)
         .alert(
             newOrderVM.alertTitle,
             isPresented: $newOrderVM.showAlert,
