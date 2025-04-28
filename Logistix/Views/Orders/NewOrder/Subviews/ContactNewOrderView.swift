@@ -38,7 +38,7 @@ struct ContactNewOrderView: View {
                 InputView(
                     text: $newOrderVM.recipientPhoneNumber,
                     title: "Телефон:",
-                    placeholder: "+375(XX)XXX-XX-XX",
+                    placeholder: "+375XXXXXXXXX или 80ХХХХХХХХХ",
                     isInvalid: !newOrderVM.recipientPhoneNumber.isEmpty && !newOrderVM.isPhoneValid(newOrderVM.recipientPhoneNumber)
                 )
             }
