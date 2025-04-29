@@ -93,5 +93,6 @@ struct CreateNewOrderButtonView: View {
         newOrderVM.cargoCost = ""
         newOrderVM.isAgreededPrivacy = false
         newOrderVM.totalCost = ""
+        newOrderVM.selectedImage = nil
     }
 }

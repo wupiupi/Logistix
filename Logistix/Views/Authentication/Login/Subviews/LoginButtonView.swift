@@ -9,7 +9,7 @@ struct LoginButtonView: View {
             Task {
                 try await authVM.signIn(
                     withEmail: loginVM.email,
-                    password: loginVM.hashedPassword
+                    password: loginVM.password
                 )
             }
         } label: {

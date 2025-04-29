@@ -44,8 +44,8 @@ final class UsersViewModel: ObservableObject {
                     auto: auto,
                     email: doc["email"] as? String ?? "",
                     name: doc["name"] as? String ?? "",
-                    pass: doc["pass"] as? String ?? "",
-                    role: doc["role"] as? String ?? "",
+                    role: doc["role"] as? String ?? "", 
+                    profilePhotoID: doc["profilePhotoID"] as? String ?? "",
                     orders: [],
                     applications: []
                 )

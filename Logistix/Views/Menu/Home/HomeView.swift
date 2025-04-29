@@ -17,6 +17,8 @@ struct HomeView: View {
                     ContactUsView()
                 case "Заявки":
                     ApplicationsView()
+                case "Профиль":
+                    ProfileView()
                 default:
                     UsersView()
             }

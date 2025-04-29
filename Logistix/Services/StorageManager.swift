@@ -9,10 +9,10 @@ final class StorageManager {
     private init() {
         
         if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
-                    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-                    let fileURL = documentDirectory?.appendingPathComponent(realmURL.lastPathComponent)
-                    print("Realm file URL: \(fileURL?.path ?? "")")
-                }
+            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            let fileURL = documentDirectory?.appendingPathComponent(realmURL.lastPathComponent)
+            print("Realm file URL: \(fileURL?.path ?? "")")
+        }
         
         do {
             realm = try Realm()

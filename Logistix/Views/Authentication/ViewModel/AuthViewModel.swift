@@ -72,8 +72,8 @@ final class AuthViewModel: ObservableObject {
                 auto: auto,
                 email: email,
                 name: fullName,
-                pass: hashedPass,
-                role: role,
+                role: role, 
+                profilePhotoID: "",
                 orders: [],
                 applications: []
             )
@@ -144,6 +144,33 @@ final class AuthViewModel: ObservableObject {
             await fetchUser()
         } catch {
             print("Error encoding order: \(error)")
+        }
+    }
+    
+    // User Profile Image
+    func updateProfilePhotoID(
+        to newPhotoID: String,
+        image: RealmImage? = nil
+    ) async {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("❌ Не удалось получить uid пользователя")
+            return
+        }
+
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(uid)
+
+        do {
+            try await userRef.updateData([
+                "profilePhotoID": newPhotoID
+            ])
+            print("✅ profilePhotoID успешно обновлён")
+
+            if let image = image {
+                saveImageToRealm(imageID: image.imageID, imageData: image.data)
+            }
+        } catch {
+            print("❌ Ошибка при обновлении profilePhotoID: \(error.localizedDescription)")
         }
     }
     

@@ -59,7 +59,12 @@ struct SideMenu: View {
                         animation: animation
                     )
                 }
-                
+                TabButton(
+                    image: "person.2.badge.gearshape.fill",
+                    title: "Профиль",
+                    selectedTab: $selectedTab,
+                    animation: animation
+                )
             }
             .padding(.leading, -15)
             .padding(.top, 50)

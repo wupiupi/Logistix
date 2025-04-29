@@ -11,8 +11,8 @@ struct User: Codable, Identifiable {
     let auto: Auto?
     let email: String
     let name: String
-    let pass: String
     let role: String
+    let profilePhotoID: String?
     var orders: [Order]
     var applications: [Application]
 }

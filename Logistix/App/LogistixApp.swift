@@ -12,6 +12,7 @@ struct LogistixApp: App {
     @StateObject private var newOrderVM = NewOrderViewModel(selectedWeight: .belowOneHundred)
     @StateObject private var applicationsVM = ApplicationsViewModel()
     @StateObject private var usersVM = UsersViewModel()
+    @StateObject private var userProfileVM = UserProfileViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -29,6 +30,7 @@ struct LogistixApp: App {
                 .environmentObject(newOrderVM)
                 .environmentObject(applicationsVM)
                 .environmentObject(usersVM)
+                .environmentObject(userProfileVM)
         }
     }
 }
