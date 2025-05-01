@@ -56,11 +56,11 @@ struct TrackInfoView: View {
             
             
             OrderDetailsView(
-                title: "Адрес отправителя",
+                title: "Адрес погрузки",
                 orderInfo: order.sourceAddress
             )
             OrderDetailsView(
-                title: "Адрес получателя",
+                title: "Адрес доставки",
                 orderInfo: order.destinationAddress
             )
             OrderDetailsView(

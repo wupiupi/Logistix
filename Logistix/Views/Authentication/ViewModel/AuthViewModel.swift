@@ -103,6 +103,10 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    func sendPasswordReset(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
     func fetchUser() async {
         isLoadingOrders = true
         defer { isLoadingOrders = false }

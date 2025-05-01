@@ -8,7 +8,8 @@ struct LoginFieldsView: View {
             InputView(
                 text: $loginVM.email,
                 title: "Почта",
-                placeholder: "Example@gmail.com"
+                placeholder: "Example@gmail.com",
+                isInvalid: !loginVM.email.isEmpty && !loginVM.isEmailValid
             )
             .textInputAutocapitalization(.never)
             
@@ -16,7 +17,8 @@ struct LoginFieldsView: View {
                 text: $loginVM.password,
                 title: "Пароль",
                 placeholder: "Пароль",
-                isSecureField: true
+                isSecureField: true,
+                isInvalid: !loginVM.password.isEmpty && !loginVM.isPasswordValid
             )
             .padding(.bottom, 20)
             .onAppear {

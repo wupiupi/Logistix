@@ -4,6 +4,10 @@ struct OrdersView: View {
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var ordersVM: OrdersViewModel
     
+    @EnvironmentObject private var mainVM: MainViewModel
+    
+    @FocusState private var isSearchFocused: Bool
+    
     private var filteredOrders: [Order] {
         if authVM.currentUser?.role == Role.admin.rawValue {
             guard !ordersVM.searchTerm.isEmpty else {
@@ -56,6 +60,10 @@ struct OrdersView: View {
             text: $ordersVM.searchTerm,
             prompt: "Поиск по документам или заказам"
         )
+        .focused($isSearchFocused)
+        .onChange(of: isSearchFocused) { _, focused in
+            mainVM.shouldBeHidden = focused
+        }
         .onAppear {
             ordersVM.updateOrders()
         }

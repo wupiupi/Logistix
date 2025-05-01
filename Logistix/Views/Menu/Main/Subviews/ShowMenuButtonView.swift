@@ -36,6 +36,7 @@ struct ShowMenuButtonView: View {
                 .rotationEffect(.init(degrees: mainVM.showMenu ? 50 : 0))
             }
         }
+        .opacity(mainVM.shouldBeHidden ? 0 : 1)
         .padding()
     }
 }
