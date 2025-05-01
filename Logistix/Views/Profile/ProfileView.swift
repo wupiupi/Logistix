@@ -78,6 +78,7 @@ struct ProfileView: View {
             Button("Сохранить") {
                 Task {
                     await profileVM.updateField(fieldKey: fieldKey, newValue: profileVM.newValue)
+                    await authVM.fetchUser()
                 }
             }
             Button("Отмена", role: .cancel) {}

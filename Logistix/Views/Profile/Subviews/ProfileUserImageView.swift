@@ -49,6 +49,8 @@ struct ProfileUserImageView: View {
                             userProfileVM.imageData = jpegData
                             
                             changeImageID()
+                            
+                            await authVM.fetchUser()
                         }
                     }
                 }
@@ -62,7 +64,8 @@ struct ProfileUserImageView: View {
         guard let imageData = userProfileVM.imageData else { return }
         
         // ✅ Сохраняем старый ID не из currentUser, а из локального состояния
-        let oldImageID = userProfileVM.profileImageID
+//        let oldImageID = userProfileVM.profileImageID
+        let oldImageID = authVM.currentUser?.profilePhotoID ?? ""
         
         // Генерируем новый ID
         let newImageID = UUID().uuidString
@@ -73,10 +76,12 @@ struct ProfileUserImageView: View {
                 to: newImageID,
                 image: newRealmImage
             )
-            
+                        
             // Удаляем старое фото по реально предыдущему ID
             if !oldImageID.isEmpty {
                 userProfileVM.deleteImageFromRealm(imageID: oldImageID)
+                
+                await authVM.fetchUser()
             }
             
             // Обновляем локальный ID

@@ -72,22 +72,26 @@ final class UserProfileViewModel: ObservableObject {
         do {
             if fieldKey == "pass" {
                 try await Auth.auth().currentUser?.updatePassword(to: newValue)
-                alertMessage = "Пароль успешно обновлён"
+                await MainActor.run {
+                    alertMessage = "Пароль успешно обновлён"
+                }
             } else {
                 try await db.collection("users").document(userID).updateData([
                     "name": newValue
                 ])
                 await MainActor.run {
                     displayedName = newValue
+                alertMessage = "Имя успешно обновлено. Данным требуется время на изменение!"
                 }
-                alertMessage = "Имя успешно обновлено. Имейте ввиду, что некоторые данные изменятся после повторного входа в прилоожение"
             }
         } catch {
-            if let err = error as NSError?,
-               err.code == AuthErrorCode.requiresRecentLogin.rawValue {
-                alertMessage = "Для изменения пароля требуется повторная авторизация"
-            } else {
-                alertMessage = "Ошибка: \(error.localizedDescription)"
+            await MainActor.run {
+                if let err = error as NSError?,
+                   err.code == AuthErrorCode.requiresRecentLogin.rawValue {
+                    alertMessage = "Для изменения пароля требуется повторная авторизация"
+                } else {
+                    alertMessage = "Ошибка: \(error.localizedDescription)"
+                }
             }
         }
 
