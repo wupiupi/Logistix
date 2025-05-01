@@ -72,12 +72,16 @@ struct TrackInfoView: View {
                 orderInfo: order.senderPhoneNumber
             )
             OrderDetailsView(
+                title: "Вес груза",
+                orderInfo: order.weight
+            )
+            OrderDetailsView(
                 title: "Оплата за доставку",
                 orderInfo: order.totalCost
             )
             if authVM.currentUser?.role == Role.admin.rawValue {
                 OrderDetailsView(
-                    title: "Создано пользователем с ID:",
+                    title: "Создано пользователем с ID",
                     orderInfo: order.userID
                 )
             }

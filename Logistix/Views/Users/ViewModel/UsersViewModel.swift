@@ -3,8 +3,24 @@ import FirebaseFirestore
 
 @MainActor
 final class UsersViewModel: ObservableObject {
+    
+    enum UsersSortOrder: String, CaseIterable {
+        case byRole = "По роли"
+        case byOrdersCount = "По кол-ву созданных заказов"
+        case byEmail = "По адресу эл.почты"
+    }
+    
+    enum UsersSortOption: String, CaseIterable {
+        case byRole = "По роли"
+        case byEmail = "По email"
+        case byName = "По имени"
+    }
+    
     @Published var searchTerm = ""
     @Published private(set) var users: [User] = []
+    
+    @Published var isSortSheetPresented = false
+    @Published var selectedSortOption: UsersSortOption = .byEmail
 
     private let db = Firestore.firestore()
     private var listener: ListenerRegistration?
@@ -16,11 +32,39 @@ final class UsersViewModel: ObservableObject {
     deinit {
         listener?.remove()  // Отключаем listener при удалении
     }
-
+    
     var filteredUsers: [User] {
-        guard !searchTerm.isEmpty else { return users }
-        return users.filter { $0.email.localizedStandardContains(searchTerm) }
+        let filtered = searchTerm.isEmpty
+        ? users
+        : users.filter { $0.email.localizedCaseInsensitiveContains(searchTerm) }
+        
+        switch selectedSortOption {
+            case .byRole:
+                return filtered.sorted {
+                    let first = rolePriority[$0.role] ?? Int.max
+                    let second = rolePriority[$1.role] ?? Int.max
+                    return first < second
+                }
+            case .byEmail:
+                return filtered.sorted { $0.email.lowercased() < $1.email.lowercased() }
+            case .byName:
+                return filtered.sorted { $0.name.lowercased() < $1.name.lowercased() }
+        }
     }
+    
+    let rolePriority: [String: Int] = [
+        Role.user.rawValue: 0,
+        Role.driver.rawValue: 1,
+        Role.admin.rawValue: 2
+    ]
+    
+    let typePriority: [String: Int] = [
+        "Отменен": 0,
+        "На модерации": 1,
+        "Ищем водителя": 2,
+        "В работе": 3,
+        "Завершен": 4
+    ]
 
     private func setupListener() {
         listener = db.collection("users").addSnapshotListener { [weak self] snapshot, error in

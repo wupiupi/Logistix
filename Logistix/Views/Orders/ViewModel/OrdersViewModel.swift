@@ -5,15 +5,42 @@ import RealmSwift
 @MainActor
 final class OrdersViewModel: ObservableObject {
     
+    enum OrdersSortOrder: String, CaseIterable {
+        case byCostAscending = "По оплате (возраст.)"
+        case byCostDescending = "По оплате (уб.)"
+        case byStatus = "По статусу"
+        case byType = "По типу"
+    }
+    
     @Published var searchTerm = ""
     @Published var isViewExpanded = false
     @Published var orders: [Order] = []
     
+    @Published var isShowingSortedOptions = false
+    @Published var selectedSortOption: OrdersSortOrder = .byType
+    @Published var isSortSheetPresented = false
+        
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
         return formatter
     }()
+    
+    let statusPriority: [String: Int] = [
+        OrderStatus.cancelled.rawValue: 0,
+        OrderStatus.onModeration.rawValue: 1,
+        OrderStatus.searchingForDriver.rawValue: 2,
+        OrderStatus.inProcess.rawValue: 3,
+        OrderStatus.completed.rawValue: 4
+    ]
+    
+    let typePriority: [String: Int] = [
+        "Отменен": 0,
+        "На модерации": 1,
+        "Ищем водителя": 2,
+        "В работе": 3,
+        "Завершен": 4
+    ]
     
     init() {
         updateOrders()
