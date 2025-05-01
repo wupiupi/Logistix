@@ -2,7 +2,10 @@ import SwiftUI
 
 struct ApplicationsView: View {
     @EnvironmentObject private var applicationsVM: ApplicationsViewModel
+    @EnvironmentObject private var mainVM: MainViewModel
         
+    @FocusState private var isSearchFocused: Bool
+    
     private var filteredApplications: [Application] {
         guard !applicationsVM.searchTerm.isEmpty else { return applicationsVM.applications }
         return applicationsVM.applications.filter { $0.name.localizedCaseInsensitiveContains(applicationsVM.searchTerm) }
@@ -37,5 +40,9 @@ struct ApplicationsView: View {
             text: $applicationsVM.searchTerm,
             prompt: "Поиск по заявкам"
         )
+        .focused($isSearchFocused)
+        .onChange(of: isSearchFocused) { _, focused in
+            mainVM.shouldBeHidden = focused
+        }
     }
 }
