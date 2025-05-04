@@ -88,7 +88,7 @@ struct OrdersView: View {
         }
         .searchable(
             text: $ordersVM.searchTerm,
-            prompt: "Поиск по документам или заказам"
+            prompt: "Поиск по № заказа"
         )
         .focused($isSearchFocused)
         .onChange(of: isSearchFocused) { _, focused in

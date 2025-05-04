@@ -69,7 +69,7 @@ struct UsersView: View {
         .navigationBarBackButtonHidden(true)
         .searchable(
             text: $usersVM.searchTerm,
-            prompt: "Поиск пользователей по эл. почте"
+            prompt: "Поиск пользователей по эл.почте"
         )
         .focused($isSearchFocused)
         .onChange(of: isSearchFocused) { _, focused in

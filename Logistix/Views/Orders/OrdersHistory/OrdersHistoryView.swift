@@ -3,7 +3,10 @@ import SwiftUI
 struct OrdersHistoryView: View {
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var ordersVM: OrdersViewModel
+    @EnvironmentObject private var mainVM: MainViewModel
     
+    @FocusState private var isSearchFocused: Bool
+
     private var driverOrders: [Order] {
         ordersVM.orders.filter {
             $0.assignedDriverID == authVM.currentUser?.id
@@ -43,6 +46,10 @@ struct OrdersHistoryView: View {
             }
             .navigationTitle("Logistix")
         }
+        .focused($isSearchFocused)
+            .onChange(of: isSearchFocused) { _, focused in
+                mainVM.shouldBeHidden = focused
+            }
         .searchable(
             text: $ordersVM.searchTerm,
             prompt: "Поиск по документам или заказам"
