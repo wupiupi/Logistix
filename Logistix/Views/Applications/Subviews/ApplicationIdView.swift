@@ -8,8 +8,8 @@ struct ApplicationIdView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("№ \(application.id)")
-                    .font(.title3)
+                Text("№ \(applicationsVM.getShortenedID(forApplication: application.id))")
+                    .font(.headline)
                     .foregroundStyle(
                         applicationsVM.getStatusColor(
                             forApplicationStatus: application.status
@@ -29,7 +29,7 @@ struct ApplicationIdView: View {
                 Spacer()
                 
                 Text(applicationsVM.dateFormatter.string(from: application.date))
-                    .font(.title3)
+                    .font(.headline)
             }
         }
     }

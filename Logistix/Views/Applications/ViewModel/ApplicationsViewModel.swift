@@ -24,6 +24,15 @@ final class ApplicationsViewModel: ObservableObject {
         }
     }
     
+    func getShortenedID(forApplication number: String) -> String {
+        guard number.count > 6 else { return number }
+        
+        let firstThree = number.prefix(5)
+        let lastThree = number.suffix(5)
+        
+        return "\(firstThree)...\(lastThree)"
+    }
+    
     func fetchApplications() async {
         let db = Firestore.firestore()
         let usersRef = db.collection("users")

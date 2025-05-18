@@ -8,7 +8,7 @@ struct ApplicationsView: View {
     
     private var filteredApplications: [Application] {
         guard !applicationsVM.searchTerm.isEmpty else { return applicationsVM.applications }
-        return applicationsVM.applications.filter { $0.name.localizedCaseInsensitiveContains(applicationsVM.searchTerm) }
+        return applicationsVM.applications.filter { $0.id.localizedCaseInsensitiveContains(applicationsVM.searchTerm) }
     }
     
     var body: some View {
@@ -38,7 +38,7 @@ struct ApplicationsView: View {
         .navigationBarBackButtonHidden(true)
         .searchable(
             text: $applicationsVM.searchTerm,
-            prompt: "Поиск по заявкам"
+            prompt: "Поиск по № заявки"
         )
         .focused($isSearchFocused)
         .onChange(of: isSearchFocused) { _, focused in

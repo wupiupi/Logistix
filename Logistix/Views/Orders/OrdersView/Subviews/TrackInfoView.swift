@@ -54,7 +54,6 @@ struct TrackInfoView: View {
             .padding(.horizontal, 16)
             .hAlign(.center)
             
-            
             OrderDetailsView(
                 title: "Адрес погрузки",
                 orderInfo: order.sourceAddress
@@ -119,12 +118,12 @@ struct TrackInfoView: View {
                                 OrderReportView(order: order)
                             } label: {
                                 Text("Посмотреть отчет")
-                                    .font(.title2)
-                                    .foregroundStyle(.white)
-                                    .padding()
+                                    .font(.headline)
+                                    .foregroundStyle(.green)
+                                    .padding(10)
                                     .background {
                                         RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
-                                            .fill(.green)
+                                            .fill(.clear)
                                     }
                             }
                             OrderButtonView(
@@ -244,12 +243,12 @@ struct TrackInfoView: View {
                                 OrderReportView(order: order)
                             } label: {
                                 Text("Посмотреть отчет")
-                                    .font(.title2)
-                                    .foregroundStyle(.white)
-                                    .padding()
+                                    .font(.headline)
+                                    .foregroundStyle(.green)
+                                    .padding(10)
                                     .background {
                                         RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
-                                            .fill(.green)
+                                            .fill(.clear)
                                     }
                             }
                     }

@@ -10,9 +10,9 @@ struct ExpandableApplicationView: View {
                     Text(application.company)
                         .modifier(
                             TitleModifier(
-                                font: .title,
+                                font: .headline,
                                 fontWeight: .semibold,
-                                color: Color.expandableViewMain
+                                color: .text
                             )
                         )
                 }

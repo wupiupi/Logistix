@@ -6,13 +6,13 @@ struct ApplicationInfoView: View {
     let application: Application
     
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
+        VStack(alignment: .leading, spacing: 14) {
             Text("№ \(application.id)")
                 .modifier(
                     TitleModifier(
-                        font: .title,
+                        font: .headline,
                         fontWeight: .bold,
-                        color: .expandableViewMain
+                        color: .text
                     )
                 )
             
@@ -33,59 +33,64 @@ struct ApplicationInfoView: View {
                 orderInfo: application.phone
             )
             OrderDetailsView(
-                title: "Создано поользователем c UID:",
+                title: "Создано поользователем c UID",
                 orderInfo: application.userID
             )
             
-            Text("Статус")
-                .font(.title3)
-                .foregroundStyle(.gray)
+            Divider()
             
-            Text(application.status)
-                .font(.title3)
-                .foregroundStyle(
-                    Color(
-                        applicationsVM.getStatusColor(
-                            forApplicationStatus: application.status
-                        ).mainColor
-                    )
-                )
-                .padding([.top, .bottom], 8)
-                .padding([.leading, .trailing], 8)
-                .background {
-                    RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
-                        .fill(
+            VStack {
+                Text("Статус")
+                    .font(.body)
+                    .foregroundStyle(.gray)
+                
+                Text(application.status)
+                    .font(.body)
+                    .foregroundStyle(
+                        Color(
                             applicationsVM.getStatusColor(
                                 forApplicationStatus: application.status
-                            ).backgroundColor
+                            ).mainColor
                         )
+                    )
+                    .padding([.top, .bottom], 8)
+                    .padding([.leading, .trailing], 8)
+                    .background {
+                        RoundedRectangle(cornerRadius: CornerRadius.rectangle.rawValue)
+                            .fill(
+                                applicationsVM.getStatusColor(
+                                    forApplicationStatus: application.status
+                                ).backgroundColor
+                            )
+                    }
+                
+                switch application.status {
+                    case ApplicationStatus.waitingForAnswer.rawValue:
+                        OrderButtonView(
+                            title: "Отметить как выполненное",
+                            titleColor: .green,
+                            backColor: .clear) {
+                                Task {
+                                    await applicationsVM.updateApplicationStatus(
+                                        forID: application.id,
+                                        status: ApplicationStatus.completed.rawValue
+                                    )
+                                }
+                            }
+                    default:
+                        OrderButtonView(
+                            title: "Удалить",
+                            titleColor: .red,
+                            backColor: .clear) {
+                                Task {
+                                    await applicationsVM.deleteApplication(withID: application.id)
+                                }
+                            }
                 }
-            
-            switch application.status {
-                case ApplicationStatus.waitingForAnswer.rawValue:
-                    OrderButtonView(
-                        title: "Отметить как выполненное",
-                        titleColor: .answered,
-                        backColor: .answeredBackground) {
-                            Task {
-                                await applicationsVM.updateApplicationStatus(
-                                    forID: application.id,
-                                    status: ApplicationStatus.completed.rawValue
-                                )
-                            }
-                        }
-                default:
-                    OrderButtonView(
-                        title: "Удалить",
-                        titleColor: .red,
-                        backColor: .clear) {
-                            Task {
-                                await applicationsVM.deleteApplication(withID: application.id)
-                            }
-                        }
             }
+            .hAlign(.center)
         }
-        .padding()
         .hAlign(.center)
+        .padding()
     }
 }
